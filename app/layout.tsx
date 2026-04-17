@@ -26,23 +26,23 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Zero-Barrier Jobs | Voice-First Employment Platform',
-    template: '%s | Zero-Barrier Jobs',
+    default: 'Zero-Barrier Jobs | Voice-First Employment for Informal Workers in India',
+    template: '%s | HAAZRI',
   },
-  description: 'Apply for jobs with a single missed call. No literacy, no smartphone, no internet required. Bridging the digital divide for India\'s informal workforce.',
+  description: 'Apply for jobs with a single missed call. No literacy, no smartphone, no internet required. BHASHINI-powered voice-first platform for India\'s 450M+ informal workers.',
   keywords: ['Jobs', 'India', 'Voice AI', 'Bhashini', 'ONEST', 'Informal Workforce', 'Accessibility', 'Digital Inclusion'],
-  authors: [{ name: 'Zero-Barrier Team' }],
+  authors: [{ name: 'HAAZRI Team' }],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://zerobarrier.jobs',
-    title: 'Zero-Barrier Jobs | Voice-First Employment',
+    url: 'https://haazri.vishwadev.tech',
+    title: 'Zero-Barrier Jobs | HAAZRI',
     description: 'Job applications as simple as a missed call. Revolutionizing employment for 450M+ informal workers.',
-    siteName: 'Zero-Barrier Jobs',
+    siteName: 'HAAZRI',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zero-Barrier Jobs',
+    title: 'HAAZRI',
     description: 'Voice-First Job Platform for India\'s Informal Workforce.',
   },
   icons: {
@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
 }
+
 
 export default function RootLayout({
   children,

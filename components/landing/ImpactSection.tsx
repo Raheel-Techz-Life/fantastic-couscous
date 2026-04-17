@@ -35,9 +35,9 @@ export function ImpactSection() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-bold uppercase tracking-widest mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
             >
-              {impact.tag}
+              Market Scale
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, x: -20 }}
@@ -59,7 +59,7 @@ export function ImpactSection() {
             </motion.p>
 
             <div className="grid grid-cols-2 gap-6">
-              {impact.stats.map((stat, idx) => (
+              {impact.metrics.map((metric, idx) => (
                 <motion.div 
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
@@ -68,8 +68,8 @@ export function ImpactSection() {
                   transition={{ delay: 0.3 + (idx * 0.1) }}
                   className="p-6 rounded-2xl bg-background border border-border shadow-sm group hover:border-primary/50 transition-colors"
                 >
-                  <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
-                  <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{stat.label}</div>
+                  <div className="text-3xl font-bold text-primary mb-1">{metric.value}</div>
+                  <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{metric.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -114,7 +114,7 @@ export function ImpactSection() {
 
             <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/10">
               <p className="text-sm font-medium text-primary">
-                "Zero-Barrier Jobs targets the 90% of the Indian workforce currently excluded from the formal digital economy."
+                "HAAZRI targets the 90% of the Indian workforce currently excluded from the formal digital economy."
               </p>
             </div>
           </motion.div>

@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { landingConfig } from '@/config/landing-data'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
@@ -10,6 +12,7 @@ export function Navigation() {
   const { branding, navigation } = landingConfig
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,26 +30,28 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+        <Link href="/" className="flex items-center gap-2.5 text-xl font-bold tracking-tight">
           <div className="h-4 w-4 rounded-full bg-primary" />
           <span className="text-foreground">{branding.name}</span>
-        </div>
+        </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navigation.links.map((link) => (
-            <a 
-              key={link} 
-              href={`#${link.toLowerCase().replace(/\s+/g, '')}`} 
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            <Link 
+              key={link.label} 
+              href={link.href} 
+              className={`text-sm font-medium transition-colors ${
+                pathname === link.href ? 'text-primary' : 'text-muted-foreground hover:text-primary'
+              }`}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
         </div>
 
         {/* CTA Button */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button size="sm" className="rounded-full px-6 font-semibold">
             {navigation.cta}
           </Button>
@@ -54,7 +59,7 @@ export function Navigation() {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden text-foreground p-2"
+          className="lg:hidden text-foreground p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
@@ -68,17 +73,19 @@ export function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 glass border-t border-border p-6 flex flex-col gap-6 md:hidden shadow-2xl"
+            className="absolute top-full left-0 right-0 glass border-t border-border p-6 flex flex-col gap-6 lg:hidden shadow-2xl"
           >
             {navigation.links.map((link) => (
-              <a 
-                key={link} 
-                href={`#${link.toLowerCase().replace(/\s+/g, '')}`} 
-                className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+              <Link 
+                key={link.label} 
+                href={link.href} 
+                className={`text-lg font-medium transition-colors ${
+                  pathname === link.href ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {link}
-              </a>
+                {link.label}
+              </Link>
             ))}
             <Button className="w-full rounded-full py-6 text-lg font-semibold">
               {navigation.cta}
@@ -89,4 +96,5 @@ export function Navigation() {
     </nav>
   )
 }
+
 

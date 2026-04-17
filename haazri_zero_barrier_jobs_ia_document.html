@@ -1,0 +1,426 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);font-size:15px;color:var(--color-text-primary);line-height:1.6}
+.ia-wrap{padding:1.5rem 0}
+.ia-header{margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--color-border-tertiary)}
+.ia-title{font-size:22px;font-weight:500;margin-bottom:4px}
+.ia-meta{font-size:13px;color:var(--color-text-secondary)}
+.ia-meta span{margin-right:16px}
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-bottom:2.5rem}
+.toc-item{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:8px 12px;cursor:pointer;font-size:13px;color:var(--color-text-secondary);transition:border-color .15s}
+.toc-item:hover{border-color:var(--color-border-secondary);color:var(--color-text-primary)}
+.toc-item b{display:block;font-size:12px;font-weight:500;color:var(--color-text-tertiary);margin-bottom:2px}
+.page-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:1.5rem;overflow:hidden}
+.page-header{padding:14px 20px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;background:var(--color-background-secondary)}
+.page-header:hover{background:var(--color-background-tertiary)}
+.page-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;margin-top:1px}
+.page-meta{flex:1}
+.page-name{font-size:16px;font-weight:500;margin-bottom:2px}
+.page-slug{font-size:12px;font-family:var(--font-mono);color:var(--color-text-tertiary);margin-bottom:4px}
+.page-purpose{font-size:13px;color:var(--color-text-secondary)}
+.page-chevron{font-size:18px;color:var(--color-text-tertiary);transition:transform .2s;flex-shrink:0;padding-top:2px}
+.page-body{display:none;padding:20px;border-top:0.5px solid var(--color-border-tertiary)}
+.page-body.open{display:block}
+.section{margin-bottom:20px;padding-bottom:20px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.section-title{font-size:14px;font-weight:500;margin-bottom:6px}
+.section-items{list-style:none;padding:0}
+.section-items li{font-size:13px;color:var(--color-text-secondary);padding:4px 0 4px 14px;position:relative;line-height:1.5}
+.section-items li::before{content:"–";position:absolute;left:0;color:var(--color-text-tertiary)}
+.section-items li strong{color:var(--color-text-primary);font-weight:500}
+.tag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:var(--border-radius-md);margin-left:6px;vertical-align:middle}
+.tag-seo{background:var(--color-background-success);color:var(--color-text-success)}
+.tag-conv{background:var(--color-background-warning);color:var(--color-text-warning)}
+.tag-trust{background:var(--color-background-info);color:var(--color-text-info)}
+.tag-legal{background:var(--color-background-danger);color:var(--color-text-danger)}
+.tag-ux{background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-tertiary)}
+.meta-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px;font-size:12.5px;color:var(--color-text-secondary);line-height:1.6;margin-top:6px}
+.meta-box strong{color:var(--color-text-primary);font-weight:500}
+.group-label{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:8px;margin-top:20px}
+.group-label:first-child{margin-top:0}
+.c-pur .page-num{background:#EEEDFE;color:#3C3489}
+.c-teal .page-num{background:#E1F5EE;color:#0F6E56}
+.c-blue .page-num{background:#E6F1FB;color:#0C447C}
+.c-amber .page-num{background:#FAEEDA;color:#633806}
+.c-coral .page-num{background:#FAECE7;color:#712B13}
+.c-pink .page-num{background:#FBEAF0;color:#72243E}
+.c-gray .page-num{background:#F1EFE8;color:#444441}
+.c-green .page-num{background:#EAF3DE;color:#27500A}
+.c-red .page-num{background:#FCEBEB;color:#791F1F}
+@media(prefers-color-scheme:dark){
+.c-pur .page-num{background:#3C3489;color:#CECBF6}
+.c-teal .page-num{background:#085041;color:#9FE1CB}
+.c-blue .page-num{background:#0C447C;color:#B5D4F4}
+.c-amber .page-num{background:#633806;color:#FAC775}
+.c-coral .page-num{background:#712B13;color:#F5C4B3}
+.c-pink .page-num{background:#72243E;color:#F4C0D1}
+.c-gray .page-num{background:#444441;color:#D3D1C7}
+.c-green .page-num{background:#27500A;color:#C0DD97}
+.c-red .page-num{background:#791F1F;color:#F7C1C1}
+}
+</style>
+<div class="ia-wrap">
+<div class="ia-header">
+  <div class="ia-title">Website Information Architecture — Zero-Barrier Jobs (Haazri)</div>
+  <div class="ia-meta">
+    <span>Domain: haazri.vishwadev.tech</span>
+    <span>Prepared: April 2026</span>
+    <span>Version: 1.0</span>
+  </div>
+</div>
+
+<div class="toc" id="toc"></div>
+<div id="pages"></div>
+</div>
+
+<script>
+const pages = [
+{num:"1",color:"c-pur",name:"Home",slug:"/",purpose:"Capture attention, communicate the core value proposition, and funnel visitors toward demo, partnership, or pilot contact.",
+sections:[
+{title:"Hero",goal:"conv",items:[
+"<strong>Headline + sub-headline</strong> — 'Job applications as simple as a missed call'; reinforce zero-literacy, zero-smartphone angle",
+"<strong>CTA pair</strong> — 'Try a Demo Call' (primary) + 'Watch the Pitch' (secondary) — maximise intent capture for both user types",
+"<strong>Key stats bar</strong> — 2 min / 22+ languages / 0 literacy required; instant credibility signal"
+]},
+{title:"Live demo showcase",goal:"trust",items:[
+"<strong>IVR + BHASHINI voice demo</strong> — embedded audio or interactive step flow in Hindi",
+"<strong>1-tap SMS flow</strong> — animated mockup of the application SMS interaction",
+"<strong>WhatsApp employer dashboard</strong> — live UI preview card showing applicant notification"
+]},
+{title:"How It Works (6-step overview)",goal:"seo",items:[
+"<strong>Numbered step cards</strong> — Missed call → IVR → Digital Job ID → SMS → Employer WhatsApp → Credibility; each step self-contained",
+"<strong>Short prose per step</strong> — written for voice-search and Google People Also Ask snippets",
+"<strong>CTA after step 6</strong> — 'Start a Pilot' link"
+]},
+{title:"Dual experience section",goal:"ux",items:[
+"<strong>Toggle / tab: Worker vs Employer</strong> — side-by-side or switchable perspective panels",
+"<strong>Worker panel</strong> — visual of the missed-call flow, no-app, no-data messaging",
+"<strong>Employer panel</strong> — WhatsApp dashboard mockup with applicant card and 1-tap controls"
+]},
+{title:"Impact numbers",goal:"trust",items:[
+"<strong>450M+ target users</strong> / <2 min application / 22+ languages / 0% literacy required",
+"<strong>Market chart</strong> — informal vs traditional worker split (as shown on current site)",
+"<strong>Pull quote</strong> — key thesis statement on digital exclusion"
+]},
+{title:"Technology stack badges",goal:"seo",items:[
+"<strong>Partner / infrastructure logos</strong> — ONEST, BHASHINI, Digital India",
+"<strong>Stack tags</strong> — IVR, WhatsApp Business API, Voice Biometrics, NLP/ASR, Python, Node.js, SMS Gateway",
+"<strong>Architecture mini-diagram</strong> — Missed call → IVR → BHASHINI → ONEST → SMS/WA → Employer"
+]},
+{title:"Team section",goal:"trust",items:[
+"<strong>4 team cards</strong> — Vishwanath, Raheel, Disha, Bhumika; initials avatar, role, area of ownership",
+"<strong>GitHub + contact links</strong>"
+]},
+{title:"Footer CTA",goal:"conv",items:[
+"<strong>Partnership / funding / pilot contact prompt</strong>",
+"<strong>Navigation links</strong> — How it works, Features, Technology, Impact, Team",
+"<strong>Legal links</strong> — Privacy, Terms, Accessibility, DPDP Act",
+"<strong>ONEST / BHASHINI / Digital India logo bar</strong>"
+]}
+],
+admin:"<strong>SEO:</strong> Title tag 'Zero-Barrier Jobs | Voice-First Employment for Informal Workers in India'; meta description ≤160 chars; OG image with platform name + key stat. <strong>Schema:</strong> WebSite + Organization + FAQPage (for 'How it works' steps). <strong>Performance:</strong> LCP target ≤2.5s; defer non-critical demo scripts; lazy-load WhatsApp mockup images. <strong>Analytics:</strong> Track 'Try Demo Call' CTA clicks and 'Watch Pitch' video play events as primary conversion goals.",
+future:"Pilot dashboard login portal; live metrics counter (applications processed / languages used); real testimonial video embed; language selector for site UI (Hindi, Kannada, Tamil)."
+},
+
+{num:"2",color:"c-teal",name:"How It Works",slug:"/how-it-works",purpose:"Provide an in-depth, SEO-rich walkthrough of the end-to-end worker and employer flow, building understanding and trust.",
+sections:[
+{title:"Worker journey (detailed)",goal:"seo",items:[
+"<strong>Step 1 – Missed call initiation</strong> — toll-free number, no charge, no data; FAQ: 'What if I have no credit?'",
+"<strong>Step 2 – IVR callback</strong> — BHASHINI multilingual voice menu, language auto-detection logic",
+"<strong>Step 3 – Digital Job ID creation</strong> — voice biometric as identifier, no password, no form",
+"<strong>Step 4 – SMS confirmation</strong> — 1-digit reply, no typing, instant confirmation",
+"<strong>Step 5 – Employer notification</strong> — WhatsApp card details, voice note + transcript",
+"<strong>Step 6 – Credibility loop</strong> — post-job rating, portable Digital Job ID history"
+]},
+{title:"Employer journey (detailed)",goal:"seo",items:[
+"<strong>Receiving applications on WhatsApp</strong> — no new portal, familiar interface",
+"<strong>Reviewing applicant card</strong> — voice pitch, transcript, reputation score",
+"<strong>1-tap approve / schedule callback</strong> — frictionless hiring action",
+"<strong>Dashboard overview</strong> — pending, shortlisted, hired states"
+]},
+{title:"Accessibility principles",goal:"trust",items:[
+"<strong>Why no app?</strong> — addresses smartphone ownership gap (feature phones, 2G coverage)",
+"<strong>Why voice?</strong> — literacy statistics in India's informal workforce",
+"<strong>Why missed call?</strong> — zero-cost initiation pattern familiar in rural India"
+]},
+{title:"FAQ accordion",goal:"seo",items:[
+"What languages are supported?",
+"How is a worker's identity verified?",
+"Can employers post jobs directly?",
+"What happens if the callback fails?",
+"Is DPDP Act compliance in place?"
+]}
+],
+admin:"<strong>SEO:</strong> Target keywords: 'voice job application India', 'missed call job apply', 'BHASHINI job platform'. Use HowTo schema for both worker and employer journeys. <strong>Structured data:</strong> FAQPage schema on FAQ accordion. <strong>Analytics:</strong> Scroll depth tracking; measure drop-off on each step section.",
+future:"Interactive simulator — user clicks through the actual IVR menu in browser; video walkthroughs in regional languages."
+},
+
+{num:"3",color:"c-blue",name:"Features",slug:"/features",purpose:"Detail every platform capability for both worker and employer audiences, supporting evaluation and SEO discovery.",
+sections:[
+{title:"Feature grid — worker side",goal:"seo",items:[
+"<strong>BHASHINI multilingual voice flows</strong> — 22+ Indian languages, auto-detect, no manual selection",
+"<strong>Missed call initiation</strong> — zero-cost, zero-data, feature-phone compatible",
+"<strong>1-tap SMS application</strong> — single digit reply, <90 second total flow",
+"<strong>Voice biometric identity</strong> — no passwords, no hardware, re-identification across applications",
+"<strong>Digital Job ID</strong> — portable, persistent, government-interoperable via ONEST"
+]},
+{title:"Feature grid — employer side",goal:"seo",items:[
+"<strong>WhatsApp employer dashboard</strong> — zero onboarding; familiar, mobile-native",
+"<strong>Instant applicant card</strong> — voice note, auto-transcript, reputation score",
+"<strong>1-tap shortlist / callback scheduling</strong>",
+"<strong>Bulk job posting via ONEST</strong> — publish to multiple compliant platforms simultaneously"
+]},
+{title:"Platform & infrastructure features",goal:"trust",items:[
+"<strong>ONEST framework compliance</strong> — interoperability with Skill India, NDEAR platforms",
+"<strong>Worker credibility system</strong> — employer ratings accumulate into portable reputation",
+"<strong>DPDP Act 2023 compliant</strong> — consent-first, data minimisation, right to erasure",
+"<strong>Edge-case handling</strong> — callback retry logic, SMS fallback, multi-language escalation"
+]},
+{title:"Feature comparison table",goal:"conv",items:[
+"<strong>Haazri vs traditional job portals</strong> — literacy, device, data, time-to-apply, cost columns",
+"<strong>Highlight the 0-barrier advantage</strong> in each row"
+]}
+],
+admin:"<strong>SEO:</strong> Each feature gets its own H2 for long-tail discoverability. Target 'WhatsApp hiring tool India', 'voice IVR job application', 'ONEST compliant recruitment'. <strong>Schema:</strong> SoftwareApplication schema on this page. <strong>Performance:</strong> Feature icons/illustrations as inline SVGs, not raster images.",
+future:"Filterable feature matrix by audience (worker / employer / government); API documentation section for developer integrations."
+},
+
+{num:"4",color:"c-amber",name:"Technology",slug:"/technology",purpose:"Build technical credibility with developers, investors, and government/institutional partners evaluating the stack.",
+sections:[
+{title:"Architecture overview",goal:"trust",items:[
+"<strong>System diagram</strong> — end-to-end: Any phone → Toll-free → IVR → BHASHINI ASR → ONEST job ID → SMS/WA → Employer",
+"<strong>Tech stack table</strong> — layer, technology, purpose, open-standard / proprietary",
+"<strong>Edge-case design callouts</strong> — 2G fallback, callback retry, multi-language disambiguation"
+]},
+{title:"BHASHINI integration",goal:"trust",items:[
+"<strong>What BHASHINI is</strong> — Digital India's language AI stack; link to official BHASHINI site",
+"<strong>How Haazri uses it</strong> — ASR for transcription, NLU for intent, TTS for IVR responses",
+"<strong>Language coverage map / list</strong> — 22 scheduled Indian languages"
+]},
+{title:"ONEST framework",goal:"seo",items:[
+"<strong>Open Network for Education and Skilling</strong> — Beckn-based protocol",
+"<strong>Interoperability benefits</strong> — plug into Skill India, government job boards, private aggregators",
+"<strong>Compliance statement</strong> — ONEST-compliant Digital Job IDs"
+]},
+{title:"Voice biometrics & security",goal:"trust",items:[
+"<strong>How voice pitch is used as identity</strong> — not facial recognition, not fingerprint; privacy-first",
+"<strong>DPDP Act 2023 data handling</strong> — biometric data storage, consent, retention policy",
+"<strong>Security posture</strong> — no PII stored in plain text, end-to-end encryption"
+]},
+{title:"Open-source / GitHub",goal:"trust",items:[
+"<strong>Link to GitHub repository</strong> — README, architecture docs",
+"<strong>Contribution guide</strong> — for developers who want to extend or integrate",
+"<strong>License statement</strong>"
+]}
+],
+admin:"<strong>SEO:</strong> Target 'BHASHINI API integration', 'ONEST compliant platform', 'voice IVR India open source'. Use TechArticle schema. <strong>Performance:</strong> Architecture diagram as SVG (not PNG). <strong>Security:</strong> DPDP compliance statement must be reviewed by legal counsel before publish.",
+future:"Live API documentation (Redoc or Swagger UI); sandbox environment for employer integration testing; GitHub Actions badge for build status."
+},
+
+{num:"5",color:"c-coral",name:"Impact",slug:"/impact",purpose:"Demonstrate social, economic, and market scale potential to attract funders, partners, and press.",
+sections:[
+{title:"Market opportunity",goal:"conv",items:[
+"<strong>450M informal workers</strong> — sources, breakdown by sector (domestic work, construction, security, logistics)",
+"<strong>Digital exclusion statistics</strong> — % without smartphones, % with limited literacy, % excluded from job portals",
+"<strong>TAM/SAM framing</strong> — for investor audiences"
+]},
+{title:"Impact metrics dashboard",goal:"trust",items:[
+"<strong>Applications processed (live counter or current figure)</strong>",
+"<strong>Languages in active use</strong>",
+"<strong>Average application time</strong>",
+"<strong>Employer callback rate</strong>"
+]},
+{title:"Target worker personas",goal:"seo",items:[
+"<strong>Ramu — Security Guard, Bengaluru</strong> — feature phone, Hindi speaker, no data plan",
+"<strong>Sunita — Domestic Worker, rural Rajasthan</strong> — Rajasthani dialect, no literacy",
+"<strong>Mahesh — Construction Labour, Maharashtra</strong> — Marathi, seasonal migration"
+]},
+{title:"Social outcomes",goal:"trust",items:[
+"<strong>Building the first digital employment record</strong> for 450M informal workers",
+"<strong>Reducing hiring friction</strong> for MSMEs who currently rely on word-of-mouth",
+"<strong>Alignment with government goals</strong> — Skill India, Digital India, PM GatiShakti"
+]},
+{title:"Press & recognition",goal:"trust",items:[
+"<strong>Media mentions / hackathon wins</strong> (when available)",
+"<strong>Partner endorsements</strong>",
+"<strong>Press kit download</strong> — logo pack, one-pager PDF, team photos"
+]}
+],
+admin:"<strong>SEO:</strong> Target 'informal worker digital inclusion India', 'job platform for illiterate workers'. <strong>Schema:</strong> Article or Report schema on key stats pages. <strong>Analytics:</strong> Track 'Press Kit Download' and 'Partner Enquiry' as conversion events.",
+future:"Interactive impact calculator — 'If X employers use Haazri, Y workers get digital Job IDs'; quarterly impact report PDF download; SDG alignment section."
+},
+
+{num:"6",color:"c-pink",name:"For Employers",slug:"/employers",purpose:"Convert employer visitors — MSMEs, labour contractors, staffing agencies — into pilot sign-ups or enquiries.",
+sections:[
+{title:"Employer value proposition",goal:"conv",items:[
+"<strong>Headline</strong>: 'Hire from India's 450M informal workforce — via WhatsApp'",
+"<strong>3 core benefits</strong> — No portal to learn, verified applicants with voice profiles, 1-tap shortlisting"
+]},
+{title:"How employers use Haazri",goal:"ux",items:[
+"<strong>Post a job</strong> — toll-free number or WhatsApp integration or ONEST broadcast",
+"<strong>Receive applicants</strong> — WhatsApp notification with card (voice, transcript, score)",
+"<strong>Shortlist / schedule</strong> — 1-tap controls; callback auto-initiated",
+"<strong>Rate post-hire</strong> — contributes to worker's portable credibility score"
+]},
+{title:"Employer pricing / pilot tiers",goal:"conv",items:[
+"<strong>Pilot (free)</strong> — up to N job posts, N applicants, dedicated onboarding",
+"<strong>Growth plan</strong> — unlimited posts, analytics dashboard, multi-location",
+"<strong>Enterprise</strong> — API access, HRMS integration, custom language config; contact for pricing"
+]},
+{title:"Employer sign-up / contact form",goal:"conv",items:[
+"<strong>Form fields</strong> — Company name, contact person, phone, email, city, hiring volume/month, job categories",
+"<strong>CTA</strong> — 'Start Free Pilot'",
+"<strong>Response SLA statement</strong> — 'We'll reach out within 24 hours'"
+]}
+],
+admin:"<strong>SEO:</strong> Target 'hire informal workers WhatsApp', 'MSME hiring tool India', 'cheap hiring platform India'. <strong>Conversion:</strong> This is the highest-value conversion page — A/B test the CTA copy and form length. <strong>Analytics:</strong> Form submission as primary goal; funnel tracking from Features or Impact pages.",
+future:"Self-serve employer portal — post jobs, view applicants, download reports; WhatsApp Business integration wizard; bulk job upload via CSV."
+},
+
+{num:"7",color:"c-gray",name:"For Partners & Investors",slug:"/partners",purpose:"Provide a dedicated pitch surface for funding, government, and ecosystem partnership conversations.",
+sections:[
+{title:"Partnership thesis",goal:"conv",items:[
+"<strong>Why partner with Haazri</strong> — ONEST-native, BHASHINI-integrated, DPDP-compliant, Digital India aligned",
+"<strong>Partnership types</strong> — Government bodies, NGOs/skilling orgs, staffing platforms, CSR funders, VCs"
+]},
+{title:"Investment opportunity",goal:"conv",items:[
+"<strong>Problem size + solution</strong> — condensed from Impact page",
+"<strong>Traction + roadmap</strong> — current status, pilot numbers, 12/24 month targets",
+"<strong>Team credentials</strong> — link to Team section"
+]},
+{title:"Pilot programme details",goal:"conv",items:[
+"<strong>What a pilot looks like</strong> — geography, duration, job categories, reporting",
+"<strong>Requirements from partner</strong> — employer introductions, network access, co-branding",
+"<strong>What Haazri provides</strong> — full tech stack, onboarding, analytics"
+]},
+{title:"Contact / expression of interest form",goal:"conv",items:[
+"<strong>Fields</strong> — Name, organisation, role, type of interest (investment / pilot / government / NGO / press), message",
+"<strong>CTA</strong> — 'Get in Touch'",
+"<strong>Calendar link</strong> — optional: 'Book a 30-min call' (Calendly embed)"
+]}
+],
+admin:"<strong>SEO:</strong> Less SEO focus; more brand credibility. Include Social Graph tags for when this URL is shared in pitch decks. <strong>Security:</strong> Form submissions should go to a monitored inbox with auto-responder. <strong>Analytics:</strong> UTM-tag all outbound pitch deck / email links back to this page.",
+future:"Investor data room (gated, password-protected); downloadable one-pager; partnership agreement template download."
+},
+
+{num:"8",color:"c-green",name:"Blog / Newsroom",slug:"/blog",purpose:"Drive organic SEO traffic on India informal labour, digital inclusion, and voice-tech topics; establish thought leadership.",
+sections:[
+{title:"Blog index",goal:"seo",items:[
+"<strong>Category filters</strong> — Product Updates, Research, Impact Stories, Tech Deep Dives, Policy",
+"<strong>Featured post hero</strong> — most recent or most strategic article",
+"<strong>Card grid</strong> — title, category tag, date, estimated read time, author avatar"
+]},
+{title:"Blog post template",goal:"seo",items:[
+"<strong>Author bio with photo/initials</strong>",
+"<strong>Estimated read time</strong>",
+"<strong>Social share buttons</strong> — LinkedIn (primary for B2B/government audience), Twitter/X, WhatsApp",
+"<strong>Related posts</strong> — 3 cards at bottom",
+"<strong>In-article CTA</strong> — 'Interested in piloting Haazri? Get in touch.'"
+]},
+{title:"Suggested initial post topics",goal:"seo",items:[
+"'Why 450M Indian workers can't use job portals — and what to do about it'",
+"'How BHASHINI is powering voice-first inclusion in India'",
+"'Building voice biometrics for rural India: what we learned'",
+"'What is ONEST? The open network changing India's skilling ecosystem'"
+]}
+],
+admin:"<strong>SEO:</strong> Every post needs: unique title tag, meta description, canonical URL, OG image. Target long-tail: 'voice IVR job application India', 'informal worker digital identity India'. <strong>Schema:</strong> BlogPosting schema per post. <strong>Performance:</strong> Pagination or infinite scroll with skeleton loaders; images WebP with alt text.",
+future:"RSS feed; newsletter subscribe widget; author profile pages; multilingual post versions (Hindi at minimum)."
+},
+
+{num:"9",color:"c-red",name:"Legal Pages",slug:"/legal",purpose:"Meet DPDP Act 2023, IT Act, and general platform compliance obligations while building visitor trust.",
+sections:[
+{title:"Privacy Policy — /privacy",goal:"legal",items:[
+"<strong>Data collected</strong> — voice recordings, voice biometric, phone number, SMS interaction logs",
+"<strong>Purpose of collection</strong> — job application processing, identity re-verification, credibility scoring",
+"<strong>DPDP Act 2023 section</strong> — consent mechanism, Data Fiduciary obligations, Data Principal rights",
+"<strong>Biometric data handling</strong> — storage period, encryption standard, deletion on request",
+"<strong>Third-party sharing</strong> — BHASHINI, ONEST, WhatsApp Business API, SMS gateway",
+"<strong>Contact for data requests</strong> — email address, response SLA"
+]},
+{title:"Terms of Service — /terms",goal:"legal",items:[
+"<strong>Definitions</strong> — Worker, Employer, Platform, Digital Job ID",
+"<strong>Acceptable use</strong> — prohibited job categories, prohibited employer conduct",
+"<strong>Employer obligations</strong> — non-discrimination, lawful job postings, callback SLA",
+"<strong>Limitation of liability</strong>",
+"<strong>Governing law</strong> — Karnataka, India; dispute resolution"
+]},
+{title:"Accessibility Statement — /accessibility",goal:"trust",items:[
+"<strong>WCAG 2.1 AA conformance target</strong> — keyboard navigation, screen reader compatibility",
+"<strong>Platform accessibility by design</strong> — note that core product serves zero-literacy users",
+"<strong>Feedback channel</strong> — report accessibility issues"
+]},
+{title:"Data Handling — DPDP Act 2023 — /data-handling",goal:"legal",items:[
+"<strong>Data Fiduciary identity</strong> — legal entity name, registered address",
+"<strong>Consent notice</strong> — what consent is collected and when (IVR, SMS, WhatsApp opt-in)",
+"<strong>Data Principal rights</strong> — access, correction, erasure, grievance",
+"<strong>Grievance Officer details</strong> — name, contact, escalation path",
+"<strong>Retention schedule</strong> — per data type"
+]},
+{title:"Cookie Policy — /cookies",goal:"legal",items:[
+"<strong>Cookie types used</strong> — strictly necessary, analytics (if any), no advertising cookies",
+"<strong>Third-party cookies</strong> — Google Analytics or equivalent if used",
+"<strong>How to opt out</strong>"
+]}
+],
+admin:"<strong>Legal review:</strong> All legal pages must be reviewed by a qualified Indian IT/privacy lawyer before launch, especially DPDP Act and biometric data sections. <strong>SEO:</strong> Add noindex meta tag on legal pages — they should not appear in search results. <strong>Maintenance:</strong> Set a calendar reminder to review legal pages every 6 months or on any regulatory change.",
+future:"In-IVR consent recording log (auditable); worker-facing data dashboard (view / delete your own data); automated DPDP compliance audit."
+}
+];
+
+function goal(tag){
+const map={seo:"SEO",conv:"Conversion",trust:"Trust",legal:"Legal",ux:"UX"};
+return `<span class="tag tag-${tag}">${map[tag]||tag}</span>`;
+}
+
+const tocEl=document.getElementById("toc");
+const pagesEl=document.getElementById("pages");
+
+pages.forEach((p,i)=>{
+const tc=document.createElement("div");
+tc.className="toc-item";
+tc.innerHTML=`<b>${p.num}</b>${p.name}<br><span style="font-family:var(--font-mono);font-size:11px">${p.slug}</span>`;
+tc.onclick=()=>{
+  document.getElementById(`page-body-${i}`).classList.add("open");
+  document.getElementById(`page-${i}`).scrollIntoView({behavior:"smooth"});
+};
+tocEl.appendChild(tc);
+
+const sectionsHtml=p.sections.map(s=>`
+<div class="section">
+  <div class="section-title">${s.title}${goal(s.goal)}</div>
+  <ul class="section-items">${s.items.map(it=>`<li>${it}</li>`).join("")}</ul>
+</div>`).join("");
+
+const card=document.createElement("div");
+card.className=`page-card ${p.color}`;
+card.id=`page-${i}`;
+card.innerHTML=`
+<div class="page-header" onclick="togglePage(${i})">
+  <div class="page-num">${p.num}</div>
+  <div class="page-meta">
+    <div class="page-name">${p.name}</div>
+    <div class="page-slug">${p.slug}</div>
+    <div class="page-purpose">${p.purpose}</div>
+  </div>
+  <div class="page-chevron" id="chev-${i}">›</div>
+</div>
+<div class="page-body" id="page-body-${i}">
+  <div class="group-label">Sections & content</div>
+  ${sectionsHtml}
+  <div class="group-label" style="margin-top:16px">Admin / webmaster notes</div>
+  <div class="meta-box">${p.admin}</div>
+  <div class="group-label">Future expansion</div>
+  <div class="meta-box">${p.future}</div>
+</div>`;
+pagesEl.appendChild(card);
+});
+
+function togglePage(i){
+const body=document.getElementById(`page-body-${i}`);
+const chev=document.getElementById(`chev-${i}`);
+const open=body.classList.toggle("open");
+chev.style.transform=open?"rotate(90deg)":"";
+}
+</script>

@@ -13,7 +13,7 @@ export function WhatsAppDashboard() {
             <User className="w-6 h-6" />
           </div>
           <div>
-            <h4 className="font-bold text-sm">Zero-Barrier Notifications</h4>
+            <h4 className="font-bold text-sm">HAAZRI Notifications</h4>
             <p className="text-[10px] opacity-80">Online</p>
           </div>
         </div>

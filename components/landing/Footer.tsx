@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { landingConfig } from '@/config/landing-data'
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
 
@@ -11,11 +12,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center gap-2.5 text-2xl font-bold tracking-tight">
+          <div className="lg:col-span-1 space-y-6">
+            <Link href="/" className="flex items-center gap-2.5 text-2xl font-bold tracking-tight">
               <div className="h-4 w-4 rounded-full bg-primary" />
               <span>{branding.name}</span>
-            </div>
+            </Link>
             <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
               {footer.tagline}
             </p>
@@ -41,9 +42,9 @@ export function Footer() {
               <h5 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/50">{col.title}</h5>
               <div className="flex flex-col gap-4">
                 {col.links.map((link) => (
-                  <a key={link} href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link}
-                  </a>
+                  <Link key={link.label} href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -58,13 +59,14 @@ export function Footer() {
             <span>{footer.location}</span>
           </div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
-            <a href="#" className="hover:text-primary transition-colors">Cookies</a>
+            <Link href="/legal/privacy" className="hover:text-primary transition-colors">Privacy</Link>
+            <Link href="/legal/terms" className="hover:text-primary transition-colors">Terms</Link>
+            <Link href="/legal/data-handling" className="hover:text-primary transition-colors">Cookies</Link>
           </div>
         </div>
       </div>
     </footer>
   )
 }
+
 

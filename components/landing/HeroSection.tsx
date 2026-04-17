@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Button } from '@/components/ui/button'
-import { Phone, Play, ArrowRight } from 'lucide-react'
 
 export function HeroSection() {
-  const { branding, hero } = landingConfig
+  const { branding, home } = landingConfig
+  const { hero } = home
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -39,7 +39,7 @@ export function HeroSection() {
     >
       {/* Badge */}
       <motion.div variants={itemVariants} className="mb-6">
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-semibold tracking-wide uppercase border border-primary/20">
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase border border-primary/20">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -52,9 +52,8 @@ export function HeroSection() {
       <motion.h1 
         variants={itemVariants} 
         className="mb-6 text-4xl sm:text-6xl font-bold tracking-tight text-foreground leading-[1.1]"
-      >
-        Job applications as simple as a <span className="text-gradient">missed call</span>
-      </motion.h1>
+        dangerouslySetInnerHTML={{ __html: hero.headline }}
+      />
 
       {/* Description */}
       <motion.p 
@@ -66,21 +65,19 @@ export function HeroSection() {
 
       {/* Buttons */}
       <motion.div variants={itemVariants} className="mb-16 flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <Button 
-          size="lg" 
-          className="rounded-full px-8 h-14 text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all gap-2"
-        >
-          <Phone className="w-5 h-5" />
-          Try a demo call
-        </Button>
-        <Button 
-          variant="outline" 
-          size="lg" 
-          className="rounded-full px-8 h-14 text-base font-semibold border-2 hover:bg-secondary transition-all gap-2"
-        >
-          <Play className="w-4 h-4 fill-current" />
-          Watch the pitch
-        </Button>
+        {hero.buttons.map((btn, idx) => (
+          <Button 
+            key={idx}
+            size="lg" 
+            variant={btn.type === 'primary' ? 'default' : 'outline'}
+            className={`rounded-full px-8 h-14 text-base font-semibold transition-all gap-2 ${
+              btn.type === 'primary' ? 'shadow-lg shadow-primary/20 hover:shadow-primary/30' : 'border-2 hover:bg-secondary'
+            }`}
+          >
+            <span className="text-xl">{btn.icon}</span>
+            {btn.label}
+          </Button>
+        ))}
       </motion.div>
 
       {/* Stats */}
@@ -102,4 +99,3 @@ export function HeroSection() {
     </motion.div>
   )
 }
-

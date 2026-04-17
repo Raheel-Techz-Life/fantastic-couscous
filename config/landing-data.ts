@@ -1,7 +1,7 @@
-// Editable configuration for Zero-Barrier Jobs landing page
+// Editable configuration for HAAZRI (Zero-Barrier Jobs) platform
 export const landingConfig = {
   branding: {
-    name: 'Zero-Barrier Jobs',
+    name: 'HAAZRI',
     logo: '●', // Teal dot
     colors: {
       primary: '#1D9E75',
@@ -12,251 +12,216 @@ export const landingConfig = {
   },
 
   navigation: {
-    links: ['How it works', 'Features', 'Technology', 'Impact', 'Team'],
+    links: [
+      { label: 'How it works', href: '/how-it-works' },
+      { label: 'Features', href: '/features' },
+      { label: 'Technology', href: '/technology' },
+      { label: 'Impact', href: '/impact' },
+      { label: 'Employers', href: '/employers' },
+      { label: 'Partners', href: '/partners' },
+    ],
     cta: 'Get in touch',
   },
 
-  hero: {
-    headline: 'Job applications as simple as a <span>missed call</span>',
-    description:
-      'Voice-first, language-inclusive platform enabling anyone to apply for jobs in under 2 minutes — no literacy, no smartphone, no barriers.',
-    buttons: [
-      {
-        label: 'Try a demo call',
-        type: 'primary',
-        icon: '📞',
-      },
-      {
-        label: 'Watch the pitch',
-        type: 'secondary',
-        icon: '▶',
-      },
-    ],
-    stats: [
-      { number: '2 min', label: 'To apply for a job' },
-      { number: '22+', label: 'Indian languages' },
-      { number: '0', label: 'Literacy required' },
-    ],
-  },
-
-  videoCarousel: {
-    tabs: [
-      {
-        title: 'Demo: Worker applies via missed call',
-        subtitle: 'IVR + BHASHINI voice flow in Hindi',
-        background: '#085041',
-      },
-      {
-        title: '1-tap SMS application flow',
-        subtitle: 'Worker confirms with a single digit reply',
-        background: '#0C447C',
-      },
-      {
-        title: 'Employer WhatsApp dashboard',
-        subtitle: 'Instant review and direct callback',
-        background: '#3C3489',
-      },
-    ],
+  home: {
+    hero: {
+      headline: 'Job applications as simple as a <span>missed call</span>',
+      description:
+        'Voice-first, language-inclusive platform enabling anyone to apply for jobs in under 2 minutes — no literacy, no smartphone, no barriers.',
+      buttons: [
+        { label: 'Try a demo call', type: 'primary', icon: '📞' },
+        { label: 'Watch the pitch', type: 'secondary', icon: '▶' },
+      ],
+      stats: [
+        { number: '2 min', label: 'To apply' },
+        { number: '22+', label: 'Languages' },
+        { number: '0', label: 'Literacy req.' },
+      ],
+    },
+    demo: {
+      tag: 'Live Demo',
+      title: 'Experience the Zero-Barrier flow',
+      tabs: [
+        {
+          title: 'Demo: Worker callback',
+          subtitle: 'IVR + BHASHINI voice flow in Hindi',
+          background: '#085041',
+        },
+        {
+          title: '1-tap SMS flow',
+          subtitle: 'Worker confirms with a single digit',
+          background: '#0C447C',
+        },
+        {
+          title: 'Employer Dashboard',
+          subtitle: 'Instant review on WhatsApp',
+          background: '#3C3489',
+        },
+      ],
+    },
   },
 
   howItWorks: {
-    tag: 'How it works',
-    title: 'Six steps from zero to hired',
-    description: 'No app. No internet. No literacy. Just a phone — and a voice.',
-    steps: [
+    tag: 'Journey',
+    title: 'From missed call to milestone',
+    description: 'A seamless, end-to-end loop designed for the informal economy.',
+    workerJourney: [
       {
-        number: 1,
-        icon: '📞',
-        iconBg: '#E1F5EE',
-        title: 'Worker gives a missed call',
-        description:
-          'A low-tech worker in rural India dials a toll-free number and disconnects. No charge, no data needed — the system initiates the callback automatically.',
+        step: 1,
+        title: 'Missed call initiation',
+        description: 'Toll-free, zero-charge, zero-data. Familiar pattern for rural India.',
+        faq: 'What if I have no credit? (It works even with zero balance)',
       },
       {
-        number: 2,
-        icon: '🎙️',
-        iconBg: '#E6F1FB',
-        title: 'IVR captures voice in local language',
-        description:
-          'Our BHASHINI-powered IVR calls back and guides the worker through a multilingual voice menu. They speak naturally in Hindi, Kannada, Tamil, or 22+ languages.',
+        step: 2,
+        title: 'IVR callback',
+        description: 'BHASHINI multilingual voice menu. Speak naturally in your dialect.',
       },
       {
-        number: 3,
-        icon: '🪪',
-        iconBg: '#EEEDFE',
-        title: 'Digital Job ID is created',
-        description:
-          "A unique Digital Job ID is assigned. The worker's voice pitch becomes their biometric signature — enabling re-identification across future applications without passwords.",
+        step: 3,
+        title: 'Digital Job ID',
+        description: 'Voice biometric as identity. No passwords, no hardware needed.',
       },
       {
-        number: 4,
-        icon: '💬',
-        iconBg: '#FAECE7',
-        title: 'SMS confirmation is sent',
-        description:
-          'A simple SMS lands on the worker\'s phone with a 1-tap reply code. They respond with a single digit to confirm their application — no typing required.',
+        step: 4,
+        title: 'SMS confirmation',
+        description: '1-digit reply. No typing, no forms, instant confirmation.',
       },
       {
-        number: 5,
-        icon: '📲',
-        iconBg: '#E1F5EE',
-        title: 'Employer reviews on WhatsApp',
-        description:
-          "Employers receive instant WhatsApp notifications with the worker's voice pitch, transcript, and profile. They can approve or schedule a callback with a single tap.",
+        step: 5,
+        title: 'Employer notification',
+        description: 'WhatsApp card with your voice note and transcript.',
       },
       {
-        number: 6,
-        icon: '⭐',
-        iconBg: '#FAEEDA',
-        title: 'Feedback builds digital credibility',
-        description:
-          "Post-job ratings and reviews accumulate on the worker's Digital Job ID — building a verifiable employment history that travels with them across every future application.",
+        step: 6,
+        title: 'Credibility loop',
+        description: 'Ratings build a portable, digital employment history.',
       },
+    ],
+    employerJourney: [
+      {
+        title: 'WhatsApp notifications',
+        description: 'Receive applicants where you already live. No new portal to learn.',
+      },
+      {
+        title: 'Applicant cards',
+        description: 'Detailed view with voice, transcript, and reputation score.',
+      },
+      {
+        title: '1-tap hiring',
+        description: 'Approve, shortlist, or call back with a single button.',
+      },
+    ],
+    faqs: [
+      { q: 'What languages are supported?', a: '22+ scheduled Indian languages via BHASHINI.' },
+      { q: 'Is it DPDP Act compliant?', a: 'Yes, we use consent-first data handling.' },
+      { q: 'How is identity verified?', a: 'Vocal pitch biometrics ensure unique profiles.' },
     ],
   },
 
   features: {
-    tag: 'Key features',
-    title: 'Built for real inclusion',
-    description:
-      'Every design decision was made for workers who have never used a smartphone — and employers who need efficiency.',
-    items: [
-      {
-        icon: '🌐',
-        title: 'BHASHINI multilingual voice flows',
-        description:
-          "Integrated with Digital India's language translation stack. Supports 22+ Indian languages — workers are heard in the language they grew up speaking.",
-      },
-      {
-        icon: '📩',
-        title: '1-tap SMS application',
-        description:
-          'A single SMS reply triggers an automated IVR callback. No forms, no data entry — the entire application happens over a voice call lasting under 90 seconds.',
-      },
-      {
-        icon: '🔐',
-        title: 'Voice pitch authentication',
-        description:
-          "The worker's unique vocal biometric serves as a password-free identity layer — enabling secure, portable Digital Job IDs without any hardware or app.",
-      },
-      {
-        icon: '💼',
-        title: 'WhatsApp employer dashboard',
-        description:
-          'Employers use a familiar interface. Applicant voice notes, transcripts, and ratings appear as WhatsApp messages for instant review and direct callback.',
-      },
-      {
-        icon: '🏗️',
-        title: 'Built on ONEST framework',
-        description:
-          "Fully compliant with India's Open Network for Education and Skilling — enabling interoperability with government skilling platforms and job marketplaces.",
-      },
-      {
-        icon: '📊',
-        title: 'Worker credibility system',
-        description:
-          'Post-job feedback and ratings accumulate into a portable reputation score — giving informal workers the digital employment history they\'ve never had access to before.',
-      },
+    worker: [
+      { title: 'BHASHINI Voice', desc: '22+ languages, auto-detect' },
+      { title: 'Missed Call', desc: 'Zero-cost, feature-phone ready' },
+      { title: '1-tap SMS', desc: '<90 sec total application time' },
+      { title: 'Voice Biometric', desc: 'Hardware-free identity layer' },
+    ],
+    employer: [
+      { title: 'WhatsApp Dashboard', desc: 'Zero onboarding, mobile-native' },
+      { title: 'Instant Card', desc: 'Voice + transcript + score' },
+      { title: '1-tap Shortlist', desc: 'Frictionless hiring actions' },
+      { title: 'ONEST Bulk Post', desc: 'Broadcast to open network' },
+    ],
+    comparison: [
+      { feature: 'Literacy Required', haazri: 'None', traditional: 'High' },
+      { feature: 'Device', haazri: 'Any Phone', traditional: 'Smartphone' },
+      { feature: 'Internet', haazri: 'Not Required', traditional: 'Required' },
+      { feature: 'Time to Apply', haazri: '<2 min', traditional: '20+ min' },
     ],
   },
 
   technology: {
-    tag: 'Technology',
-    title: 'Architecture at a glance',
-    description:
-      "Built on India's open digital infrastructure — scalable, standards-compliant, and designed for zero-connectivity edge cases.",
-    pills: [
-      { text: 'ONEST', color: 'teal' },
-      { text: 'BHASHINI', color: 'teal' },
-      { text: 'IVR', color: 'blue' },
-      { text: 'WhatsApp Business API', color: 'blue' },
-      { text: 'Voice Biometrics', color: 'purple' },
-      { text: 'NLP / ASR', color: 'purple' },
-      { text: 'Python', color: 'amber' },
-      { text: 'Node.js', color: 'amber' },
-      { text: 'SMS Gateway', color: 'gray' },
-      { text: 'REST APIs', color: 'gray' },
-    ],
     architecture: [
-      { icon: '📞', label: 'Missed call', sublabel: 'Any phone', highlight: true },
-      { icon: '🔁', label: 'IVR system', sublabel: 'Callback' },
-      { icon: '🌐', label: 'BHASHINI', sublabel: 'ASR + NLU', highlight: true },
-      { icon: '🪪', label: 'ONEST', sublabel: 'Job ID' },
-      { icon: '💬', label: 'SMS / WA', sublabel: 'Confirm' },
-      { icon: '✅', label: 'Employer', sublabel: 'Dashboard', highlight: true },
+      { item: 'ASR/TTS Engine', tech: 'BHASHINI', purpose: 'Multilingual Voice' },
+      { item: 'Identity Layer', tech: 'Voice Biometrics', purpose: 'Secure Portability' },
+      { item: 'Message Protocol', tech: 'ONEST / Beckn', purpose: 'Interoperability' },
+      { item: 'Interface', tech: 'WhatsApp / SMS', purpose: 'Zero-Friction Access' },
     ],
+    compliance: 'Fully DPDP Act 2023 compliant and built on India Stack open standards.',
   },
 
   impact: {
-    tag: 'Impact',
-    title: 'Democratizing the Indian job market',
-    description:
-      'India has over 450 million informal workers. We\'re building the infrastructure to bring them into the formal economy — one missed call at a time.',
-    stats: [
-      { number: '450M+', label: 'Target user base — informal workers in India' },
-      { number: '<2 min', label: 'End-to-end application time' },
-      { number: '22+', label: 'Indian languages supported via BHASHINI' },
-      { number: '0%', label: 'Literacy or smartphone required' },
+    metrics: [
+      { label: 'Target Workforce', value: '450M+' },
+      { label: 'Exclusion Rate', value: '90%' },
+      { label: 'Languages', value: '22+' },
+      { label: 'Literacy Barrier', value: '0%' },
+    ],
+    personas: [
+      { name: 'Ramu', role: 'Security Guard', context: 'Feature phone user, Hindi speaker.' },
+      { name: 'Sunita', role: 'Domestic Worker', context: 'No literacy, Rajasthani dialect.' },
+      { name: 'Mahesh', role: 'Construction Labour', context: 'Seasonal migrant, Marathi speaker.' },
     ],
   },
 
   team: {
-    tag: 'Team',
-    title: 'Built by four engineers',
-    description:
-      'Bringing voice-first job applications to India\'s informal workforce.',
     members: [
-      {
-        initials: 'VMK',
-        name: 'Vishwanath M Koliwad',
-        role: 'Full-stack development',
-        badge: 'Team lead',
-        avatarColor: 'teal',
-      },
-      {
-        initials: 'RH',
-        name: 'Raheel Hosmani',
-        role: 'Voice & IVR integration',
-        avatarColor: 'blue',
-      },
-      {
-        initials: 'DR',
-        name: 'Disha Raikar',
-        role: 'BHASHINI & NLP',
-        avatarColor: 'purple',
-      },
-      {
-        initials: 'BD',
-        name: 'Bhumika Dalabhanjan',
-        role: 'Employer UX & WhatsApp API',
-        avatarColor: 'coral',
-      },
+      { initials: 'VMK', name: 'Vishwanath M Koliwad', role: 'Lead & Full-stack' },
+      { initials: 'RH', name: 'Raheel Hosmani', role: 'Voice & IVR' },
+      { initials: 'DR', name: 'Disha Raikar', role: 'BHASHINI & NLP' },
+      { initials: 'BD', name: 'Bhumika Dalabhanjan', role: 'Employer UX & API' },
     ],
   },
 
-  cta: {
-    title: "Let's bring this to millions",
-    description:
-      "We're scaling Zero-Barrier Jobs to reach India's informal workforce.\nInterested in partnering, funding, or piloting?",
-    buttons: [
-      { label: 'Get in touch', type: 'white' },
-      { label: 'View on GitHub', type: 'outline-white' },
-    ],
+  forms: {
+    employer: {
+      title: 'Hire from the next 450M',
+      fields: ['Company Name', 'Contact Person', 'Phone', 'Email', 'City', 'Monthly Volume'],
+    },
+    partner: {
+      title: 'Join the ecosystem',
+      fields: ['Organisation', 'Role', 'Interest Type', 'Message'],
+    },
   },
 
   footer: {
     tagline: 'Voice-first job application system for India\'s informal workforce. Built on ONEST + BHASHINI.',
     columns: [
       {
-        title: 'Navigation',
-        links: ['How it works', 'Features', 'Technology', 'Impact', 'Team'],
+        title: 'Platform',
+        links: [
+          { label: 'How it works', href: '/how-it-works' },
+          { label: 'Features', href: '/features' },
+          { label: 'Technology', href: '/technology' },
+          { label: 'Impact', href: '/impact' },
+        ],
+      },
+      {
+        title: 'Connect',
+        links: [
+          { label: 'For Employers', href: '/employers' },
+          { label: 'For Partners', href: '/partners' },
+          { label: 'Newsroom', href: '/blog' },
+        ],
       },
       {
         title: 'Legal',
-        links: ['Privacy policy', 'Terms of service', 'Accessibility statement', 'Data handling (DPDP Act 2023)'],
+        links: [
+          { label: 'Privacy', href: '/legal/privacy' },
+          { label: 'Terms', href: '/legal/terms' },
+          { label: 'Data Handling', href: '/legal/data-handling' },
+        ],
       },
     ],
-    copyright: '© 2025 Zero-Barrier Jobs',
+    copyright: '© 2025 HAAZRI',
     location: 'Built in Bengaluru, India',
+  },
+  cta: {
+    title: "Let's bring this to millions",
+    description: "We're scaling HAAZRI to reach India's informal workforce.\nInterested in partnering, funding, or piloting?",
+    buttons: [
+      { label: 'Get in touch', type: 'white' },
+      { label: 'View on GitHub', type: 'outline-white' },
+    ],
   },
 };

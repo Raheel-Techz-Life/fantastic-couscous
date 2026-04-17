@@ -39,9 +39,9 @@ export function FeaturesSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-bold uppercase tracking-widest mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
           >
-            {features.tag}
+            Key Features
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
@@ -50,7 +50,7 @@ export function FeaturesSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl font-bold mb-6 tracking-tight"
           >
-            {features.title}
+            Built for real inclusion
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
@@ -59,7 +59,7 @@ export function FeaturesSection() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            {features.description}
+            Every design decision was made for workers who have never used a smartphone — and employers who need efficiency.
           </motion.p>
         </div>
 
@@ -69,9 +69,9 @@ export function FeaturesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {features.items.map((feature, idx) => {
+          {features.worker.map((feature, idx) => {
             const Icon = icons[idx] || Box
             return (
               <motion.div
@@ -84,7 +84,7 @@ export function FeaturesSection() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  {feature.description}
+                  {feature.desc}
                 </p>
               </motion.div>
             )

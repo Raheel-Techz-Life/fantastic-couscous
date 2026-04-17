@@ -8,8 +8,9 @@ import { Play, Pause, ChevronRight } from 'lucide-react'
 export function VideoCarousel() {
   const [activeTab, setActiveTab] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
-  const { videoCarousel } = landingConfig
-  const currentTab = videoCarousel.tabs[activeTab]
+  const { home } = landingConfig
+  const demo = home.demo
+  const currentTab = demo.tabs[activeTab]
 
   return (
     <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-premium group">
@@ -63,7 +64,7 @@ export function VideoCarousel() {
 
       {/* Modern Tabs */}
       <div className="flex p-2 bg-secondary/50 backdrop-blur-sm gap-2">
-        {videoCarousel.tabs.map((tab, index) => (
+        {demo.tabs.map((tab, index) => (
           <button
             key={index}
             onClick={() => {

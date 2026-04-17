@@ -47,9 +47,9 @@ export function TechnologySection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-bold uppercase tracking-widest mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
           >
-            {technology.tag}
+            Technology
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
@@ -58,7 +58,7 @@ export function TechnologySection() {
             transition={{ delay: 0.1 }}
             className="text-4xl font-bold mb-6 tracking-tight"
           >
-            {technology.title}
+            Built on Open Standards
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
@@ -67,63 +67,35 @@ export function TechnologySection() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-lg max-w-2xl leading-relaxed"
           >
-            {technology.description}
+            HAAZRI leverages India's top-tier digital infrastructure—BHASHINI and ONEST—to deliver massive scale with zero friction.
           </motion.p>
         </div>
 
-        {/* Tech Stack Pills */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-wrap gap-2 mb-16"
-        >
-          {technology.pills.map((pill, idx) => (
-            <Badge 
-              key={idx} 
-              variant="secondary" 
-              className="rounded-full px-4 py-1.5 text-xs font-semibold bg-background border-border hover:border-primary/50 transition-colors"
-            >
-              <div className={`w-2 h-2 rounded-full mr-2 bg-primary`} />
-              {pill.text}
-            </Badge>
-          ))}
-        </motion.div>
-
         {/* Architecture Flow */}
         <div className="relative">
-          {/* Background Line */}
-          <div className="hidden lg:block absolute top-[60px] left-0 right-0 h-[2px] bg-linear-to-r from-transparent via-border to-transparent z-0" />
-
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8 relative z-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
           >
             {technology.architecture.map((item, idx) => {
-              const Icon = icons[idx] || LayoutDashboard
+              const Icon = [Globe, ShieldCheck, Share2, LayoutDashboard][idx] || LayoutDashboard
               return (
                 <motion.div 
                   key={idx} 
                   variants={itemVariants}
-                  className="flex flex-col items-center group"
+                  className="flex flex-col p-8 rounded-3xl border border-border bg-card hover:border-primary/50 transition-all group"
                 >
-                  <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 ${
-                    item.highlight 
-                      ? 'bg-primary text-white shadow-lg shadow-primary/30 scale-110' 
-                      : 'bg-card border border-border group-hover:border-primary/50 shadow-sm'
-                  }`}>
-                    <Icon className="w-8 h-8" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <div className="text-center">
-                    <h4 className={`text-sm font-bold mb-1 ${item.highlight ? 'text-primary' : 'text-foreground'}`}>
-                      {item.label}
-                    </h4>
-                    <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-medium italic">
-                      {item.sublabel}
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold mb-1">{item.item}</h4>
+                    <p className="text-[10px] text-primary uppercase font-black tracking-widest mb-4">{item.tech}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.purpose}
                     </p>
                   </div>
                 </motion.div>

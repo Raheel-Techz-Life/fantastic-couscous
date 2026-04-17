@@ -70,35 +70,29 @@ export function HowItWorks() {
         viewport={{ once: true, margin: "-100px" }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
-        {howItWorks.steps.map((step, idx) => {
+        {howItWorks.workerJourney.map((step, idx) => {
           const Icon = icons[idx] || Star
           return (
             <motion.div
-              key={step.number}
+              key={step.step}
               variants={itemVariants}
               className="group relative p-8 rounded-3xl border border-border bg-card hover:bg-primary-soft/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
             >
               {/* Step Number Background */}
               <div className="absolute -right-2 top-0 text-[120px] font-black opacity-[0.03] select-none pointer-events-none group-hover:opacity-[0.05] transition-opacity">
-                {step.number}
+                {step.step}
               </div>
 
               {/* Icon Container */}
               <div 
-                className="mb-8 w-14 h-14 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300"
-                style={{ backgroundColor: `${step.iconBg}40` }}
+                className="mb-8 w-14 h-14 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 bg-primary/10"
               >
                 <Icon className="w-7 h-7" />
               </div>
 
-              {/* Line Connector (Desktop) */}
-              {idx < howItWorks.steps.length - 1 && (
-                <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 w-4 h-[1px] bg-border z-0" />
-              )}
-
               {/* Content */}
               <div className="relative z-10">
-                <span className="text-primary font-bold text-sm mb-2 block tracking-widest uppercase">Step {step.number}</span>
+                <span className="text-primary font-bold text-sm mb-2 block tracking-widest uppercase">Step {step.step}</span>
                 <h3 className="text-xl font-bold mb-4">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {step.description}
