@@ -25,17 +25,17 @@ export const landingConfig = {
 
   home: {
     hero: {
-      headline: 'Job applications as simple as a <span>missed call</span>',
+      headline: 'The 48-Hour Talent Pipeline for India’s <span className="text-gradient italic">Next 450M</span>',
       description:
-        'Voice-first, language-inclusive platform enabling anyone to apply for jobs in under 2 minutes — no literacy, no smartphone, no barriers.',
+        'Stop losing hours on hiring. We solve the discovery gap for B2B informal labor with a zero-barrier, voice-first system that delivers verified workers in 24 hours.',
       buttons: [
-        { label: 'Try a demo call', type: 'primary', icon: '📞' },
-        { label: 'Watch the pitch', type: 'secondary', icon: '▶' },
+        { label: 'Claim your pilot', type: 'primary', icon: '⚡' },
+        { label: 'The Logic', type: 'secondary', icon: '💡' },
       ],
       stats: [
-        { number: '2 min', label: 'To apply' },
-        { number: '22+', label: 'Languages' },
-        { number: '0', label: 'Literacy req.' },
+        { number: '24h', label: 'Talent match' },
+        { number: '100%', label: 'Voice-verified' },
+        { number: '₹0', label: 'Worker cost' },
       ],
     },
     demo: {

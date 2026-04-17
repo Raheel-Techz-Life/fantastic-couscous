@@ -49,11 +49,15 @@ export function HeroSection() {
       </motion.div>
 
       {/* Headline */}
-      <motion.h1 
-        variants={itemVariants} 
-        className="mb-6 text-4xl sm:text-6xl font-bold tracking-tight text-foreground leading-[1.1]"
-        dangerouslySetInnerHTML={{ __html: hero.headline }}
-      />
+      <motion.div variants={itemVariants} className="space-y-4 mb-10">
+        <h1 
+          className="text-4xl sm:text-7xl font-black tracking-tight text-foreground leading-[1.05]"
+          dangerouslySetInnerHTML={{ __html: hero.headline }}
+        />
+        <p className="text-xl sm:text-2xl font-bold text-primary/80 italic">
+          Stop hiring. Start building a pipeline.
+        </p>
+      </motion.div>
 
       {/* Description */}
       <motion.p 
@@ -64,21 +68,24 @@ export function HeroSection() {
       </motion.p>
 
       {/* Buttons */}
-      <motion.div variants={itemVariants} className="mb-16 flex flex-col sm:flex-row gap-4 items-center justify-center">
+      <motion.div variants={itemVariants} className="mb-16 flex flex-col sm:flex-row gap-6 items-center justify-center">
         {hero.buttons.map((btn, idx) => (
           <Button 
             key={idx}
             size="lg" 
             variant={btn.type === 'primary' ? 'default' : 'outline'}
-            className={`rounded-full px-8 h-14 text-base font-semibold transition-all gap-2 ${
-              btn.type === 'primary' ? 'shadow-lg shadow-primary/20 hover:shadow-primary/30' : 'border-2 hover:bg-secondary'
+            className={`rounded-full px-10 h-16 text-lg font-black transition-all gap-3 ${
+              btn.type === 'primary' 
+                ? 'bg-primary text-white shadow-2xl shadow-primary/30 hover:scale-105' 
+                : 'border-2 border-primary/20 hover:bg-primary/5'
             }`}
           >
-            <span className="text-xl">{btn.icon}</span>
+            <span className="text-2xl">{btn.icon}</span>
             {btn.label}
           </Button>
         ))}
       </motion.div>
+
 
       {/* Stats */}
       <motion.div 
