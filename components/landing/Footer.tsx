@@ -1,45 +1,70 @@
 'use client'
 
 import { landingConfig } from '@/config/landing-data'
+import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
 
 export function Footer() {
   const { branding, footer } = landingConfig
 
   return (
-    <footer className="border-t border-gray-200 bg-white">
-      {/* Main Footer */}
-      <div className="grid grid-cols-3 gap-8 px-10 py-10 md:grid-cols-1 md:gap-4 md:px-5 md:py-8">
-        {/* Brand Column */}
-        <div>
-          <div className="mb-2 flex items-center gap-2 text-sm font-medium">
-            <div className="h-2 w-2 rounded-full" style={{ backgroundColor: branding.colors.primary }} />
-            {branding.name}
-          </div>
-          <p className="text-xs leading-relaxed text-gray-600">{footer.tagline}</p>
-        </div>
-
-        {/* Link Columns */}
-        {footer.columns.map((col, idx) => (
-          <div key={idx}>
-            <h5 className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-600">{col.title}</h5>
-            <div className="space-y-1.5">
-              {col.links.map((link) => (
-                <a key={link} href="#" className="block text-xs text-gray-600 hover:text-gray-900">
-                  {link}
-                </a>
-              ))}
+    <footer className="bg-background border-t border-border pt-16 pb-8 px-6 md:px-10 lg:px-20">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="flex items-center gap-2.5 text-2xl font-bold tracking-tight">
+              <div className="h-4 w-4 rounded-full bg-primary" />
+              <span>{branding.name}</span>
+            </div>
+            <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
+              {footer.tagline}
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
-        ))}
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-200 px-10 py-4 text-xs text-gray-600 md:px-5 md:flex-col md:gap-1 md:text-center">
-        <div className="flex justify-between md:flex-col md:gap-1">
-          <span>{footer.copyright}</span>
-          <span>{footer.location}</span>
+          {/* Link Columns */}
+          {footer.columns.map((col, idx) => (
+            <div key={idx} className="space-y-6">
+              <h5 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/50">{col.title}</h5>
+              <div className="flex flex-col gap-4">
+                {col.links.map((link) => (
+                  <a key={link} href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold text-muted-foreground">
+          <div className="flex items-center gap-6">
+            <span>{footer.copyright}</span>
+            <div className="w-1 h-1 rounded-full bg-border" />
+            <span>{footer.location}</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
+            <a href="#" className="hover:text-primary transition-colors">Terms</a>
+            <a href="#" className="hover:text-primary transition-colors">Cookies</a>
+          </div>
         </div>
       </div>
     </footer>
   )
 }
+

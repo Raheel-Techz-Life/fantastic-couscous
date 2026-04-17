@@ -1,31 +1,97 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
+import { Globe, Send, ShieldCheck, MessageSquare, Box, BarChart3 } from 'lucide-react'
+
+const icons = [Globe, Send, ShieldCheck, MessageSquare, Box, BarChart3]
 
 export function FeaturesSection() {
-  const { branding, features } = landingConfig
+  const { features } = landingConfig
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
 
   return (
-    <section className="px-10 py-16 md:px-5 md:py-10" id="features">
-      {/* Header */}
-      <div className="mb-10">
-        <div className="mb-2 text-xs font-medium uppercase tracking-wider" style={{ color: branding.colors.primary }}>
-          {features.tag}
+    <section className="px-6 py-24 md:px-10 lg:px-20 bg-background" id="features">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-bold uppercase tracking-widest mb-4"
+          >
+            {features.tag}
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl font-bold mb-6 tracking-tight"
+          >
+            {features.title}
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed"
+          >
+            {features.description}
+          </motion.p>
         </div>
-        <h2 className="mb-3 text-2xl font-medium">{features.title}</h2>
-        <p className="max-w-lg text-sm text-gray-600 leading-relaxed">{features.description}</p>
-      </div>
 
-      {/* Features Grid */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
-        {features.items.map((feature, idx) => (
-          <div key={idx} className="rounded-lg border border-gray-200 bg-gray-50 p-6">
-            <div className="text-lg">{feature.icon}</div>
-            <h3 className="mb-1.5 mt-2.5 text-sm font-medium">{feature.title}</h3>
-            <p className="text-xs text-gray-600 leading-relaxed">{feature.description}</p>
-          </div>
-        ))}
+        {/* Features Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {features.items.map((feature, idx) => {
+            const Icon = icons[idx] || Box
+            return (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                className="group p-8 rounded-3xl border border-border bg-card hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl"
+              >
+                <div className="mb-6 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                  <Icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            )
+          })}
+        </motion.div>
       </div>
     </section>
   )
 }
+

@@ -1,51 +1,68 @@
 'use client'
 
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
+import { Play, Pause, ChevronRight } from 'lucide-react'
 
 export function VideoCarousel() {
   const [activeTab, setActiveTab] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
-  const { videoCarousel, branding } = landingConfig
+  const { videoCarousel } = landingConfig
   const currentTab = videoCarousel.tabs[activeTab]
 
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
-      {/* Video Main */}
-      <div
-        className="relative flex aspect-video flex-col items-center justify-center overflow-hidden"
-        style={{ background: currentTab.background }}
+    <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-premium group">
+      {/* Video Main Showcase */}
+      <div 
+        className="relative aspect-video overflow-hidden transition-all duration-700 ease-in-out"
+        style={{ backgroundColor: currentTab.background }}
       >
-        {/* Background Pattern */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.1) 30px, rgba(255,255,255,0.1) 31px)',
+        {/* Animated Background Gradients */}
+        <div className="absolute inset-0 bg-linear-to-tr from-black/40 via-transparent to-transparent z-10" />
+        <motion.div 
+          key={activeTab}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 opacity-20"
+          style={{ 
+            backgroundImage: `radial-gradient(circle at center, white 0%, transparent 70%)`,
           }}
         />
 
-        {/* Play Button */}
-        <button
-          onClick={() => setIsPlaying(!isPlaying)}
-          className="relative z-10 mb-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-white/40 bg-white/15 transition-all hover:bg-white/25"
-        >
-          {!isPlaying ? (
-            <div className="ml-1 flex h-0 w-0 border-l-4 border-b-2.5 border-t-2.5 border-l-white border-b-transparent border-t-transparent" />
-          ) : (
-            <div className="relative flex h-3 w-2.5 items-center justify-center gap-1">
-              <div className="h-3 w-1 rounded bg-white" />
-              <div className="h-3 w-1 rounded bg-white" />
-            </div>
-          )}
-        </button>
-
-        {/* Text Content */}
-        <h3 className="relative z-10 text-center text-base font-medium text-white">{currentTab.title}</h3>
-        <p className="relative z-10 mt-1 text-xs text-white/80">{currentTab.subtitle}</p>
+        {/* Play Button Overlay */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsPlaying(!isPlaying)}
+            className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-white/20 transition-all p-0 mb-6"
+          >
+            {isPlaying ? (
+              <Pause className="w-8 h-8 fill-current" />
+            ) : (
+              <Play className="w-8 h-8 fill-current ml-1" />
+            )}
+          </motion.button>
+          
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="text-center px-8"
+            >
+              <h3 className="text-2xl font-bold text-white mb-2">{currentTab.title}</h3>
+              <p className="text-white/70 text-sm font-medium tracking-wide uppercase">{currentTab.subtitle}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex border-t border-gray-200 bg-white">
+      {/* Modern Tabs */}
+      <div className="flex p-2 bg-secondary/50 backdrop-blur-sm gap-2">
         {videoCarousel.tabs.map((tab, index) => (
           <button
             key={index}
@@ -53,31 +70,30 @@ export function VideoCarousel() {
               setActiveTab(index)
               setIsPlaying(false)
             }}
-            className={`flex-1 border-r border-gray-200 px-2 py-2.5 text-center text-xs transition-all last:border-r-0 ${
-              activeTab === index
-                ? 'font-medium'
-                : 'text-gray-500 hover:bg-gray-50'
+            className={`relative flex-1 py-4 px-4 rounded-xl transition-all duration-300 text-left overflow-hidden ${
+              activeTab === index ? 'bg-background shadow-sm' : 'hover:bg-background/40'
             }`}
-            style={
-              activeTab === index
-                ? {
-                    backgroundColor: branding.colors.lightBg,
-                    color: branding.colors.darkBgAccent,
-                  }
-                : {}
-            }
           >
-            <div
-              className="mb-1 h-1.5 w-1.5 rounded-full"
-              style={{
-                backgroundColor: activeTab === index ? branding.colors.darkBgAccent : '#d1d5db',
-                margin: '0 auto 2px',
-              }}
-            />
-            {tab.title.split(':')[0]}
+            {activeTab === index && (
+              <motion.div 
+                layoutId="activeTab"
+                className="absolute left-0 top-0 bottom-0 w-1 bg-primary"
+              />
+            )}
+            <div className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${
+              activeTab === index ? 'text-primary' : 'text-muted-foreground'
+            }`}>
+              Perspective 0{index + 1}
+            </div>
+            <div className={`text-xs font-bold truncate ${
+              activeTab === index ? 'text-foreground' : 'text-muted-foreground'
+            }`}>
+              {tab.title.split(':')[0]}
+            </div>
           </button>
         ))}
       </div>
     </div>
   )
 }
+

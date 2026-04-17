@@ -1,55 +1,114 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
+import { PhoneCall, Mic, Fingerprint, MessageSquare, Smartphone, Star } from 'lucide-react'
+
+const icons = [PhoneCall, Mic, Fingerprint, MessageSquare, Smartphone, Star]
 
 export function HowItWorks() {
-  const { branding, howItWorks } = landingConfig
+  const { howItWorks } = landingConfig
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
 
   return (
-    <section className="bg-gray-50 px-10 py-16 md:px-5 md:py-10" id="howitworks">
+    <section className="px-6 py-24 md:px-10 lg:px-20 bg-background overflow-hidden" id="howitworks">
       {/* Header */}
-      <div className="mb-10">
-        <div className="mb-2 text-xs font-medium uppercase tracking-wider" style={{ color: branding.colors.primary }}>
+      <div className="text-center mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-bold uppercase tracking-widest mb-4"
+        >
           {howItWorks.tag}
-        </div>
-        <h2 className="mb-3 text-2xl font-medium">{howItWorks.title}</h2>
-        <p className="max-w-lg text-sm text-gray-600 leading-relaxed">{howItWorks.description}</p>
+        </motion.div>
+        <motion.h2 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl font-bold mb-6 tracking-tight"
+        >
+          {howItWorks.title}
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed"
+        >
+          {howItWorks.description}
+        </motion.p>
       </div>
 
       {/* Steps Grid */}
-      <div className="grid grid-cols-3 gap-5 md:grid-cols-1">
-        {howItWorks.steps.map((step) => (
-          <div
-            key={step.number}
-            className="relative overflow-hidden rounded-lg border border-gray-200 bg-white p-6"
-          >
-            {/* Background Number */}
-            <div
-              className="absolute -right-2 -top-1 text-6xl font-medium opacity-5"
-              style={{ color: branding.colors.primary }}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {howItWorks.steps.map((step, idx) => {
+          const Icon = icons[idx] || Star
+          return (
+            <motion.div
+              key={step.number}
+              variants={itemVariants}
+              className="group relative p-8 rounded-3xl border border-border bg-card hover:bg-primary-soft/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
             >
-              {step.number}
-            </div>
+              {/* Step Number Background */}
+              <div className="absolute -right-2 top-0 text-[120px] font-black opacity-[0.03] select-none pointer-events-none group-hover:opacity-[0.05] transition-opacity">
+                {step.number}
+              </div>
 
-            {/* Step Number Badge */}
-            <div
-              className="mb-3 inline-flex h-5.5 w-5.5 items-center justify-center rounded-full text-xs font-medium text-white"
-              style={{ backgroundColor: branding.colors.primary }}
-            >
-              {step.number}
-            </div>
+              {/* Icon Container */}
+              <div 
+                className="mb-8 w-14 h-14 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300"
+                style={{ backgroundColor: `${step.iconBg}40` }}
+              >
+                <Icon className="w-7 h-7" />
+              </div>
 
-            {/* Icon */}
-            <div className="mb-3.5 inline-flex h-10 w-10 items-center justify-center rounded-md text-lg" style={{ backgroundColor: step.iconBg }}>
-              {step.icon}
-            </div>
+              {/* Line Connector (Desktop) */}
+              {idx < howItWorks.steps.length - 1 && (
+                <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 w-4 h-[1px] bg-border z-0" />
+              )}
 
-            {/* Content */}
-            <h3 className="mb-2 text-sm font-medium">{step.title}</h3>
-            <p className="text-xs text-gray-600 leading-relaxed">{step.description}</p>
-          </div>
-        ))}
-      </div>
+              {/* Content */}
+              <div className="relative z-10">
+                <span className="text-primary font-bold text-sm mb-2 block tracking-widest uppercase">Step {step.number}</span>
+                <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          )
+        })}
+      </motion.div>
     </section>
   )
 }
+

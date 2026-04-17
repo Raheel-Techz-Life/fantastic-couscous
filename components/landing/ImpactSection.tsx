@@ -1,32 +1,126 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
+import { Card, CardContent } from '@/components/ui/card'
+import { 
+  BarChart, 
+  Bar, 
+  XAxis, 
+  YAxis, 
+  Tooltip, 
+  ResponsiveContainer, 
+  Cell 
+} from 'recharts'
+
+const data = [
+  { name: 'Traditional Jobs', value: 50, color: 'var(--color-muted)' },
+  { name: 'Informal Economy', value: 450, color: 'var(--color-primary)' },
+]
 
 export function ImpactSection() {
-  const { branding, impact } = landingConfig
+  const { impact } = landingConfig
 
   return (
-    <section className="px-10 py-16 md:px-5 md:py-10" id="impact">
-      {/* Header */}
-      <div className="mb-10">
-        <div className="mb-2 text-xs font-medium uppercase tracking-wider" style={{ color: branding.colors.primary }}>
-          {impact.tag}
-        </div>
-        <h2 className="mb-3 text-2xl font-medium">{impact.title}</h2>
-        <p className="max-w-lg text-sm text-gray-600 leading-relaxed">{impact.description}</p>
-      </div>
+    <section className="px-6 py-24 md:px-10 lg:px-20 bg-primary-soft/10 relative overflow-hidden" id="impact">
+      {/* Background Blobs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-4 gap-4 md:grid-cols-2">
-        {impact.stats.map((stat, idx) => (
-          <div key={idx} className="rounded-md border border-gray-200 bg-gray-50 px-5 py-5 text-center">
-            <div className="text-2xl font-medium" style={{ color: branding.colors.primary }}>
-              {stat.number}
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Header & Description */}
+          <div>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-bold uppercase tracking-widest mb-4"
+            >
+              {impact.tag}
+            </motion.div>
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl font-bold mb-6 tracking-tight leading-tight"
+            >
+              {impact.title}
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-muted-foreground text-lg mb-10 leading-relaxed"
+            >
+              {impact.description}
+            </motion.p>
+
+            <div className="grid grid-cols-2 gap-6">
+              {impact.stats.map((stat, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + (idx * 0.1) }}
+                  className="p-6 rounded-2xl bg-background border border-border shadow-sm group hover:border-primary/50 transition-colors"
+                >
+                  <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
+                  <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
-            <div className="mt-1 text-xs text-gray-600">{stat.label}</div>
           </div>
-        ))}
+
+          {/* Data Visualization */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-3xl border border-border bg-card shadow-premium aspect-square sm:aspect-video lg:aspect-square flex flex-col"
+          >
+            <div className="mb-6">
+              <h3 className="text-lg font-bold mb-1">Target Market Scale</h3>
+              <p className="text-xs text-muted-foreground">Workers in millions (Informal vs. Traditional)</p>
+            </div>
+            
+            <div className="flex-1 w-full min-h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={data} layout="vertical" margin={{ left: 20 }}>
+                  <XAxis type="number" hide />
+                  <YAxis 
+                    dataKey="name" 
+                    type="category" 
+                    axisLine={false} 
+                    tickLine={false}
+                    tick={{ fontSize: 12, fontWeight: 500, fill: 'currentColor' }}
+                    width={100}
+                  />
+                  <Tooltip 
+                    cursor={{ fill: 'transparent' }}
+                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                  />
+                  <Bar dataKey="value" radius={[0, 8, 8, 0]} barSize={40}>
+                    {data.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="mt-6 p-4 rounded-xl bg-primary/5 border border-primary/10">
+              <p className="text-sm font-medium text-primary">
+                "Zero-Barrier Jobs targets the 90% of the Indian workforce currently excluded from the formal digital economy."
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
 }
+
