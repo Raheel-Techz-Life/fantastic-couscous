@@ -209,10 +209,7 @@ export function HeroSection() {
 
         {/* Subheadline */}
         <motion.div variants={itemVariants} className="hero-subheadline">
-          <p>
-            One missed call. Zero literacy needed. We connect India&apos;s informal workforce 
-            to employers through <strong>voice-first AI</strong> — no smartphone, no internet, no barriers.
-          </p>
+          <p>{hero.description}</p>
         </motion.div>
 
         {/* Voice Waveform Divider */}

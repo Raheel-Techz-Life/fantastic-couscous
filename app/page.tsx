@@ -10,6 +10,7 @@ import { ImpactSection } from '@/components/landing/ImpactSection'
 import { FeaturesSection } from '@/components/landing/FeaturesSection'
 import { TechnologySection } from '@/components/landing/TechnologySection'
 import { TeamSection } from '@/components/landing/TeamSection'
+import { ProblemStatement } from '@/components/landing/ProblemStatement'
 import { MafiaOffer } from '@/components/landing/MafiaOffer'
 import { StakeholderProof } from '@/components/landing/StakeholderProof'
 import { CTASection } from '@/components/landing/CTASection'
@@ -27,7 +28,10 @@ export default function Home() {
       {/* 1. HeroSection (The Hook) */}
       <HeroSection />
 
-      {/* 2. MafiaOffer (The Core Commitment) */}
+      {/* 2. The One Big Problem (The Tension) */}
+      <ProblemStatement />
+
+      {/* 3. MafiaOffer (The Core Commitment) */}
       <MafiaOffer />
 
       {/* 3. StakeholderProof (The Logic for 3 Personas) */}

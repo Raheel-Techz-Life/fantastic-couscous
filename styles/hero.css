@@ -175,6 +175,8 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  position: relative;
+  isolation: isolate;
 }
 
 .hero-headline {
@@ -207,13 +209,15 @@
 }
 
 .hero-headline-gradient {
-  background: linear-gradient(135deg, var(--primary), oklch(0.82 0.18 84), var(--primary));
+  background: linear-gradient(135deg, oklch(0.6 0.25 30), oklch(0.65 0.24 44), oklch(0.75 0.2 60));
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
   animation: heroGradientShift 4s ease-in-out infinite;
   font-style: italic;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes heroGradientShift {

@@ -25,16 +25,16 @@ export const landingConfig = {
 
   home: {
     hero: {
-      headline: 'The 48-Hour Talent Pipeline for India’s <span className="text-gradient italic">Next 450M</span>',
+      headline: 'The 48-Hour Talent Pipeline for India\'s <span className="text-gradient italic">Next 450M</span>',
       description:
-        'Stop losing hours on hiring. We solve the discovery gap for B2B informal labor with a zero-barrier, voice-first system that delivers verified workers in 24 hours.',
+        'Informal sector employers and blue-collar workers have no trusted, accessible way to find each other — making every hire a costly, repeated, and mostly failed effort. HAAZRI fixes the broken connection.',
       buttons: [
         { label: 'Claim your pilot', type: 'primary', icon: '⚡' },
-        { label: 'The Logic', type: 'secondary', icon: '💡' },
+        { label: 'See the problem', type: 'secondary', icon: '💡' },
       ],
       stats: [
         { number: '24h', label: 'Talent match' },
-        { number: '100%', label: 'Voice-verified' },
+        { number: '90%', label: 'Attrition rate' },
         { number: '₹0', label: 'Worker cost' },
       ],
     },
@@ -58,6 +58,41 @@ export const landingConfig = {
           background: '#3C3489',
         },
       ],
+    },
+  },
+
+  problemStatement: {
+    tag: 'The One Big Problem',
+    headline: 'Every hire is a costly, repeated, mostly failed effort.',
+    subheadline:
+      'Informal sector employers and blue-collar workers have no trusted, accessible, or structured way to find each other.',
+    painPoints: [
+      {
+        who: 'Employer',
+        icon: '🏭',
+        title: 'The search restarts from zero — every time',
+        body:
+          '90% of informal workers leave within weeks. There is no platform, no pipeline, no system. Every vacancy means hours of phone calls, asking contacts, and failed screen calls — all over again. For 15 years, the same painful loop.',
+      },
+      {
+        who: 'Worker',
+        icon: '👷',
+        title: "Months unemployed between jobs they can't reach",
+        body:
+          'Workers are locked out of every existing job platform — no smartphone, no literacy, no data. Government schemes worth lakhs go unclaimed. The right job exists. The right worker exists. They never meet.',
+      },
+      {
+        who: 'System',
+        icon: '🔗',
+        title: 'Word-of-mouth is the only "solution" — and it\'s broken',
+        body:
+          'Naukri, LinkedIn, and every major platform are built for white-collar India. The ₹450M informal workforce is completely invisible to them. The only existing solution is unreliable, unscalable, and exclusionary.',
+      },
+    ],
+    verdict: {
+      label: 'Frequent · Costly · Poorly Solved',
+      quote:
+        '"Informal sector employers and blue-collar workers have no trusted, accessible, and structured way to find each other — making every hire a costly, repeated, and mostly failed effort."',
     },
   },
 
