@@ -2,12 +2,12 @@
 export const landingConfig = {
   branding: {
     name: 'HAAZRI',
-    logo: '●', // Teal dot
+    logo: '/logo.jpg', // Path to new logo
     colors: {
-      primary: '#1D9E75',
-      darkAccent: '#085041',
-      lightBg: '#E1F5EE',
-      darkBgAccent: '#0F6E56',
+      primary: '#FF5400',
+      darkAccent: '#0D2344',
+      lightBg: '#FFF9F5',
+      darkBgAccent: '#1E293B',
     },
   },
 

@@ -25,9 +25,7 @@ export default function Home() {
       <Navigation />
       
       {/* 1. HeroSection (The Hook) */}
-      <section className="relative z-10 px-6 pt-32 pb-24">
-        <HeroSection />
-      </section>
+      <HeroSection />
 
       {/* 2. MafiaOffer (The Core Commitment) */}
       <MafiaOffer />

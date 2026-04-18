@@ -13,8 +13,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-1 space-y-6">
-            <Link href="/" className="flex items-center gap-2.5 text-2xl font-bold tracking-tight">
-              <div className="h-4 w-4 rounded-full bg-primary" />
+            <Link href="/" className="flex items-center gap-3 text-2xl font-black tracking-tighter">
+              <img src={branding.logo} alt={branding.name} className="h-10 w-auto object-contain" />
               <span>{branding.name}</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">

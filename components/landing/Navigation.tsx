@@ -30,9 +30,9 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 text-xl font-bold tracking-tight">
-          <div className="h-4 w-4 rounded-full bg-primary" />
-          <span className="text-foreground">{branding.name}</span>
+        <Link href="/" className="flex items-center gap-3 text-xl font-black tracking-tighter">
+          <img src={branding.logo} alt={branding.name} className="h-10 w-auto object-contain" />
+          <span className="text-foreground hidden sm:block">{branding.name}</span>
         </Link>
 
         {/* Desktop Links */}
