@@ -202,49 +202,61 @@ export const landingConfig = {
   },
 
   team: {
-    title: 'KNOW THE TEAM',
-    tag: '',
-    description: '',
+    title: 'THE SQUAD',
+    tag: 'The Builders',
+    description: 'Just 4 young builders pushing unapologetically cool tech for the unorganized labor sector. Shipping fast, breaking barriers, and replacing ancient hiring loops with slick, modern infrastructure.',
     members: [
-      { 
-        initials: 'VK', 
-        name: 'Vishwanath Koliwad', 
-        role: 'System Architect & Tactical Lead', 
-        description: 'Architecting high-performance system logic and engineering the core infrastructure that powers Team Vidyut\'s winning builds. Focused on low-level optimization and scalable backend systems under pressure.',
+      {
+        initials: 'VK',
+        name: 'Vishwanath Koliwad',
+        role: 'Vibe Architect & Logic Boss',
+        description: 'Cooking the core infrastructure that keeps HAAZRI breathing. Low-level optimization and high-performance server logic so things stay strictly no-cap when it actually matters.',
         location: 'Hubballi, Karnataka',
         image: '/vishwanath.jpg',
-        avatarColor: 'blue', 
-        badge: '' 
+        avatarColor: 'blue',
+        badge: 'Builder',
+        socials: [
+          { name: 'PORTFOLIO', url: 'https://vk.vishwadev.tech/' }
+        ]
       },
-      { 
-        initials: 'RH', 
-        name: 'Raheel Hosmani', 
-        role: 'Rapid Deployment Engineer', 
-        description: 'Driving peak development velocity with high-frequency code output. Specializes in rapid prototyping and deploying autonomous AI systems and intelligence engines.',
+      {
+        initials: 'RH',
+        name: 'Raheel Hosmani',
+        role: 'AI Whisperer & Speedrunner',
+        description: 'High-frequency code shipper. Hooking up the autonomous AI systems and making sure our intelligence engines run blazing fast. If it ain’t quick, he don’t want it.',
         location: 'Hubballi, Karnataka',
         image: '/raheel.jpg',
-        avatarColor: 'teal', 
-        badge: '' 
+        avatarColor: 'teal',
+        badge: 'Shipper',
+        socials: [
+          { name: 'PORTFOLIO', url: 'https://rhlz.vishwadev.tech/' }
+        ]
       },
-      { 
-        initials: 'DR', 
-        name: 'Disha Raikar', 
-        role: 'UX Architecture & Visual Systems', 
-        description: 'Bridging the gap between raw functional logic and high-fidelity human interfaces. Designing the visual systems that make Team Vidyut\'s prototypes stand out in the arena.',
+      {
+        initials: 'DR',
+        name: 'Disha Raikar',
+        role: 'Aesthetic Director',
+        description: 'Bridging the gap between raw functionality and insanely slick interfaces. Bringing clean, next-gen visual systems to a sector that desperately needs a UI glow-up.',
         location: 'Hubballi, Karnataka',
         image: '/disha.jpg',
-        avatarColor: 'purple', 
-        badge: '' 
+        avatarColor: 'purple',
+        badge: 'Visionary',
+        socials: [
+          { name: 'PORTFOLIO', url: 'https://dr.vishwadev.tech/' }
+        ]
       },
-      { 
-        initials: 'BD', 
-        name: 'Bhumika Dalabhanjan', 
-        role: 'Operations & Strategic Lead', 
-        description: 'Managing the roadmap for elite execution. Ensuring all technical pipelines are optimized for 100% uptime and seamless deployment during high-stakes hackathon events.',
+      {
+        initials: 'BD',
+        name: 'Bhumika Dalabhanjan',
+        role: 'Ops Boss & Roadmap Brain',
+        description: 'Keeping the squad locked in and orchestrating the timeline. Making sure we don’t just write code, but actually deploy it seamlessly when the stakes are high.',
         location: 'Hubballi, Karnataka',
         image: '/bhumika.jpg',
-        avatarColor: 'coral', 
-        badge: '' 
+        avatarColor: 'coral',
+        badge: 'Strategist',
+        socials: [
+          { name: 'PORTFOLIO', url: 'https://brd.vishwadev.tech/' }
+        ]
       },
     ],
   },

@@ -1,7 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { landingConfig } from '@/config/landing-data'
+import { VernacularPreloader } from '@/components/ui/vernacular-preloader'
 import { Navigation } from '@/components/landing/Navigation'
 import { HeroSection } from '@/components/landing/HeroSection'
 import { VideoCarousel } from '@/components/landing/VideoCarousel'
@@ -20,9 +22,14 @@ import { WhatsAppDashboard } from '@/components/landing/WhatsAppDashboard'
 
 export default function Home() {
   const { branding } = landingConfig
+  const [showPreloader, setShowPreloader] = useState(true)
 
   return (
-    <main className="min-h-screen bg-background">
+    <>
+      <VernacularPreloader show={showPreloader} onComplete={() => setShowPreloader(false)} />
+      
+      {!showPreloader && (
+        <main className="min-h-screen bg-background animate-in fade-in duration-1000">
       <Navigation />
       
       {/* 1. HeroSection (The Hook) */}
@@ -91,7 +98,9 @@ export default function Home() {
       <CTASection />
 
       <Footer />
-    </main>
+        </main>
+      )}
+    </>
   )
 }
 
