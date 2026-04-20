@@ -31,9 +31,9 @@ export function HowItWorks() {
   }
 
   return (
-    <section className="px-6 py-24 md:px-10 lg:px-20 bg-background overflow-hidden" id="howitworks">
+    <section className="px-6 py-16 md:px-10 lg:px-20 bg-background overflow-hidden" id="howitworks">
       {/* Header */}
-      <div className="text-center mb-20">
+      <div className="text-center mb-12">
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}

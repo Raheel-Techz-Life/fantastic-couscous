@@ -186,6 +186,8 @@ export const landingConfig = {
   },
 
   impact: {
+    title: 'The ₹450M Informal Economy',
+    description: 'HAAZRI acts as the digital bridge, connecting the unorganized sector to modern work opportunities at an unprecedented scale.',
     metrics: [
       { label: 'Target Workforce', value: '450M+' },
       { label: 'Exclusion Rate', value: '90%' },
@@ -200,11 +202,14 @@ export const landingConfig = {
   },
 
   team: {
+    title: 'KNOW THE TEAM',
+    tag: '',
+    description: '',
     members: [
-      { initials: 'VMK', name: 'Vishwanath M Koliwad', role: 'Lead & Full-stack' },
-      { initials: 'RH', name: 'Raheel Hosmani', role: 'Voice & IVR' },
-      { initials: 'DR', name: 'Disha Raikar', role: 'BHASHINI & NLP' },
-      { initials: 'BD', name: 'Bhumika Dalabhanjan', role: 'Employer UX & API' },
+      { initials: 'VMK', name: 'Vishwanath M Koliwad', role: 'Lead & Full-stack', avatarColor: 'blue', badge: '' },
+      { initials: 'RH', name: 'Raheel Hosmani', role: 'Voice & IVR', avatarColor: 'teal', badge: '' },
+      { initials: 'DR', name: 'Disha Raikar', role: 'BHASHINI & NLP', avatarColor: 'purple', badge: '' },
+      { initials: 'BD', name: 'Bhumika Dalabhanjan', role: 'Employer UX & API', avatarColor: 'coral', badge: '' },
     ],
   },
 

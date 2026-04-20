@@ -39,10 +39,10 @@ export function TechnologySection() {
   }
 
   return (
-    <section className="px-6 py-24 md:px-10 lg:px-20 bg-secondary/30 relative" id="technology">
+    <section className="px-6 py-16 md:px-10 lg:px-20 bg-secondary/30 relative" id="technology">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-12">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

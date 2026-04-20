@@ -51,18 +51,25 @@ export default function Home() {
           <h2 className="text-4xl font-black tracking-tight underline decoration-primary/30 underline-offset-8">Validating the logic</h2>
           <p className="text-muted-foreground max-w-xl mx-auto italic">"You are not validating the UI; you are validating that the logic of your solution solves the problem."</p>
         </div>
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-          <VideoCarousel />
-          <div className="space-y-8">
-            <h3 className="text-2xl font-bold">Dual Experience Simulator</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Experience the 48-hour pipeline logic from both the worker's voice-first interaction and the employer's mobile-native review dashboard.
-            </p>
-            <div className="grid grid-cols-1 gap-6">
-              <div className="p-6 rounded-3xl border border-border bg-card shadow-premium overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col gap-16">
+          <div className="w-full max-w-5xl mx-auto">
+            <VideoCarousel />
+          </div>
+          
+          <div className="space-y-10">
+            <div className="text-center max-w-3xl mx-auto space-y-4">
+              <h3 className="text-3xl font-bold">Dual Experience Simulator</h3>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Experience the 48-hour pipeline logic from both the worker's voice-first interaction and the employer's mobile-native review dashboard.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
+              <div className="p-6 rounded-3xl border border-border bg-card shadow-premium overflow-hidden flex justify-center">
                 <IVRSimulator />
               </div>
-              <WhatsAppDashboard />
+              <div className="flex justify-center w-full">
+                <WhatsAppDashboard />
+              </div>
             </div>
           </div>
         </div>

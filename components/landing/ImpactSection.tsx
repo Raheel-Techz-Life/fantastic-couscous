@@ -22,13 +22,13 @@ export function ImpactSection() {
   const { impact } = landingConfig
 
   return (
-    <section className="px-6 py-24 md:px-10 lg:px-20 bg-primary-soft/10 relative overflow-hidden" id="impact">
+    <section className="px-6 py-16 md:px-10 lg:px-20 bg-primary-soft/10 relative overflow-hidden" id="impact">
       {/* Background Blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Header & Description */}
           <div>
             <motion.div 
@@ -80,7 +80,7 @@ export function ImpactSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="p-8 rounded-3xl border border-border bg-card shadow-premium aspect-square sm:aspect-video lg:aspect-square flex flex-col"
+            className="p-8 rounded-3xl border border-border bg-card shadow-premium w-full h-full flex flex-col justify-between"
           >
             <div className="mb-6">
               <h3 className="text-lg font-bold mb-1">Target Market Scale</h3>
