@@ -20,13 +20,13 @@ export function FeaturesSection() {
   }
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: -150, opacity: 0, scale: 1.3, filter: 'blur(20px)' },
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 400, damping: 15, mass: 1.2 },
     },
   }
 
@@ -36,27 +36,28 @@ export function FeaturesSection() {
         {/* Header */}
         <div className="text-center mb-20">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: -100, scale: 1.5, filter: 'blur(15px)' }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 400, damping: 12 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-bold uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(255,84,0,0.2)]"
           >
             The Non-Negotiables
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -150, scale: 1.2, filter: 'blur(20px)' }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 12, delay: 0.1 }}
             className="text-4xl font-bold mb-6 tracking-tight"
           >
             "Must-Have" Solutions for B2B Success
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -50, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 350, damping: 15, delay: 0.2 }}
             className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed"
           >
             We don't build "nice-to-haves." HAAZRI solves the fundamental exclusion and data gaps in the informal economy.

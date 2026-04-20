@@ -48,15 +48,32 @@ export default function Home() {
       <section className="py-24 px-6 md:px-10 lg:px-20 bg-secondary/20">
         <div className="max-w-7xl mx-auto text-center mb-16 space-y-4">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 1.5, y: -100, filter: 'blur(20px)' }}
+            whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15, mass: 1.2 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
           >
             Proof of Concept
           </motion.div>
-          <h2 className="text-4xl font-black tracking-tight underline decoration-primary/30 underline-offset-8">Validating the logic</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto italic">"You are not validating the UI; you are validating that the logic of your solution solves the problem."</p>
+          <motion.h2 
+            initial={{ opacity: 0, scale: 1.2, y: -100, filter: 'blur(15px)' }}
+            whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15, delay: 0.1 }}
+            className="text-4xl font-black tracking-tight underline decoration-primary/30 underline-offset-8"
+          >
+            Validating the logic
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: -50, filter: 'blur(10px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 350, damping: 15, delay: 0.2 }}
+            className="text-muted-foreground max-w-xl mx-auto italic"
+          >
+            "You are not validating the UI; you are validating that the logic of your solution solves the problem."
+          </motion.p>
         </div>
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
           <div className="w-full max-w-5xl mx-auto">

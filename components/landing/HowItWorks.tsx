@@ -20,13 +20,13 @@ export function HowItWorks() {
   }
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { scale: 1.2, y: -150, opacity: 0, filter: 'blur(15px)' },
     visible: {
+      scale: 1,
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 400, damping: 15, mass: 1.2 },
     },
   }
 

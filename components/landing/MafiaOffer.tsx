@@ -34,21 +34,29 @@ export function MafiaOffer() {
           <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: -200, scale: 1.5, filter: 'blur(20px)' }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 400, damping: 12, mass: 1.2 }}
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-black uppercase tracking-widest border border-primary/30"
               >
                 The Mafia Offer
               </motion.div>
               
-              <div className="space-y-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 150 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 300, damping: 15, mass: 1, delay: 0.2 }}
+                className="space-y-4"
+              >
                 <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-none">
-                  Build your local <span className="text-primary italic">workforce dominance</span>
+                  Build your local <span className="text-primary italic inline-block hover:scale-105 hover:rotate-1 transition-transform">workforce dominance</span>
                 </h2>
                 <p className="text-background/60 text-lg md:text-xl max-w-xl leading-relaxed">
                   We don't sell features. We sell a 48-hour talent pipeline. If we don't deliver verified applicants in 2 days, your first 5 hires are on us.
                 </p>
-              </div>
+              </motion.div>
 
               <div className="space-y-6">
                 {points.map((point, idx) => (

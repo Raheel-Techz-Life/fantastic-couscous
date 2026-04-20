@@ -28,13 +28,13 @@ export function TechnologySection() {
   }
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { scale: 1.2, opacity: 0, y: -150, filter: 'blur(15px)' },
     visible: {
-      y: 0,
+      scale: 1,
       opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
+      y: 0,
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 400, damping: 15, mass: 1.2 },
     },
   }
 
@@ -44,18 +44,19 @@ export function TechnologySection() {
         {/* Header */}
         <div className="mb-12">
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 1.3, y: -100, filter: 'blur(15px)' }}
+            whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
           >
             Technology
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 1.2, y: -150, filter: 'blur(20px)' }}
+            whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15, delay: 0.1 }}
             className="text-4xl font-bold mb-6 tracking-tight"
           >
             Built on Open Standards

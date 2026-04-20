@@ -32,27 +32,28 @@ export function ImpactSection() {
           {/* Header & Description */}
           <div>
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 1.3, y: -100, filter: 'blur(15px)' }}
+              whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true }}
+              transition={{ type: 'spring', stiffness: 400, damping: 15 }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
             >
               Market Scale
             </motion.div>
             <motion.h2 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 1.3, y: -150, filter: 'blur(20px)' }}
+              whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 15, delay: 0.1 }}
               className="text-4xl font-bold mb-6 tracking-tight leading-tight"
             >
               {impact.title}
             </motion.h2>
             <motion.p 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -50, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20, delay: 0.2 }}
               className="text-muted-foreground text-lg mb-10 leading-relaxed"
             >
               {impact.description}
@@ -62,10 +63,11 @@ export function ImpactSection() {
               {impact.metrics.map((metric, idx) => (
                 <motion.div 
                   key={idx}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: -80, scale: 1.2, filter: 'blur(10px)' }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 + (idx * 0.1) }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 15, delay: 0.3 + (idx * 0.1) }}
+                  whileHover={{ scale: 1.05 }}
                   className="p-6 rounded-2xl bg-background border border-border shadow-sm group hover:border-primary/50 transition-colors"
                 >
                   <div className="text-3xl font-bold text-primary mb-1">{metric.value}</div>
@@ -77,10 +79,12 @@ export function ImpactSection() {
 
           {/* Data Visualization */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 1.2, y: -100, filter: 'blur(20px)' }}
+            whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
-            className="p-8 rounded-3xl border border-border bg-card shadow-premium w-full h-full flex flex-col justify-between"
+            transition={{ type: 'spring', stiffness: 350, damping: 15, delay: 0.2 }}
+            whileHover={{ scale: 1.02 }}
+            className="p-8 rounded-3xl border border-border bg-card shadow-premium w-full h-full flex flex-col justify-between hover:shadow-2xl hover:border-primary/50 transition-all duration-500"
           >
             <div className="mb-6">
               <h3 className="text-lg font-bold mb-1">Target Market Scale</h3>

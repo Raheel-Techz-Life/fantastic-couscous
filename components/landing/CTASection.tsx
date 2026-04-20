@@ -26,9 +26,10 @@ export function CTASection() {
 
       <div className="max-w-4xl mx-auto relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 1.3, y: -150, filter: 'blur(25px)' }}
+          whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 450, damping: 18, mass: 1.5 }}
           className="space-y-8"
         >
           <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">

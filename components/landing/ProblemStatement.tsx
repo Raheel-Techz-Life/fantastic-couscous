@@ -14,15 +14,16 @@ export function ProblemStatement() {
 
   const container = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   }
   const item = {
-    hidden: { opacity: 0, y: 32 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+    hidden: { opacity: 0, y: -150, scale: 1.2, filter: 'blur(15px)' },
+    visible: { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 400, damping: 15, mass: 1.2 } },
   }
 
   return (
-    <section className="problem-root">
+    <section className="problem-root relative">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
       {/* Ambient crack line across top */}
       <div className="problem-crack" />
 
