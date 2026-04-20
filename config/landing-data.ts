@@ -206,10 +206,46 @@ export const landingConfig = {
     tag: '',
     description: '',
     members: [
-      { initials: 'VMK', name: 'Vishwanath M Koliwad', role: 'Lead & Full-stack', avatarColor: 'blue', badge: '' },
-      { initials: 'RH', name: 'Raheel Hosmani', role: 'Voice & IVR', avatarColor: 'teal', badge: '' },
-      { initials: 'DR', name: 'Disha Raikar', role: 'BHASHINI & NLP', avatarColor: 'purple', badge: '' },
-      { initials: 'BD', name: 'Bhumika Dalabhanjan', role: 'Employer UX & API', avatarColor: 'coral', badge: '' },
+      { 
+        initials: 'VK', 
+        name: 'Vishwanath Koliwad', 
+        role: 'System Architect & Tactical Lead', 
+        description: 'Architecting high-performance system logic and engineering the core infrastructure that powers Team Vidyut\'s winning builds. Focused on low-level optimization and scalable backend systems under pressure.',
+        location: 'Hubballi, Karnataka',
+        image: '/vishwanath.jpg',
+        avatarColor: 'blue', 
+        badge: '' 
+      },
+      { 
+        initials: 'RH', 
+        name: 'Raheel Hosmani', 
+        role: 'Rapid Deployment Engineer', 
+        description: 'Driving peak development velocity with high-frequency code output. Specializes in rapid prototyping and deploying autonomous AI systems and intelligence engines.',
+        location: 'Hubballi, Karnataka',
+        image: '/raheel.jpg',
+        avatarColor: 'teal', 
+        badge: '' 
+      },
+      { 
+        initials: 'DR', 
+        name: 'Disha Raikar', 
+        role: 'UX Architecture & Visual Systems', 
+        description: 'Bridging the gap between raw functional logic and high-fidelity human interfaces. Designing the visual systems that make Team Vidyut\'s prototypes stand out in the arena.',
+        location: 'Hubballi, Karnataka',
+        image: '/disha.jpg',
+        avatarColor: 'purple', 
+        badge: '' 
+      },
+      { 
+        initials: 'BD', 
+        name: 'Bhumika Dalabhanjan', 
+        role: 'Operations & Strategic Lead', 
+        description: 'Managing the roadmap for elite execution. Ensuring all technical pipelines are optimized for 100% uptime and seamless deployment during high-stakes hackathon events.',
+        location: 'Hubballi, Karnataka',
+        image: '/bhumika.jpg',
+        avatarColor: 'coral', 
+        badge: '' 
+      },
     ],
   },
 

@@ -11,7 +11,7 @@ export function CTASection() {
   return (
     <section className="px-6 py-24 md:px-10 lg:px-20 relative overflow-hidden">
       {/* Background with Gradient & Mesh */}
-      <div className="absolute inset-0 bg-[#085041] z-0" />
+      <div className="absolute inset-0 bg-slate-900 z-0" />
       <div className="absolute inset-0 bg-mesh opacity-20 z-0 bg-fixed" />
       
       {/* Animated Blobs */}
@@ -42,7 +42,7 @@ export function CTASection() {
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
             <Button 
               size="lg" 
-              className="rounded-full px-10 h-16 text-lg font-bold bg-white text-[#085041] hover:bg-white/90 shadow-2xl shadow-black/20 gap-2 group"
+              className="rounded-full px-10 h-16 text-lg font-bold bg-white text-slate-900 hover:bg-white/90 shadow-2xl shadow-black/20 gap-2 group"
             >
               <Mail className="w-5 h-5" />
               Get in touch
@@ -51,23 +51,11 @@ export function CTASection() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="rounded-full px-10 h-16 text-lg font-bold border-2 border-white/30 text-white hover:bg-white/10 gap-2"
+              className="rounded-full px-10 h-16 text-lg font-bold border-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white gap-2"
             >
               <Github className="w-5 h-5" />
               View on GitHub
             </Button>
-          </div>
-
-          {/* Social Proof / Footer bit */}
-          <div className="pt-16 border-t border-white/10 flex flex-col items-center gap-4">
-            <p className="text-white/40 text-[10px] uppercase font-bold tracking-[0.3em]">
-              Partnering with India's Open Networks
-            </p>
-            <div className="flex gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-              <span className="text-white font-bold tracking-tighter text-xl">ONEST</span>
-              <span className="text-white font-bold tracking-tighter text-xl">BHASHINI</span>
-              <span className="text-white font-bold tracking-tighter text-xl">DIGITAL INDIA</span>
-            </div>
           </div>
         </motion.div>
       </div>

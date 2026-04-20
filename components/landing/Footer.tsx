@@ -8,7 +8,9 @@ export function Footer() {
   const { branding, footer } = landingConfig
 
   return (
-    <footer className="bg-background border-t border-border pt-16 pb-8 px-6 md:px-10 lg:px-20">
+    <footer className="bg-card/40 relative border-t border-border/40 overflow-hidden pt-16 pb-8 px-6 md:px-10 lg:px-20">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-40 bg-primary/5 rounded-b-full blur-3xl -z-10" />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
@@ -20,19 +22,12 @@ export function Footer() {
             <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
               {footer.tagline}
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
-                <Mail className="w-5 h-5" />
-              </a>
+            <div className="flex gap-3">
+              {[Twitter, Github, Linkedin, Mail].map((Icon, idx) => (
+                <a key={idx} href="#" className="w-10 h-10 rounded-full bg-background border border-border/50 flex items-center justify-center text-muted-foreground hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all duration-300 hover:scale-110 shadow-sm">
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -42,7 +37,8 @@ export function Footer() {
               <h5 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/50">{col.title}</h5>
               <div className="flex flex-col gap-4">
                 {col.links.map((link) => (
-                  <Link key={link.label} href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link key={link.label} href={link.href} className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-1 transition-all duration-300 font-medium flex items-center gap-2 group">
+                    <span className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors scale-0 group-hover:scale-100" />
                     {link.label}
                   </Link>
                 ))}

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 
 const avatarColors: Record<string, string> = {
@@ -95,21 +95,37 @@ export function TeamSection() {
                 {/* Profile Avatar */}
                 <div className="relative mb-6">
                   <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-0 group-hover:scale-150 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
-                  <Avatar className={`w-24 h-24 text-xl font-bold ${colorClass} relative z-10 border-4 border-background transition-transform duration-500 group-hover:scale-110`}>
+                  <Avatar className={`w-32 h-32 text-2xl font-bold ${colorClass} relative z-10 border-4 border-background transition-transform duration-500 group-hover:scale-110`}>
+                    {(member as any).image && <AvatarImage src={(member as any).image} alt={member.name} className="object-cover" />}
                     <AvatarFallback>{member.initials}</AvatarFallback>
                   </Avatar>
                 </div>
 
                 {/* Info */}
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col items-center flex-1">
                   <h4 className="text-xl font-bold mb-1">{member.name}</h4>
-                  <p className="text-sm text-muted-foreground mb-4 font-medium uppercase tracking-wider">{member.role}</p>
+                  <p className="text-[11px] text-primary mb-4 font-black uppercase tracking-wider">{member.role}</p>
                   
-                  {member.badge && (
-                    <Badge variant="secondary" className="bg-primary/10 text-primary border-none font-bold text-[10px] uppercase px-3 py-1">
-                      {member.badge}
-                    </Badge>
+                  {(member as any).description && (
+                    <p className="text-[13px] text-muted-foreground mb-6 leading-relaxed max-w-xs mx-auto text-balance">
+                      {(member as any).description}
+                    </p>
                   )}
+
+                  <div className="mt-auto flex flex-col items-center">
+                    {(member as any).location && (
+                      <div className="inline-flex items-center gap-1 text-[10px] text-muted-foreground/70 font-bold uppercase tracking-widest mb-3">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        {(member as any).location}
+                      </div>
+                    )}
+                    
+                    {(member as any).badge && (
+                      <Badge variant="secondary" className="bg-primary/10 text-primary border-none font-bold text-[10px] uppercase px-3 py-1">
+                        {(member as any).badge}
+                      </Badge>
+                    )}
+                  </div>
                 </div>
 
                 {/* Hover Accent */}
