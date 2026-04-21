@@ -220,32 +220,6 @@ export const landingConfig = {
         ]
       },
       {
-        initials: 'RH',
-        name: 'Raheel Hosmani',
-        role: 'AI Whisperer & Speedrunner',
-        description: 'High-frequency code shipper. Hooking up the autonomous AI systems and making sure our intelligence engines run blazing fast. If it ain’t quick, he don’t want it.',
-        location: 'Hubballi, Karnataka',
-        image: '/raheel.jpg',
-        avatarColor: 'teal',
-        badge: 'Shipper',
-        socials: [
-          { name: 'PORTFOLIO', url: 'https://rhlz.vishwadev.tech/' }
-        ]
-      },
-      {
-        initials: 'DR',
-        name: 'Disha Raikar',
-        role: 'Aesthetic Director',
-        description: 'Bridging the gap between raw functionality and insanely slick interfaces. Bringing clean, next-gen visual systems to a sector that desperately needs a UI glow-up.',
-        location: 'Hubballi, Karnataka',
-        image: '/disha.jpg',
-        avatarColor: 'purple',
-        badge: 'Visionary',
-        socials: [
-          { name: 'PORTFOLIO', url: 'https://dr.vishwadev.tech/' }
-        ]
-      },
-      {
         initials: 'BD',
         name: 'Bhumika Dalabhanjan',
         role: 'Ops Boss & Roadmap Brain',
@@ -256,6 +230,32 @@ export const landingConfig = {
         badge: 'Strategist',
         socials: [
           { name: 'PORTFOLIO', url: 'https://brd.vishwadev.tech/' }
+        ]
+      },
+      {
+        initials: 'DR',
+        name: 'Disha Raikar',
+        role: 'Aesthetic Director & Hype Visionary',
+        description: 'Bridging the gap between raw functionality and insanely slick interfaces. Bringing clean, next-gen visual systems to a sector that desperately needs a UI glow-up.',
+        location: 'Hubballi, Karnataka',
+        image: '/disha.jpg',
+        avatarColor: 'purple',
+        badge: 'Visionary',
+        socials: [
+          { name: 'PORTFOLIO', url: 'https://dr.vishwadev.tech/' }
+        ]
+      },
+      {
+        initials: 'RH',
+        name: 'Raheel Hosmani',
+        role: 'AI Whisperer & Speedrunner',
+        description: 'High-frequency code shipper. Hooking up the autonomous AI systems and making sure our intelligence engines run blazing fast. If it ain’t quick, he don’t want it.',
+        location: 'Hubballi, Karnataka',
+        image: '/raheel.jpg',
+        avatarColor: 'teal',
+        badge: 'Shipper',
+        socials: [
+          { name: 'PORTFOLIO', url: 'https://rhlz.vishwadev.tech/' }
         ]
       },
     ],
