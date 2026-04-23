@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Navigation } from '@/components/landing/Navigation'
 import { Footer } from '@/components/landing/Footer'
+import { PremiumCard } from '@/components/ui/premium-card'
 import { 
   Database, 
   Globe, 
@@ -21,8 +22,9 @@ export default function TechnologyPage() {
       <Navigation />
       
       {/* Header */}
-      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-secondary/30">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-mesh relative overflow-hidden">
+        <div className="absolute inset-0 bg-background/50 backdrop-blur-[2px]" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.h1 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -54,12 +56,10 @@ export default function TechnologyPage() {
               </h2>
               <div className="grid grid-cols-1 gap-4">
                 {technology.architecture.map((item, idx) => (
-                  <motion.div 
+                  <PremiumCard 
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-6 p-6 rounded-2xl border border-border bg-card group hover:border-primary transition-all"
+                    delay={idx * 0.1}
+                    className="flex items-center gap-6 p-6 group"
                   >
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
                       {idx + 1}
@@ -71,7 +71,7 @@ export default function TechnologyPage() {
                         <span className="text-xs text-muted-foreground">— {item.purpose}</span>
                       </div>
                     </div>
-                  </motion.div>
+                  </PremiumCard>
                 ))}
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function TechnologyPage() {
                 </p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-primary/5 border border-primary/20">
+               <div className="p-8 rounded-3xl glass border border-primary/20 shadow-premium">
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
                   <ShieldCheck className="w-6 h-6 text-primary" />
                   Security & Compliance

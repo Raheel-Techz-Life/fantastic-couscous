@@ -82,7 +82,7 @@ export function TeamSection() {
                     <div className="absolute inset-0 bg-primary/20 -rotate-3 group-hover:-rotate-6 transition-transform duration-500 rounded-[3rem] backdrop-blur-xl" />
                     
                     <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-[3rem] border-[6px] border-background relative z-20 shadow-2xl group-hover:scale-105 transition-transform duration-500 object-cover bg-background">
-                      {(member as any).image && <AvatarImage src={(member as any).image} alt={member.name} className="object-cover hover:scale-110 transition-transform duration-700" />}
+                      {member.image && <AvatarImage src={member.image} alt={member.name} className="object-cover hover:scale-110 transition-transform duration-700" />}
                       <AvatarFallback className={`text-6xl md:text-8xl font-black ${colorClass}`}>{member.initials}</AvatarFallback>
                     </Avatar>
 
@@ -115,25 +115,25 @@ export function TeamSection() {
                     {/* Quotation mark ambient */}
                     <div className={`absolute top-2 ${isEven ? 'left-4' : 'right-4'} text-6xl text-primary/10 font-serif leading-none pointer-events-none`}>"</div>
                     <p className="text-lg text-muted-foreground leading-relaxed italic relative z-10 font-medium">
-                      {(member as any).description}
+                      {member.description}
                     </p>
                   </div>
 
                   {/* Footers for the card (location, socials, badge) */}
                   <div className={`flex flex-wrap items-center gap-4 mt-8 ${isEven ? 'justify-start' : 'justify-end'}`}>
-                    {(member as any).location && (
+                    {member.location && (
                       <div className="px-4 py-2.5 rounded-xl bg-secondary/50 border border-border text-xs font-bold font-mono text-foreground/80 shadow-sm flex items-center gap-2">
-                        <span className="text-base leading-none">📍</span> {((member as any).location as string).split(',')[0]}
+                        <span className="text-base leading-none">📍</span> {member.location.split(',')[0]}
                       </div>
                     )}
-                    {(member as any).badge && (
+                    {member.badge && (
                       <div className="px-4 py-2.5 rounded-xl bg-primary/10 border border-primary/30 text-xs font-bold text-primary font-mono uppercase tracking-widest shadow-sm">
-                        {(member as any).badge}
+                        {member.badge}
                       </div>
                     )}
-                    {(member as any).socials && (
+                    {member.socials && (
                       <div className="flex gap-2">
-                        {((member as any).socials as any[]).map((social, sIdx) => (
+                        {member.socials.map((social, sIdx) => (
                           <a 
                             key={sIdx} 
                             href={social.url} 

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Card, CardContent } from '@/components/ui/card'
+import { PremiumCard } from '@/components/ui/premium-card'
 import { 
   BarChart, 
   Bar, 
@@ -60,31 +61,29 @@ export function ImpactSection() {
             </motion.p>
 
             <div className="grid grid-cols-2 gap-6">
-              {impact.metrics.map((metric, idx) => (
-                <motion.div 
+               {impact.metrics.map((metric, idx) => (
+                <PremiumCard 
                   key={idx}
                   initial={{ opacity: 0, y: -80, scale: 1.2, filter: 'blur(10px)' }}
                   whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-                  viewport={{ once: true }}
                   transition={{ type: 'spring', stiffness: 400, damping: 15, delay: 0.3 + (idx * 0.1) }}
                   whileHover={{ scale: 1.05 }}
-                  className="p-6 rounded-2xl bg-background border border-border shadow-sm group hover:border-primary/50 transition-colors"
+                  className="p-6 rounded-2xl bg-background group"
                 >
                   <div className="text-3xl font-bold text-primary mb-1">{metric.value}</div>
                   <div className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{metric.label}</div>
-                </motion.div>
+                </PremiumCard>
               ))}
             </div>
           </div>
 
           {/* Data Visualization */}
-          <motion.div 
+          <PremiumCard 
             initial={{ opacity: 0, scale: 1.2, y: -100, filter: 'blur(20px)' }}
             whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
-            viewport={{ once: true }}
             transition={{ type: 'spring', stiffness: 350, damping: 15, delay: 0.2 }}
             whileHover={{ scale: 1.02 }}
-            className="p-8 rounded-3xl border border-border bg-card shadow-premium w-full h-full flex flex-col justify-between hover:shadow-2xl hover:border-primary/50 transition-all duration-500"
+            className="p-8 rounded-3xl w-full h-full flex flex-col justify-between hover:shadow-2xl duration-500"
           >
             <div className="mb-6">
               <h3 className="text-lg font-bold mb-1">Target Market Scale</h3>
@@ -121,7 +120,7 @@ export function ImpactSection() {
                 "HAAZRI targets the 90% of the Indian workforce currently excluded from the formal digital economy."
               </p>
             </div>
-          </motion.div>
+          </PremiumCard>
         </div>
       </div>
     </section>

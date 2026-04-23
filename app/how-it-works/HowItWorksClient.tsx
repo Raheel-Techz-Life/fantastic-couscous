@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { IVRSimulator } from '@/components/landing/IVRSimulator'
+import { PremiumCard } from '@/components/ui/premium-card'
 import { 
   CheckCircle2, 
   HelpCircle, 
@@ -22,8 +23,9 @@ export function HowItWorksClient() {
   return (
     <>
       {/* Hero Header */}
-      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-secondary/30">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-mesh relative overflow-hidden">
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,13 +66,10 @@ export function HowItWorksClient() {
             {howItWorks.workerJourney.map((step, idx) => {
               const Icon = icons[idx] || Star
               return (
-                <motion.div 
+                <PremiumCard 
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="p-8 rounded-3xl border border-border bg-card relative overflow-hidden group"
+                  delay={idx * 0.1}
+                  className="group relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 p-8 text-8xl font-black text-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity">
                     {step.step}
@@ -88,7 +87,7 @@ export function HowItWorksClient() {
                       <p className="text-xs font-medium italic text-primary/80">{step.faq}</p>
                     </div>
                   )}
-                </motion.div>
+                </PremiumCard>
               )
             })}
           </div>
@@ -134,9 +133,9 @@ export function HowItWorksClient() {
                 ))}
               </div>
             </div>
-            <div className="p-8 rounded-3xl border border-border bg-card shadow-premium">
-              <div className="aspect-square bg-secondary/50 rounded-2xl flex items-center justify-center border border-dashed border-border">
-                <p className="text-xs text-muted-foreground uppercase font-bold tracking-widest">WhatsApp UI Preview</p>
+            <div className="p-8 rounded-3xl border border-border glass shadow-premium">
+              <div className="aspect-square bg-primary/5 rounded-2xl flex items-center justify-center border border-dashed border-primary/20">
+                <p className="text-xs text-primary font-bold tracking-widest">WhatsApp UI Preview</p>
               </div>
             </div>
           </div>

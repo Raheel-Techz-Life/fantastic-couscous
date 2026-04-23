@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Navigation } from '@/components/landing/Navigation'
 import { Footer } from '@/components/landing/Footer'
+import { PremiumCard } from '@/components/ui/premium-card'
 import { 
   Users, 
   BarChart3, 
@@ -20,8 +21,9 @@ export default function ImpactPage() {
       <Navigation />
       
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-primary/5">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-mesh relative overflow-hidden">
+        <div className="absolute inset-0 bg-background/50 backdrop-blur-[2px]" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -52,17 +54,13 @@ export default function ImpactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {impact.metrics.map((metric, idx) => (
-              <motion.div 
+              <PremiumCard 
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="p-8 rounded-3xl border border-border bg-card shadow-sm"
+                delay={idx * 0.1}
               >
                 <div className="text-4xl font-black text-primary mb-2">{metric.value}</div>
                 <div className="text-xs uppercase font-bold tracking-widest text-muted-foreground">{metric.label}</div>
-              </motion.div>
+              </PremiumCard>
             ))}
           </div>
         </div>
@@ -78,12 +76,10 @@ export default function ImpactPage() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {impact.personas.map((persona, idx) => (
-              <motion.div 
+              <PremiumCard 
                 key={idx}
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="p-8 rounded-[2.5rem] border border-border bg-card hover:border-primary transition-all group"
+                delay={idx * 0.1}
+                className="rounded-[2.5rem] group"
               >
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 text-2xl font-bold">
                   {persona.name[0]}
@@ -95,7 +91,7 @@ export default function ImpactPage() {
                 <div className="mt-8 p-4 rounded-xl bg-secondary/50 border border-border opacity-0 group-hover:opacity-100 transition-opacity">
                   <p className="text-xs italic text-muted-foreground">"I give a missed call, I get a job. No forms, no stress."</p>
                 </div>
-              </motion.div>
+              </PremiumCard>
             ))}
           </div>
         </div>

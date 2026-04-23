@@ -16,28 +16,28 @@ export function StakeholderProof() {
 
   const stakeholders = [
     {
-      role: "The Payer (Employer)",
-      goal: "Hiring Velocity & Cost Reduction",
-      pain: "It takes 2 weeks to hire one person who might quit in 2 days.",
-      solution: "Instant locally-sourced pool with voice-verified reputation. Hire in 24 hours.",
+      role: "The Employer (Shivanand)",
+      goal: "Stop the Continuous Crisis",
+      pain: "Spending weeks searching personal networks for one reliable worker. It never stops.",
+      solution: "Instant, locally-sourced talent pool with verified 24-hour placement. No more restarting from zero.",
       icon: Building2,
-      stat: "40% lower turnover"
+      stat: "24h Placement"
     },
     {
-      role: "The End-User (Worker)",
-      goal: "Zero-Barrier Access",
-      pain: "No internet, no smartphone, cannot fill out online forms.",
-      solution: "Missed call + Voice AI. No reading or writing required. Job ID is your portable CV.",
+      role: "The Job-Seeker (Suresh B.)",
+      goal: "Zero-Barrier Visibility",
+      pain: "No platform to reach employers. Relies on word-of-mouth and stays jobless for months.",
+      solution: "Voice-first onboarding on any phone. No literacy required. Your voice is your portable resume.",
       icon: Users,
       stat: "Applied in 90s"
     },
     {
-      role: "The Data Seeker (Manager)",
-      goal: "Visibility & Compliance",
-      pain: "Informal work has zero digital footprint. Cannot verify history or ratings.",
-      solution: "Real-time analytics on worker performance, attendance, and network reliability.",
+      role: "The Community (Govt. Schemes)",
+      goal: "Last-Mile Delivery",
+      pain: "Funds like PM Vishwakarma exist but awareness is critically low. Schemes go unclaimed.",
+      solution: "HAAZRI acts as the bridge, connecting verified workers to capital and skilling via mobile.",
       icon: BarChart4,
-      stat: "100% data fidelity"
+      stat: "₹Crores Unclaimed"
     }
   ]
 

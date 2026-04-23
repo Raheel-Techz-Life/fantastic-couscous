@@ -10,17 +10,17 @@ export function MafiaOffer() {
     {
       icon: Zap,
       title: "Verified Talent in 24h",
-      desc: "Our voice-biometric pool ensures you get real people, ready to work, instantly."
+      desc: "Stop losing days to empty calls. Get a verified, voice-screened candidate within 24 hours — or we find a replacement for free."
     },
     {
       icon: ShieldCheck,
-      title: "Zero Literacy Barrier",
-      desc: "The only platform where 100% of the applicant pool can use it without help."
+      title: "The Trust Engine",
+      desc: "Unique Job Codes and digital trails track reliability and behavior. Know if a worker is trustworthy before they arrive."
     },
     {
       icon: TrendingUp,
-      title: "Pay-as-you-Hire",
-      desc: "No subscription fees. Only pay when a worker clocks in for their first shift."
+      title: "No-Show Recovery",
+      desc: "If a worker walkout happens, our backup candidate pool ensures zero downtime. Your hiring recovers instantly."
     }
   ]
 
@@ -54,7 +54,7 @@ export function MafiaOffer() {
                   Build your local <span className="text-primary italic inline-block hover:scale-105 hover:rotate-1 transition-transform">workforce dominance</span>
                 </h2>
                 <p className="text-background/60 text-lg md:text-xl max-w-xl leading-relaxed">
-                  We don't sell features. We sell a 48-hour talent pipeline. If we don't deliver verified applicants in 2 days, your first 5 hires are on us.
+                  We don't sell features. We sell a 24-hour talent pipeline. If we don't deliver verified applicants in 1 day, your next 5 hires are on us.
                 </p>
               </motion.div>
 

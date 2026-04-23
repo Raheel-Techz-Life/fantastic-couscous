@@ -1,5 +1,90 @@
+export interface TeamMember {
+  initials: string;
+  name: string;
+  role: string;
+  description: string;
+  location: string;
+  image: string;
+  avatarColor: string;
+  badge: string;
+  socials: Array<{ name: string; url: string }>;
+}
+
+export interface LandingConfig {
+  branding: {
+    name: string;
+    logo: string;
+    colors: Record<string, string>;
+  };
+  navigation: {
+    links: Array<{ label: string; href: string }>;
+    cta: string;
+  };
+  home: {
+    hero: {
+      headline: string;
+      description: string;
+      buttons: Array<{ label: string; type: string; icon: string }>;
+      stats: Array<{ number: string; label: string }>;
+    };
+    demo: {
+      tag: string;
+      title: string;
+      tabs: Array<{ title: string; subtitle: string; background: string }>;
+    };
+  };
+  problemStatement: {
+    tag: string;
+    headline: string;
+    subheadline: string;
+    painPoints: Array<{ who: string; icon: string; title: string; body: string }>;
+    verdict: { label: string; quote: string };
+  };
+  howItWorks: {
+    tag: string;
+    title: string;
+    description: string;
+    workerJourney: Array<{ step: number; title: string; description: string; faq?: string }>;
+    employerJourney: Array<{ title: string; description: string }>;
+    faqs: Array<{ q: string; a: string }>;
+  };
+  features: {
+    worker: Array<{ title: string; desc: string }>;
+    employer: Array<{ title: string; desc: string }>;
+    comparison: Array<{ feature: string; haazri: string; traditional: string }>;
+  };
+  technology: {
+    architecture: Array<{ item: string; tech: string; purpose: string }>;
+    compliance: string;
+  };
+  impact: {
+    title: string;
+    description: string;
+    metrics: Array<{ label: string; value: string }>;
+    personas: Array<{ name: string; role: string; context: string }>;
+  };
+  team: {
+    title: string;
+    tag: string;
+    description: string;
+    members: TeamMember[];
+  };
+  forms: Record<string, { title: string; fields: string[] }>;
+  footer: {
+    tagline: string;
+    columns: Array<{ title: string; links: Array<{ label: string; href: string }> }>;
+    copyright: string;
+    location: string;
+  };
+  cta: {
+    title: string;
+    description: string;
+    buttons: Array<{ label: string; type: string }>;
+  };
+}
+
 // Editable configuration for HAAZRI (Zero-Barrier Jobs) platform
-export const landingConfig = {
+export const landingConfig: LandingConfig = {
   branding: {
     name: 'HAAZRI',
     logo: '/logo.jpg', // Path to new logo
@@ -27,7 +112,7 @@ export const landingConfig = {
     hero: {
       headline: 'The 48-Hour Talent Pipeline for India\'s <span className="text-gradient italic">Next 450M</span>',
       description:
-        'Informal sector employers and blue-collar workers have no trusted, accessible way to find each other — making every hire a costly, repeated, and mostly failed effort. HAAZRI fixes the broken connection.',
+        "Tier-2 India faces a massive market failure: employers spend weeks searching informal networks while 50% of ex-workers stay jobless. HAAZRI is a voice-first employment exchange built to solve trust, not just tech.",
       buttons: [
         { label: 'Claim your pilot', type: 'primary', icon: '⚡' },
         { label: 'See the problem', type: 'secondary', icon: '💡' },
@@ -68,25 +153,25 @@ export const landingConfig = {
       'Informal sector employers and blue-collar workers have no trusted, accessible, or structured way to find each other.',
     painPoints: [
       {
-        who: 'Employer',
+        who: 'Employer (Shivanand)',
         icon: '🏭',
-        title: 'The search restarts from zero — every time',
+        title: 'Hiring is an exhausting, continuous crisis',
         body:
-          '90% of informal workers leave within weeks. There is no platform, no pipeline, no system. Every vacancy means hours of phone calls, asking contacts, and failed screen calls — all over again. For 15 years, the same painful loop.',
+          'Spends weeks searching personal networks to find even one reliable worker. "Hiring itself is a very difficult task — we keep asking the same people again and again." After 15 years, the problem remains unresolved.',
       },
       {
-        who: 'Worker',
+        who: 'Employer (M Mahajan)',
+        icon: '📦',
+        title: 'Floods of applicants, but zero commitment',
+        body:
+          'Receives floods of irrelevant applications. Shortlisted candidates frequently no-show, wasting time and stalling operations. "Too many apply but none are serious — and the ones we call, they just don\'t come."',
+      },
+      {
+        who: 'Worker (Suresh B.)',
         icon: '👷',
-        title: "Months unemployed between jobs they can't reach",
+        title: "Invisible to the formal economy",
         body:
-          'Workers are locked out of every existing job platform — no smartphone, no literacy, no data. Government schemes worth lakhs go unclaimed. The right job exists. The right worker exists. They never meet.',
-      },
-      {
-        who: 'System',
-        icon: '🔗',
-        title: 'Word-of-mouth is the only "solution" — and it\'s broken',
-        body:
-          'Naukri, LinkedIn, and every major platform are built for white-collar India. The ₹450M informal workforce is completely invisible to them. The only existing solution is unreliable, unscalable, and exclusionary.',
+          'Trained but no platform to connect with employers. Relies entirely on word-of-mouth. "I don\'t know where to go — I keep running around but nothing happens." ~50% of workers stay jobless between gigs.',
       },
     ],
     verdict: {
@@ -97,107 +182,107 @@ export const landingConfig = {
   },
 
   howItWorks: {
-    tag: 'Journey',
-    title: 'From missed call to milestone',
-    description: 'A seamless, end-to-end loop designed for the informal economy.',
+    tag: 'The Solution',
+    title: 'Voice-First Frictionless Recruitment',
+    description: 'Moving from "channel chaos" to a structured, trust-based employment exchange.',
     workerJourney: [
       {
         step: 1,
-        title: 'Missed call initiation',
-        description: 'Toll-free, zero-charge, zero-data. Familiar pattern for rural India.',
-        faq: 'What if I have no credit? (It works even with zero balance)',
+        title: 'Voice-First Onboarding',
+        description: 'Toll-free IVR sign-up in 22+ languages. A spoken conversation is converted into a structured Job ID.',
+        faq: 'Does it work on basic phones? (Yes, no smartphone or internet required)',
       },
       {
         step: 2,
-        title: 'IVR callback',
-        description: 'BHASHINI multilingual voice menu. Speak naturally in your dialect.',
+        title: 'Verified Trust Engine',
+        description: 'Unique Job Codes and digital trails track reliability, attendance, and behaviour.',
       },
       {
         step: 3,
-        title: 'Digital Job ID',
-        description: 'Voice biometric as identity. No passwords, no hardware needed.',
+        title: '30-Second Voice Pitch',
+        description: 'Record a spoken intro. Employers hear your fit before calling, eliminating wasted visits.',
       },
       {
         step: 4,
-        title: 'SMS confirmation',
-        description: '1-digit reply. No typing, no forms, instant confirmation.',
+        title: 'Targeted SMS Match',
+        description: 'System sends targeted alerts based on location and skill match. Apply with a single tap.',
       },
       {
         step: 5,
-        title: 'Employer notification',
-        description: 'WhatsApp card with your voice note and transcript.',
+        title: 'Candidate Backup System',
+        description: 'If a worker fails to show up, the system auto-notifies the verified pool to recover the process.',
       },
       {
         step: 6,
-        title: 'Credibility loop',
-        description: 'Ratings build a portable, digital employment history.',
+        title: 'Economic Portability',
+        description: 'Ratings build a portable digital record, opening doors to Govt. schemes like PM Vishwakarma.',
       },
     ],
     employerJourney: [
       {
-        title: 'WhatsApp notifications',
-        description: 'Receive applicants where you already live. No new portal to learn.',
+        title: 'WhatsApp Job Post',
+        description: 'Post requirements where you already live. No complex dashboards to learn.',
       },
       {
-        title: 'Applicant cards',
-        description: 'Detailed view with voice, transcript, and reputation score.',
+        title: 'Voice-Screened Review',
+        description: 'Review verified transcripts and audio recordings of the 30-second pitches.',
       },
       {
-        title: '1-tap hiring',
-        description: 'Approve, shortlist, or call back with a single button.',
+        title: '24-Hour Guarantee',
+        description: 'Get a verified, location-matched candidate within 24 hours or we find a replacement for free.',
       },
     ],
     faqs: [
-      { q: 'What languages are supported?', a: '22+ scheduled Indian languages via BHASHINI.' },
-      { q: 'Is it DPDP Act compliant?', a: 'Yes, we use consent-first data handling.' },
-      { q: 'How is identity verified?', a: 'Vocal pitch biometrics ensure unique profiles.' },
+      { q: 'How does it handle low literacy?', a: 'Entirely voice-based interaction via BHASHINI AI; no reading or writing required.' },
+      { q: 'What is the "Mafia Offer"?', a: 'Verified candidates in 24h or we find a replacement at no extra cost.' },
+      { q: 'Is it built for Tier-2 cities?', a: 'Yes, specifically engineered for the labor paradoxes of cities like Hubballi-Dharwad.' },
     ],
   },
 
   features: {
     worker: [
-      { title: 'BHASHINI Voice', desc: '22+ languages, auto-detect' },
-      { title: 'Missed Call', desc: 'Zero-cost, feature-phone ready' },
-      { title: '1-tap SMS', desc: '<90 sec total application time' },
-      { title: 'Voice Biometric', desc: 'Hardware-free identity layer' },
+      { title: 'Literacy-Free', desc: 'Register via voice in 22+ languages' },
+      { title: 'Trust Builder', desc: 'Build a verified work record' },
+      { title: 'Zero Cost', desc: 'No agent fees, no internet needed' },
+      { title: 'Govt. Bridge', desc: 'Access Mudra & Vishwakarma schemes' },
     ],
     employer: [
-      { title: 'WhatsApp Dashboard', desc: 'Zero onboarding, mobile-native' },
-      { title: 'Instant Card', desc: 'Voice + transcript + score' },
-      { title: '1-tap Shortlist', desc: 'Frictionless hiring actions' },
-      { title: 'ONEST Bulk Post', desc: 'Broadcast to open network' },
+      { title: '24h Velocity', desc: 'Verified candidates in one day' },
+      { title: 'No-Show Recovery', desc: 'Automated backup pool notifications' },
+      { title: 'Voice Screening', desc: 'Hear the candidate before you call' },
+      { title: 'WhatsApp Integrated', desc: 'Zero learning curve infrastructure' },
     ],
     comparison: [
-      { feature: 'Literacy Required', haazri: 'None', traditional: 'High' },
-      { feature: 'Device', haazri: 'Any Phone', traditional: 'Smartphone' },
-      { feature: 'Internet', haazri: 'Not Required', traditional: 'Required' },
-      { feature: 'Time to Apply', haazri: '<2 min', traditional: '20+ min' },
+      { feature: 'Hiring Channel', haazri: 'Structured Voice', traditional: 'Fragile Word-of-Mouth' },
+      { feature: 'Trust Layer', haazri: 'Verified Ratings', traditional: 'Blind Referral / Gut' },
+      { feature: 'Recovery', haazri: 'Auto-Backup Pool', traditional: 'Restart from Zero' },
+      { feature: 'Worker Access', haazri: 'Any Phone / Voice', traditional: 'Smartphone / Literacy' },
     ],
   },
 
   technology: {
     architecture: [
       { item: 'ASR/TTS Engine', tech: 'BHASHINI', purpose: 'Multilingual Voice' },
-      { item: 'Identity Layer', tech: 'Voice Biometrics', purpose: 'Secure Portability' },
-      { item: 'Message Protocol', tech: 'ONEST / Beckn', purpose: 'Interoperability' },
-      { item: 'Interface', tech: 'WhatsApp / SMS', purpose: 'Zero-Friction Access' },
+      { item: 'Onboarding', tech: 'Toll-free IVR', purpose: 'Literacy-Free Access' },
+      { item: 'Message Protocol', tech: 'ONEST / Beckn', purpose: 'Interoperable Exchange' },
+      { item: 'Matching Engine', tech: 'Location-Aware AI', purpose: 'High Velocity Placement' },
     ],
-    compliance: 'Fully DPDP Act 2023 compliant and built on India Stack open standards.',
+    compliance: 'Fully DPDP Act 2023 compliant. Built on ONDC/ONEST and BHASHINI open standards.',
   },
 
   impact: {
-    title: 'The ₹450M Informal Economy',
-    description: 'HAAZRI acts as the digital bridge, connecting the unorganized sector to modern work opportunities at an unprecedented scale.',
+    title: 'Solving a 15-Year Market Failure',
+    description: 'HAAZRI targets the labour paradox where employers are desperate to hire while 50% of ex-workers remain jobless.',
     metrics: [
-      { label: 'Target Workforce', value: '450M+' },
-      { label: 'Exclusion Rate', value: '90%' },
-      { label: 'Languages', value: '22+' },
-      { label: 'Literacy Barrier', value: '0%' },
+      { label: 'Worker Attrition', value: '90%' },
+      { label: 'Problem Duration', value: '15+ yrs' },
+      { label: 'Unclaimed Schemes', value: '₹Crores' },
+      { label: 'Placement Target', value: '24 Hours' },
     ],
     personas: [
-      { name: 'Ramu', role: 'Security Guard', context: 'Feature phone user, Hindi speaker.' },
-      { name: 'Sunita', role: 'Domestic Worker', context: 'No literacy, Rajasthani dialect.' },
-      { name: 'Mahesh', role: 'Construction Labour', context: 'Seasonal migrant, Marathi speaker.' },
+      { name: 'Shivanand', role: 'CEO, Uday Ikas', context: 'Desperate for reliable workers; tired of informal chaos.' },
+      { name: 'M Mahajan', role: 'CEO, Shree Manjunath', context: 'Wastes hours on no-shows and irrelevant applicants.' },
+      { name: 'Suresh B.', role: 'ITI Graduate', context: 'Jobless despite skills; no platform to reach employers.' },
     ],
   },
 

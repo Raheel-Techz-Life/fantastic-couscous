@@ -44,6 +44,7 @@ export function CTASection() {
             <Button 
               size="lg" 
               className="rounded-full px-10 h-16 text-lg font-bold bg-white text-slate-900 hover:bg-white/90 shadow-2xl shadow-black/20 gap-2 group"
+              aria-label="Contact HAAZRI team via email"
             >
               <Mail className="w-5 h-5" />
               Get in touch
@@ -53,6 +54,7 @@ export function CTASection() {
               variant="outline" 
               size="lg" 
               className="rounded-full px-10 h-16 text-lg font-bold border-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white gap-2"
+              aria-label="View HAAZRI project on GitHub"
             >
               <Github className="w-5 h-5" />
               View on GitHub
