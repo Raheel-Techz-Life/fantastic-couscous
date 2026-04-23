@@ -1,166 +1,269 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { IVRSimulator } from '@/components/landing/IVRSimulator'
-import { PremiumCard } from '@/components/ui/premium-card'
 import { 
-  CheckCircle2, 
-  HelpCircle, 
   PhoneCall, 
   Mic, 
   Fingerprint, 
   MessageSquare, 
   Smartphone, 
-  Star 
+  Star,
+  Zap,
+  ShieldCheck,
+  ChevronDown,
+  LayoutGrid,
+  Bot
 } from 'lucide-react'
+import { VoiceMesh } from '@/components/landing/VoiceMesh'
 
 const icons = [PhoneCall, Mic, Fingerprint, MessageSquare, Smartphone, Star]
 
 export function HowItWorksClient() {
   const { howItWorks } = landingConfig
+  const [activeJourney, setActiveJourney] = useState<'worker' | 'employer'>('worker')
 
   return (
-    <>
-      {/* Hero Header */}
-      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-mesh relative overflow-hidden">
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
-        <div className="max-w-7xl mx-auto relative z-10">
+    <div className="relative min-h-screen bg-background">
+      {/* ──── Hero ──── */}
+      <section className="relative pt-32 pb-20 px-6 md:px-10 overflow-hidden bg-mesh">
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px]" />
+        <VoiceMesh />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <div className="flex justify-center mb-6">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-[10px] font-bold text-red-500 uppercase tracking-[0.2em]"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              Intelligence Engine Live
+            </motion.div>
+          </div>
+          
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-black uppercase tracking-widest mb-8"
           >
+            <Zap className="w-3.5 h-3.5" />
             {howItWorks.tag}
           </motion.div>
+
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black mb-8 tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tighter leading-[0.9] text-foreground"
           >
             {howItWorks.title}
           </motion.h1>
+
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-xl max-w-2xl leading-relaxed"
+            className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed"
           >
             {howItWorks.description}
           </motion.p>
         </div>
       </section>
 
-      {/* Worker Journey */}
-      <section className="py-24 px-6 md:px-10 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-              <Mic className="w-5 h-5" />
-            </div>
-            Worker Journey
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {howItWorks.workerJourney.map((step, idx) => {
-              const Icon = icons[idx] || Star
-              return (
-                <PremiumCard 
-                  key={idx}
-                  delay={idx * 0.1}
-                  className="group relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 p-8 text-8xl font-black text-foreground/5 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {step.step}
-                  </div>
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {step.description}
-                  </p>
-                  {step.faq && (
-                    <div className="pt-4 border-t border-border flex items-start gap-2">
-                      <HelpCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      <p className="text-xs font-medium italic text-primary/80">{step.faq}</p>
-                    </div>
-                  )}
-                </PremiumCard>
-              )
-            })}
+      {/* ──── Journey Toggle ──── */}
+      <section className="relative z-30 -mt-10 px-6">
+        <div className="flex justify-center">
+          <div className="flex p-1.5 rounded-[2rem] bg-background/80 backdrop-blur-xl border border-border shadow-2xl">
+            <button 
+              onClick={() => setActiveJourney('worker')}
+              className={`px-8 py-3.5 rounded-[1.5rem] text-sm font-black transition-all duration-500 ${
+                activeJourney === 'worker' 
+                  ? 'bg-foreground text-background shadow-lg' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Worker Journey
+            </button>
+            <button 
+              onClick={() => setActiveJourney('employer')}
+              className={`px-8 py-3.5 rounded-[1.5rem] text-sm font-black transition-all duration-500 ${
+                activeJourney === 'employer' 
+                  ? 'bg-foreground text-background shadow-lg' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Employer Journey
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Simulator Section */}
-      <section className="py-24 px-6 md:px-10 lg:px-20 bg-secondary/20">
-        <div className="max-w-7xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Experience it now</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Interact with our IVR simulator to see how easy it is for a worker to apply.
-          </p>
-        </div>
-        <div className="max-w-4xl mx-auto">
-          <IVRSimulator />
-        </div>
-      </section>
+      {/* ──── Journey Steps ──── */}
+      <section className="py-24 px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
+        <AnimatePresence mode="wait">
+          {activeJourney === 'worker' ? (
+            <motion.div 
+              key="worker"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {howItWorks.workerJourney.map((step, idx) => {
+                const Icon = icons[idx] || Star
+                return (
+                  <div key={idx} className="hiw-step-card group relative p-10 rounded-[2.5rem] bg-secondary/5 border border-border transition-all hover:border-primary hover:bg-secondary/10">
+                    <div className="absolute top-4 right-8 text-8xl font-black text-foreground/[0.03] pointer-events-none">{step.step}</div>
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-2xl font-black mb-4">{step.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-8">{step.description}</p>
+                    
+                    <div className="pt-6 border-t border-dashed border-border flex items-center gap-3">
+                      <div className="text-[10px] font-black uppercase tracking-widest text-primary/60">Protocol: 0x{idx + 1}F</div>
+                      <div className="w-1 h-1 rounded-full bg-primary/30" />
+                      <div className="text-[10px] font-black uppercase tracking-widest text-primary/60">Status: Verified</div>
+                    </div>
 
-      {/* Employer Journey */}
-      <section className="py-24 px-6 md:px-10 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Employer Experience</h2>
-              <div className="space-y-8">
+                    {step.faq && (
+                      <div className="mt-8 p-5 rounded-2xl bg-primary/5 border border-primary/10 flex gap-4">
+                        <Bot className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <p className="text-xs font-bold text-primary/70 leading-relaxed italic">
+                          "{step.faq}"
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
+            </motion.div>
+          ) : (
+            <motion.div 
+              key="employer"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              className="grid lg:grid-cols-2 gap-16 items-center"
+            >
+              <div className="space-y-10">
                 {howItWorks.employerJourney.map((step, idx) => (
                   <motion.div 
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="flex gap-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex gap-8 group"
                   >
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                      <CheckCircle2 className="w-5 h-5" />
-                    </div>
+                    <div className="w-3 h-3 rounded-full bg-primary mt-2 group-hover:scale-150 transition-transform shadow-[0_0_15px_rgba(var(--primary),0.5)]" />
                     <div>
-                      <h3 className="font-bold mb-1">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+                      <h3 className="text-2xl font-black mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-lg">{step.description}</p>
                     </div>
                   </motion.div>
                 ))}
+                
+                <div className="p-8 rounded-[2.5rem] bg-primary/5 border border-primary/10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <ShieldCheck className="w-6 h-6 text-primary" />
+                    <span className="font-black uppercase tracking-[0.2em] text-xs text-primary">Mafia Offer Guarantee</span>
+                  </div>
+                  <p className="text-muted-foreground italic text-lg leading-relaxed">
+                    "We find you a verified, location-matched candidate within 24 hours or the process is free."
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="p-8 rounded-3xl border border-border glass shadow-premium">
-              <div className="aspect-square bg-primary/5 rounded-2xl flex items-center justify-center border border-dashed border-primary/20">
-                <p className="text-xs text-primary font-bold tracking-widest">WhatsApp UI Preview</p>
+
+              <div className="relative aspect-square rounded-[3rem] bg-secondary/10 border border-border flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-radial-gradient(from 50% 50%, circle, transparent, rgba(0,0,0,0.1))" />
+                <div className="text-center p-12">
+                  <LayoutGrid className="w-16 h-16 text-primary/20 mx-auto mb-6" />
+                  <p className="text-xs font-black uppercase tracking-[0.3em] text-primary/40">
+                    Proprietary Interface [HAAZRI_CORE_v1]
+                  </p>
+                </div>
               </div>
-            </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+
+      {/* ──── Simulator ──── */}
+      <section className="py-32 bg-secondary/5 border-y border-border relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-5xl font-black mb-6"
+            >
+              Experience the Intelligence
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-muted-foreground text-xl max-w-2xl mx-auto"
+            >
+              Interact with our live IVR simulator to see how BHASHINI converts voice to structured talent data.
+            </motion.p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <IVRSimulator />
           </div>
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-24 px-6 md:px-10 lg:px-20 border-t border-border">
+      {/* ──── FAQ ──── */}
+      <section className="py-32 px-6 max-w-4xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-black text-center mb-20">Technical Briefing (FAQ)</h2>
+        <div className="space-y-4">
+          {howItWorks.faqs.map((faq, idx) => (
+            <motion.details 
+              key={idx} 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.05 }}
+              className="group rounded-[2rem] bg-secondary/5 border border-border overflow-hidden transition-all hover:border-primary/50"
+            >
+              <summary className="p-8 flex justify-between items-center cursor-pointer font-black text-xl list-none">
+                {faq.q}
+                <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center group-open:rotate-180 transition-transform">
+                  <ChevronDown className="w-5 h-5" />
+                </div>
+              </summary>
+              <div className="px-8 pb-8 text-muted-foreground text-lg leading-relaxed">
+                {faq.a}
+              </div>
+            </motion.details>
+          ))}
+        </div>
+      </section>
+
+      {/* ──── Final CTA ──── */}
+      <section className="py-32 px-6 text-center border-t border-border">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            {howItWorks.faqs.map((faq, idx) => (
-              <details key={idx} className="group p-6 rounded-2xl border border-border bg-card hover:border-primary transition-colors cursor-pointer">
-                <summary className="font-bold list-none flex justify-between items-center text-lg">
-                  {faq.q}
-                  <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-muted-foreground group-open:rotate-180 transition-transform">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
-                </summary>
-                <p className="mt-4 text-muted-foreground leading-relaxed">{faq.a}</p>
-              </details>
-            ))}
+          <div className="w-20 h-1.5 bg-primary/20 mx-auto mb-10 rounded-full" />
+          <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tight">Ready to scale your talent pipeline?</h2>
+          <p className="text-muted-foreground text-xl mb-12 leading-relaxed">
+            Join the elite circle of employers leveraging voice-first recruitment infrastructure.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="px-10 py-5 bg-primary text-white font-black rounded-full shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
+              Claim Your Pilot
+            </button>
+            <button className="px-10 py-5 bg-secondary text-foreground font-black rounded-full hover:bg-secondary/80 transition-all">
+              Talk to an Architect
+            </button>
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

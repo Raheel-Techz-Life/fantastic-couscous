@@ -2,6 +2,7 @@
 @import 'tw-animate-css';
 @import '../styles/hero.css';
 @import '../styles/problem.css';
+@import '../styles/how-it-works.css';
 
 @custom-variant dark (&:is(.dark *));
 
