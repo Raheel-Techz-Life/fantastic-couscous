@@ -9,7 +9,7 @@ import { landingConfig } from '@/config/landing-data'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Menu, X, Circle } from 'lucide-react'
 
-const MotionImage = motion(Image)
+const MotionImage = motion.create(Image)
 
 export function Navigation() {
   const { branding, navigation } = landingConfig
