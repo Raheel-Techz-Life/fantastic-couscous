@@ -294,12 +294,12 @@ export const landingConfig: LandingConfig = {
       {
         initials: 'VK',
         name: 'Vishwanath Koliwad',
-        role: 'Vibe Architect & Logic Boss',
+        role: 'Principal Architect & Logic Lead',
         description: 'Cooking the core infrastructure that keeps HAAZRI breathing. Low-level optimization and high-performance server logic so things stay strictly no-cap when it actually matters.',
         location: 'Hubballi, Karnataka',
         image: '/vishwanath.jpg',
         avatarColor: 'blue',
-        badge: 'Builder',
+        badge: 'Lead Builder',
         socials: [
           { name: 'PORTFOLIO', url: 'https://vk.vishwadev.tech/' }
         ]
@@ -307,7 +307,7 @@ export const landingConfig: LandingConfig = {
       {
         initials: 'BD',
         name: 'Bhumika Dalabhanjan',
-        role: 'Ops Boss & Roadmap Brain',
+        role: 'Chief of Ops & Strategy',
         description: 'Keeping the squad locked in and orchestrating the timeline. Making sure we don’t just write code, but actually deploy it seamlessly when the stakes are high.',
         location: 'Hubballi, Karnataka',
         image: '/bhumika.jpg',
@@ -320,7 +320,7 @@ export const landingConfig: LandingConfig = {
       {
         initials: 'DR',
         name: 'Disha Raikar',
-        role: 'Aesthetic Director & Hype Visionary',
+        role: 'Aesthetic Lead & Visionary',
         description: 'Bridging the gap between raw functionality and insanely slick interfaces. Bringing clean, next-gen visual systems to a sector that desperately needs a UI glow-up.',
         location: 'Hubballi, Karnataka',
         image: '/disha.jpg',
@@ -333,7 +333,7 @@ export const landingConfig: LandingConfig = {
       {
         initials: 'RH',
         name: 'Raheel Hosmani',
-        role: 'AI Whisperer & Speedrunner',
+        role: 'AI Systems & Speedrunner',
         description: 'High-frequency code shipper. Hooking up the autonomous AI systems and making sure our intelligence engines run blazing fast. If it ain’t quick, he don’t want it.',
         location: 'Hubballi, Karnataka',
         image: '/raheel.jpg',

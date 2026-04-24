@@ -13,6 +13,7 @@ import {
   ResponsiveContainer, 
   Cell 
 } from 'recharts'
+import { GrowthScene } from './GrowthScene'
 
 const data = [
   { name: 'Traditional Jobs', value: 50, color: 'var(--color-muted)' },
@@ -24,9 +25,7 @@ export function ImpactSection() {
 
   return (
     <section className="px-6 py-16 md:px-10 lg:px-20 bg-primary-soft/10 relative overflow-hidden" id="impact">
-      {/* Background Blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      <GrowthScene />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Check, ShieldCheck, Zap, TrendingUp } from 'lucide-react'
+import { ShieldScene } from './ShieldScene'
 
 export function MafiaOffer() {
   const points = [
@@ -26,6 +27,7 @@ export function MafiaOffer() {
 
   return (
     <section className="py-24 px-6 md:px-10 lg:px-20 relative overflow-hidden bg-background">
+      <ShieldScene />
       <div className="max-w-7xl mx-auto">
         <div className="rounded-[3rem] bg-foreground text-background p-12 md:p-20 relative overflow-hidden shadow-2xl">
           {/* Decorative Mesh Background */}

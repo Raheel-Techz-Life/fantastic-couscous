@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { SquadScene } from './SquadScene'
 
 const avatarColors: Record<string, string> = {
   teal: 'bg-primary/10 text-primary',
@@ -19,6 +20,7 @@ export function TeamSection() {
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,84,0,0.05),transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 bg-mesh opacity-10 pointer-events-none mix-blend-screen" />
+      <SquadScene />
       
       <div className="max-w-6xl mx-auto relative z-10">
         

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { PremiumCard } from '@/components/ui/premium-card'
 import { Badge } from '@/components/ui/badge'
+import { NetworkScene } from './NetworkScene'
 import { 
   PhoneIncoming, 
   RefreshCw, 
@@ -19,8 +20,9 @@ export function TechnologySection() {
   const { technology } = landingConfig
 
   return (
-    <section className="px-6 py-24 md:px-10 lg:px-20 bg-secondary/30 relative" id="technology">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-6 py-24 md:px-10 lg:px-20 bg-secondary/30 relative overflow-hidden" id="technology">
+      <NetworkScene />
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-16">
           <motion.div 

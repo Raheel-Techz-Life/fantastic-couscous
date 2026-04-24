@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { VoiceMesh } from '@/components/landing/VoiceMesh'
+import { Canvas } from '@react-three/fiber'
+import { Text, Float, Center } from '@react-three/drei'
 import { 
   Users, 
   BarChart3, 
@@ -15,39 +17,63 @@ import {
   Heart
 } from 'lucide-react'
 
+function Headline3D({ text }: { text: string }) {
+  return (
+    <div className="absolute inset-0 z-20 pointer-events-none">
+      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 10, 10]} intensity={1} />
+        <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+          <Center>
+            <Text
+              fontSize={0.8}
+              color="#ffffff"
+              maxWidth={8}
+              textAlign="center"
+              outlineWidth={0.02}
+              outlineColor="#FF5400"
+            >
+              {text}
+            </Text>
+          </Center>
+        </Float>
+      </Canvas>
+    </div>
+  )
+}
+
 export function ImpactClient() {
   const { impact } = landingConfig
 
   return (
     <div className="relative min-h-screen bg-background">
       {/* ──── Hero ──── */}
-      <section className="relative pt-32 pb-24 px-6 md:px-10 overflow-hidden bg-mesh">
+      <section className="relative pt-32 pb-24 px-6 md:px-10 overflow-hidden bg-mesh min-h-[70vh] flex items-center justify-center">
         <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px]" />
         <VoiceMesh />
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
+        <Headline3D text={impact.title} />
+        
+        <div className="relative z-30 max-w-7xl mx-auto text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-black uppercase tracking-widest mb-8"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-black uppercase tracking-widest mb-12"
           >
             <Heart className="w-3.5 h-3.5" />
             Social Mission
           </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tighter leading-[0.9] text-foreground"
-          >
-            Scaling <span className="text-primary italic">Dignity</span>
-          </motion.h1>
+          
+          <h1 className="sr-only">{impact.title}</h1>
+          
+          <div className="h-64 md:h-96 lg:h-[32rem]" /> {/* Extra Large Spacer for 3D Text */}
+          
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed"
           >
-            We're building the first-ever digital employment record for the 450 million workers currently hidden in India's informal economy.
+            {impact.description}
           </motion.p>
         </div>
       </section>

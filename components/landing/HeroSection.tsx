@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { useEffect, useState } from 'react'
 import { Phone, Mic, CheckCircle, ArrowRight, Volume2, Globe, Smartphone } from 'lucide-react'
+import { HeroScene } from './HeroScene'
 
 /* ─────────── Animated Counter ─────────── */
 function AnimatedCounter({ target }: { target: string }) {
@@ -186,7 +187,7 @@ export function HeroSection() {
   return (
     <div className="hero-root">
       {/* Background Effects */}
-      <FloatingOrbs />
+      <HeroScene />
       <div className="hero-grid-pattern" />
       <div className="hero-radial-fade" />
 
