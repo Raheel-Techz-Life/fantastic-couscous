@@ -18,7 +18,7 @@ export function IVRSimulator() {
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
-    let interval: any
+    let interval: NodeJS.Timeout
     if (isActive) {
       interval = setInterval(() => {
         setCurrentStep((prev) => (prev + 1) % steps.length)
@@ -106,7 +106,8 @@ export function IVRSimulator() {
       </div>
 
       {/* Reflections */}
-      <div className="absolute inset-0 pointer-events-none bg-linear-to-tr from-white/5 to-transparent opaicty-30" />
+      <div className="absolute inset-0 pointer-events-none bg-linear-to-tr from-white/5 to-transparent opacity-30" />
+
     </div>
   )
 }

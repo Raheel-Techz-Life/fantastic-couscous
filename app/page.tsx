@@ -1,101 +1,75 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { landingConfig } from '@/config/landing-data'
+import { VernacularPreloader } from '@/components/ui/vernacular-preloader'
 import { Navigation } from '@/components/landing/Navigation'
 import { HeroSection } from '@/components/landing/HeroSection'
-import { VideoCarousel } from '@/components/landing/VideoCarousel'
+import { ProofOfConcept } from '@/components/landing/ProofOfConcept'
 import { HowItWorks } from '@/components/landing/HowItWorks'
 import { ImpactSection } from '@/components/landing/ImpactSection'
-import { FeaturesSection } from '@/components/landing/FeaturesSection'
 import { TechnologySection } from '@/components/landing/TechnologySection'
 import { TeamSection } from '@/components/landing/TeamSection'
 import { ProblemStatement } from '@/components/landing/ProblemStatement'
 import { MafiaOffer } from '@/components/landing/MafiaOffer'
 import { StakeholderProof } from '@/components/landing/StakeholderProof'
+import { FieldInsights } from '@/components/landing/FieldInsights'
 import { CTASection } from '@/components/landing/CTASection'
 import { Footer } from '@/components/landing/Footer'
-import { IVRSimulator } from '@/components/landing/IVRSimulator'
-import { WhatsAppDashboard } from '@/components/landing/WhatsAppDashboard'
 import { DifferentiatorsSection } from '@/components/landing/DifferentiatorsSection'
 
 export default function Home() {
-  const { branding } = landingConfig
+  const [showPreloader, setShowPreloader] = useState(true)
 
   return (
-    <main className="min-h-screen bg-background">
-      <Navigation />
+    <>
+      <VernacularPreloader show={showPreloader} onComplete={() => setShowPreloader(false)} />
       
-      {/* 1. HeroSection (The Hook) */}
-      <HeroSection />
-
-      {/* 2. The One Big Problem (The Tension) */}
-      <ProblemStatement />
-
-      {/* 3. MafiaOffer (The Core Commitment) */}
-      <MafiaOffer />
-
-      {/* 3. StakeholderProof (The Logic for 3 Personas) */}
-      <StakeholderProof />
-
-      {/* 4. Live Demo Showcase (The Solution in Principle) */}
-      <section className="py-24 px-6 md:px-10 lg:px-20 bg-secondary/20">
-        <div className="max-w-7xl mx-auto text-center mb-16 space-y-4">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
-          >
-            Proof of Concept
-          </motion.div>
-          <h2 className="text-4xl font-black tracking-tight underline decoration-primary/30 underline-offset-8">Validating the logic</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto italic">"You are not validating the UI; you are validating that the logic of your solution solves the problem."</p>
-        </div>
-        <div className="max-w-7xl mx-auto flex flex-col gap-16">
-          <div className="w-full max-w-5xl mx-auto">
-            <VideoCarousel />
-          </div>
+      {!showPreloader && (
+        <main className="min-h-screen bg-background animate-in fade-in duration-1000">
+          <Navigation />
           
-          <div className="space-y-10">
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <h3 className="text-3xl font-bold">Dual Experience Simulator</h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Experience the 48-hour pipeline logic from both the worker's voice-first interaction and the employer's mobile-native review dashboard.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
-              <div className="p-6 rounded-3xl border border-border bg-card shadow-premium overflow-hidden flex justify-center">
-                <IVRSimulator />
-              </div>
-              <div className="flex justify-center w-full">
-                <WhatsAppDashboard />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          {/* 1. HeroSection (The Hook) */}
+          <HeroSection />
 
-      {/* 5. How It Works (The Narrative Flow) */}
-      <HowItWorks />
+          {/* 2. The One Big Problem (The Tension) */}
+          <ProblemStatement />
 
-      {/* 5.5 Key Differentiators */}
-      <DifferentiatorsSection />
+          {/* 3. MafiaOffer (The Core Commitment) */}
+          <MafiaOffer />
 
-      {/* 6. Impact Numbers (Quantitative Thresholds) */}
-      <ImpactSection />
+          {/* 4. StakeholderProof (The Logic for 3 Personas) */}
+          <StakeholderProof />
 
-      {/* 7. Technology Stack (The Unique Mechanism) */}
-      <TechnologySection />
+          {/* 5. Field Insights (The Intelligence) */}
+          <FieldInsights />
 
-      {/* 8. Team Section (The Verification) */}
-      <TeamSection />
+          {/* 5.5 Key Differentiators */}
+          <DifferentiatorsSection />
 
-      {/* 9. Footer CTA (The Monetization Gate) */}
-      <CTASection />
+          {/* 6. Proof of Concept (Validation) */}
+          <ProofOfConcept />
 
-      <Footer />
-    </main>
+          {/* 7. How It Works (The Narrative Flow) */}
+          <HowItWorks />
+
+          {/* 8. Impact Numbers (Quantitative Thresholds) */}
+          <ImpactSection />
+
+          {/* 9. Technology Stack (The Unique Mechanism) */}
+          <TechnologySection />
+
+          {/* 10. Team Section (The Verification) */}
+          <TeamSection />
+
+          {/* 11. Footer CTA (The Monetization Gate) */}
+          <CTASection />
+
+          <Footer />
+        </main>
+      )}
+    </>
   )
 }
 

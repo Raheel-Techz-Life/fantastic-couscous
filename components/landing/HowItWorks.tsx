@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
+import { PremiumCard } from '@/components/ui/premium-card'
 import { PhoneCall, Mic, Fingerprint, MessageSquare, Smartphone, Star } from 'lucide-react'
 
 const icons = [PhoneCall, Mic, Fingerprint, MessageSquare, Smartphone, Star]
@@ -9,36 +10,15 @@ const icons = [PhoneCall, Mic, Fingerprint, MessageSquare, Smartphone, Star]
 export function HowItWorks() {
   const { howItWorks } = landingConfig
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  }
-
   return (
-    <section className="px-6 py-16 md:px-10 lg:px-20 bg-background overflow-hidden" id="howitworks">
+    <section className="px-6 py-24 md:px-10 lg:px-20 bg-background overflow-hidden" id="howitworks">
       {/* Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-20">
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-soft text-primary text-xs font-bold uppercase tracking-widest mb-4"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4"
         >
           {howItWorks.tag}
         </motion.div>
@@ -47,7 +27,7 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-4xl font-bold mb-6 tracking-tight"
+          className="text-4xl md:text-5xl font-bold mb-6 tracking-tight"
         >
           {howItWorks.title}
         </motion.h2>
@@ -63,20 +43,14 @@ export function HowItWorks() {
       </div>
 
       {/* Steps Grid */}
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {howItWorks.workerJourney.map((step, idx) => {
           const Icon = icons[idx] || Star
           return (
-            <motion.div
+            <PremiumCard
               key={step.step}
-              variants={itemVariants}
-              className="group relative p-8 rounded-3xl border border-border bg-card hover:bg-primary-soft/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
+              delay={idx * 0.1}
+              className="group relative overflow-hidden"
             >
               {/* Step Number Background */}
               <div className="absolute -right-2 top-0 text-[120px] font-black opacity-[0.03] select-none pointer-events-none group-hover:opacity-[0.05] transition-opacity">
@@ -98,10 +72,10 @@ export function HowItWorks() {
                   {step.description}
                 </p>
               </div>
-            </motion.div>
+            </PremiumCard>
           )
         })}
-      </motion.div>
+      </div>
     </section>
   )
 }

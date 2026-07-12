@@ -16,40 +16,46 @@ export function StakeholderProof() {
 
   const stakeholders = [
     {
-      role: "The Payer (Employer)",
-      goal: "Hiring Velocity & Cost Reduction",
-      pain: "It takes 2 weeks to hire one person who might quit in 2 days.",
-      solution: "Instant locally-sourced pool with voice-verified reputation. Hire in 24 hours.",
+      role: "The Employer (Shivanand)",
+      goal: "Stop the Continuous Crisis",
+      pain: "Spending weeks searching personal networks for one reliable worker. It never stops.",
+      solution: "Instant, locally-sourced talent pool with verified 24-hour placement. No more restarting from zero.",
       icon: Building2,
-      stat: "40% lower turnover"
+      stat: "24h Placement"
     },
     {
-      role: "The End-User (Worker)",
-      goal: "Zero-Barrier Access",
-      pain: "No internet, no smartphone, cannot fill out online forms.",
-      solution: "Missed call + Voice AI. No reading or writing required. Job ID is your portable CV.",
+      role: "The Job-Seeker (Suresh B.)",
+      goal: "Zero-Barrier Visibility",
+      pain: "No platform to reach employers. Relies on word-of-mouth and stays jobless for months.",
+      solution: "Voice-first onboarding on any phone. No literacy required. Your voice is your portable resume.",
       icon: Users,
       stat: "Applied in 90s"
     },
     {
-      role: "The Data Seeker (Manager)",
-      goal: "Visibility & Compliance",
-      pain: "Informal work has zero digital footprint. Cannot verify history or ratings.",
-      solution: "Real-time analytics on worker performance, attendance, and network reliability.",
+      role: "The Community (Govt. Schemes)",
+      goal: "Last-Mile Delivery",
+      pain: "Funds like PM Vishwakarma exist but awareness is critically low. Schemes go unclaimed.",
+      solution: "HAAZRI acts as the bridge, connecting verified workers to capital and skilling via mobile.",
       icon: BarChart4,
-      stat: "100% data fidelity"
+      stat: "₹Crores Unclaimed"
     }
   ]
 
   return (
     <section className="py-24 px-6 md:px-10 lg:px-20 bg-secondary/10">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl font-bold tracking-tight">One Solution. <span className="text-primary italic">Three Wins.</span></h2>
+        <motion.div 
+          initial={{ opacity: 0, y: -200, scale: 1.3, filter: 'blur(20px)' }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ type: 'spring', stiffness: 400, damping: 15, mass: 1.2 }}
+          className="text-center mb-16 space-y-4"
+        >
+          <h2 className="text-4xl font-bold tracking-tight">One Solution. <span className="text-primary italic inline-block hover:scale-105 hover:-rotate-2 transition-transform">Three Wins.</span></h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             HAAZRI bridges the gap between those who hire, those who work, and those who manage.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1 space-y-4">
@@ -82,10 +88,10 @@ export function StakeholderProof() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, scale: 1.1, y: -60, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, scale: 0.95, y: 20, filter: 'blur(10px)' }}
+                transition={{ type: 'spring', stiffness: 350, damping: 20, mass: 1 }}
                 className="h-full"
               >
                 <Card className="h-full border-none shadow-premium bg-background p-10 md:p-16 rounded-[2.5rem] flex flex-col justify-center">

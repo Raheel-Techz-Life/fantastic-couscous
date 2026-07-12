@@ -5,6 +5,7 @@ import { landingConfig } from '@/config/landing-data'
 import { useEffect, useState } from 'react'
 import { Phone, Mic, CheckCircle, ArrowRight, Volume2, Globe, Smartphone } from 'lucide-react'
 import Link from 'next/link'
+import { HeroScene } from './HeroScene'
 
 /* ─────────── Animated Counter ─────────── */
 function AnimatedCounter({ target }: { target: string }) {
@@ -140,8 +141,11 @@ function FloatingCards() {
             duration: 0.7,
             ease: [0.16, 1, 0.3, 1],
           }}
-          whileHover={{ scale: 1.08, y: -4 }}
+          whileHover={{ scale: 1.05, y: -8, rotate: idx % 2 === 0 ? 2 : -2 }}
+          whileTap={{ scale: 0.95 }}
+          style={{ position: 'relative' }}
         >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-[1.25rem] pointer-events-none" />
           <div className="hero-floating-card-icon" style={{ '--card-idx': idx } as React.CSSProperties}>
             <card.icon size={18} />
           </div>
@@ -171,19 +175,20 @@ export function HeroSection() {
   }
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0, filter: 'blur(10px)' },
+    hidden: { y: 40, opacity: 0, filter: 'blur(12px)', scale: 0.95 },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
       filter: 'blur(0px)',
-      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+      transition: { type: 'spring', damping: 20, stiffness: 80, mass: 1 },
     },
   }
 
   return (
     <div className="hero-root">
       {/* Background Effects */}
-      <FloatingOrbs />
+      <HeroScene />
       <div className="hero-grid-pattern" />
       <div className="hero-radial-fade" />
 
@@ -199,12 +204,55 @@ export function HeroSection() {
         </motion.div>
 
         {/* Headline Block */}
-        <motion.div variants={itemVariants} className="hero-headline-block">
-          <h1 className="hero-headline">
-            India&apos;s <span className="hero-headline-accent">Voice-First</span>
+        <motion.div variants={itemVariants} className="hero-headline-block relative">
+          {/* Animated Tech Rings */}
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[160%] max-w-[800px] border-[1px] border-primary/20 rounded-full border-dashed pointer-events-none mix-blend-screen opacity-50"
+          />
+          <motion.div 
+            animate={{ rotate: -360 }}
+            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[130%] max-w-[600px] border-[1px] border-primary/10 rounded-full border-dotted pointer-events-none mix-blend-screen opacity-40"
+          />
+          
+          <h1 className="hero-headline relative z-10 drop-shadow-2xl flex flex-wrap justify-center gap-x-4 items-center">
+            The 
+            <motion.span 
+              variants={{
+                hidden: { y: -400, opacity: 0, scale: 2, filter: 'blur(20px)' },
+                visible: { 
+                  y: 0, 
+                  opacity: 1, 
+                  scale: 1, 
+                  filter: 'blur(0px)', 
+                  transition: { type: 'spring', stiffness: 400, damping: 12, mass: 1.2, delay: 0.4 } 
+                }
+              }}
+              className="hero-headline-accent inline-block hover:scale-105 transition-transform duration-300 relative z-20 origin-bottom"
+            >
+              48-Hour
+            </motion.span> 
+            Talent Pipeline
           </h1>
-          <h1 className="hero-headline hero-headline-second">
-            Workforce <span className="hero-headline-gradient">OS</span>
+          <h1 className="hero-headline hero-headline-second relative z-10 drop-shadow-2xl mt-2 flex flex-wrap justify-center gap-x-4 items-center">
+            for India&apos;s Next 
+            <motion.span 
+              variants={{
+                hidden: { y: -400, opacity: 0, scale: 2, filter: 'blur(20px)' },
+                visible: { 
+                  y: 0, 
+                  opacity: 1, 
+                  scale: 1, 
+                  filter: 'blur(0px)', 
+                  transition: { type: 'spring', stiffness: 400, damping: 12, mass: 1.2, delay: 0.6 } 
+                }
+              }}
+              className="hero-headline-gradient inline-block hover:hue-rotate-15 transition-all duration-500 relative z-20 origin-bottom"
+            >
+              450M
+            </motion.span>
           </h1>
         </motion.div>
 
@@ -219,20 +267,31 @@ export function HeroSection() {
         </motion.div>
 
         {/* CTA Buttons */}
-        <motion.div variants={itemVariants} className="hero-cta-group">
+        <motion.div variants={itemVariants} className="hero-cta-group relative z-20">
           <Link href="/login" passHref legacyBehavior>
-            <button className="hero-cta-primary cursor-pointer">
-              <span className="hero-cta-primary-glow" />
-              <span className="hero-cta-primary-content">
+            <motion.button 
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }}
+              className="hero-cta-primary group overflow-hidden cursor-pointer"
+            >
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+                animate={{ x: ['-150%', '200%'] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+              />
+              <span className="hero-cta-primary-content relative z-10">
                 ⚡ Claim your pilot
-                <ArrowRight size={18} className="hero-cta-arrow" />
+                <ArrowRight size={18} className="hero-cta-arrow group-hover:translate-x-1 transition-transform" />
               </span>
-            </button>
-          </Link>
+            </motion.button>
           <Link href="/employers" passHref legacyBehavior>
-            <button className="hero-cta-secondary cursor-pointer">
+            <motion.button 
+              whileHover={{ scale: 1.05, backgroundColor: 'var(--primary)', color: 'white', borderColor: 'var(--primary)' }} 
+              whileTap={{ scale: 0.95 }}
+              className="hero-cta-secondary transition-all cursor-pointer"
+            >
               💡 B2B Solutions
-            </button>
+            </motion.button>
           </Link>
         </motion.div>
 

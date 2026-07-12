@@ -14,15 +14,16 @@ export function ProblemStatement() {
 
   const container = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   }
   const item = {
-    hidden: { opacity: 0, y: 32 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+    hidden: { opacity: 0, y: -150, scale: 1.2, filter: 'blur(15px)' },
+    visible: { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 400, damping: 15, mass: 1.2 } },
   }
 
   return (
-    <section className="problem-root">
+    <section className="problem-root relative">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
       {/* Ambient crack line across top */}
       <div className="problem-crack" />
 
@@ -89,10 +90,10 @@ export function ProblemStatement() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {[
-                { label: 'Avg. time-to-fill a vacancy', value: '3–6 weeks', icon: '⏳' },
-                { label: 'Manual calls per hire',         value: '40–80',    icon: '📞' },
-                { label: 'Worker idle time between jobs', value: '2–4 months', icon: '💤' },
-                { label: 'Govt. schemes unclaimed',       value: '₹Lakhs',   icon: '🏛️' },
+                { label: 'Avg. time-to-fill a vacancy', value: '2–4 Weeks', icon: '⏳' },
+                { label: 'Informal calls per hire',         value: '30–60',    icon: '📞' },
+                { label: 'Worker idle time between jobs', value: '2–4 Months', icon: '💤' },
+                { label: 'Govt. schemes unclaimed',       value: '₹Crores',   icon: '🏛️' },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center text-center p-6 rounded-3xl bg-background border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group">
                   <span className="text-3xl mb-4 group-hover:scale-125 transition-transform origin-bottom block">{stat.icon}</span>
@@ -116,7 +117,7 @@ export function ProblemStatement() {
           <blockquote className="problem-verdict-quote">
             {ps.verdict.quote}
           </blockquote>
-          <p className="problem-verdict-attribution">— HAAZRI Problem Brief, 2025</p>
+          <p className="problem-verdict-attribution">— HAAZRI Field Research, Hubballi-Dharwad 2024-25</p>
         </motion.div>
       </motion.div>
     </section>

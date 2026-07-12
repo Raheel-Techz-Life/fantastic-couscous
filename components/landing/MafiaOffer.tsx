@@ -4,28 +4,30 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Check, ShieldCheck, Zap, TrendingUp } from 'lucide-react'
+import { ShieldScene } from './ShieldScene'
 
 export function MafiaOffer() {
   const points = [
     {
       icon: Zap,
       title: "Verified Talent in 24h",
-      desc: "Our voice-biometric pool ensures you get real people, ready to work, instantly."
+      desc: "Stop losing days to empty calls. Get a verified, voice-screened candidate within 24 hours — or we find a replacement for free."
     },
     {
       icon: ShieldCheck,
-      title: "Zero Literacy Barrier",
-      desc: "The only platform where 100% of the applicant pool can use it without help."
+      title: "The Trust Engine",
+      desc: "Unique Job Codes and digital trails track reliability and behavior. Know if a worker is trustworthy before they arrive."
     },
     {
       icon: TrendingUp,
-      title: "Pay-as-you-Hire",
-      desc: "No subscription fees. Only pay when a worker clocks in for their first shift."
+      title: "No-Show Recovery",
+      desc: "If a worker walkout happens, our backup candidate pool ensures zero downtime. Your hiring recovers instantly."
     }
   ]
 
   return (
     <section className="py-24 px-6 md:px-10 lg:px-20 relative overflow-hidden bg-background">
+      <ShieldScene />
       <div className="max-w-7xl mx-auto">
         <div className="rounded-[3rem] bg-foreground text-background p-12 md:p-20 relative overflow-hidden shadow-2xl">
           {/* Decorative Mesh Background */}
@@ -34,21 +36,29 @@ export function MafiaOffer() {
           <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: -200, scale: 1.5, filter: 'blur(20px)' }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 400, damping: 12, mass: 1.2 }}
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-black uppercase tracking-widest border border-primary/30"
               >
                 The Mafia Offer
               </motion.div>
               
-              <div className="space-y-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 150 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 300, damping: 15, mass: 1, delay: 0.2 }}
+                className="space-y-4"
+              >
                 <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-none">
-                  Build your local <span className="text-primary italic">workforce dominance</span>
+                  Build your local <span className="text-primary italic inline-block hover:scale-105 hover:rotate-1 transition-transform">workforce dominance</span>
                 </h2>
                 <p className="text-background/60 text-lg md:text-xl max-w-xl leading-relaxed">
-                  We don't sell features. We sell a 48-hour talent pipeline. If we don't deliver verified applicants in 2 days, your first 5 hires are on us.
+                  We don't sell features. We sell a 24-hour talent pipeline. If we don't deliver verified applicants in 1 day, your next 5 hires are on us.
                 </p>
-              </div>
+              </motion.div>
 
               <div className="space-y-6">
                 {points.map((point, idx) => (
