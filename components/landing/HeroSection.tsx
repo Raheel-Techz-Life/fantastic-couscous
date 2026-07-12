@@ -284,6 +284,7 @@ export function HeroSection() {
                 <ArrowRight size={18} className="hero-cta-arrow group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
+          </Link>
           <Link href="/employers" passHref legacyBehavior>
             <motion.button 
               whileHover={{ scale: 1.05, backgroundColor: 'var(--primary)', color: 'white', borderColor: 'var(--primary)' }} 
