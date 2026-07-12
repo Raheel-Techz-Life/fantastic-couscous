@@ -1,12 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Navigation } from '@/components/landing/Navigation'
 import { Footer } from '@/components/landing/Footer'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
-import { MapPin, Shield, Star, Users2 } from 'lucide-react'
+import { MapPin, Shield, Star, Users2, Trophy, Award, Tv, ArrowUpRight, Calendar } from 'lucide-react'
 
 const avatarColors: Record<string, string> = {
   teal: 'bg-primary/10 text-primary',
@@ -15,8 +15,14 @@ const avatarColors: Record<string, string> = {
   coral: 'bg-orange-500/10 text-orange-600',
 }
 
+const achievementIcons: Record<string, React.ComponentType<any>> = {
+  Trophy: Trophy,
+  Award: Award,
+  Tv: Tv,
+}
+
 export default function AboutPage() {
-  const { team } = landingConfig
+  const { team, achievements = [] } = landingConfig
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,12 +34,12 @@ export default function AboutPage() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { scale: 0.95, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.5, ease: 'easeOut' as const },
     },
   }
 
@@ -56,7 +62,7 @@ export default function AboutPage() {
             <motion.h1 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-5xl md:text-7xl font-black tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight"
             >
               Zero Barriers to <span className="text-primary italic">Dignified Income</span>
             </motion.h1>
@@ -93,7 +99,7 @@ export default function AboutPage() {
                 <motion.div
                   key={idx}
                   variants={itemVariants}
-                  className="group relative p-8 rounded-[2.5rem] bg-card border border-border hover:border-primary transition-all duration-500 text-center flex flex-col items-center shadow-md hover:shadow-2xl"
+                  className="group relative p-6 sm:p-8 rounded-[2.5rem] bg-card border border-border hover:border-primary transition-all duration-500 text-center flex flex-col items-center shadow-md hover:shadow-2xl"
                 >
                   <div className="relative mb-6">
                     <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-0 group-hover:scale-150 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
@@ -151,7 +157,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-[2rem] bg-card border border-border space-y-4">
+            <div className="p-6 sm:p-8 rounded-[2rem] bg-card border border-border space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                 <Star className="w-6 h-6" />
               </div>
@@ -161,7 +167,7 @@ export default function AboutPage() {
               </p>
             </div>
             
-            <div className="p-8 rounded-[2rem] bg-card border border-border space-y-4">
+            <div className="p-6 sm:p-8 rounded-[2rem] bg-card border border-border space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                 <Shield className="w-6 h-6" />
               </div>
@@ -171,7 +177,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="p-8 rounded-[2rem] bg-card border border-border space-y-4">
+            <div className="p-6 sm:p-8 rounded-[2rem] bg-card border border-border space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                 <Users2 className="w-6 h-6" />
               </div>
@@ -181,6 +187,131 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="py-24 px-6 md:px-10 lg:px-20 bg-background" id="achievements">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="text-center max-w-2xl mx-auto space-y-4">
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest"
+            >
+              Milestones
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl font-black tracking-tight text-foreground"
+            >
+              Achievements
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-muted-foreground leading-relaxed"
+            >
+              A showcase of the milestones, recognitions, and accomplishments achieved throughout the project's journey.
+            </motion.p>
+          </div>
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {achievements.map((item, idx) => {
+              const IconComponent = achievementIcons[item.iconName || ''] || Award;
+              const hasLink = !!item.externalLink;
+              
+              const cardContent = (
+                <div className="h-full flex flex-col justify-between">
+                  <div>
+                    {/* Badge or Icon & Date */}
+                    <div className="flex items-center justify-between gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {item.badge && (
+                          <Badge variant="secondary" className="bg-primary/10 text-primary border-none font-bold text-[10px] uppercase px-3 py-1">
+                            {item.badge}
+                          </Badge>
+                        )}
+                        {item.date && (
+                          <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground/70 font-semibold uppercase tracking-wider">
+                            <Calendar className="w-3 h-3" />
+                            {item.date}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Image */}
+                    {item.image && (
+                      <div className="relative w-full h-48 mb-6 rounded-2xl overflow-hidden border border-border bg-muted">
+                        <img 
+                          src={item.image} 
+                          alt={item.title} 
+                          className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+
+                    {/* Text Details */}
+                    <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    
+                    {item.organization && (
+                      <p className="text-xs text-primary/80 font-black uppercase tracking-wider mb-3">
+                        {item.organization}
+                      </p>
+                    )}
+                    
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  {/* External Link Action */}
+                  {hasLink && (
+                    <div className="inline-flex items-center gap-1.5 text-xs font-bold text-primary group-hover:translate-x-1 transition-transform duration-300 mt-auto">
+                      Learn more
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                  )}
+                </div>
+              );
+
+              return (
+                <motion.div
+                  key={idx}
+                  variants={itemVariants}
+                  className="group relative p-6 sm:p-8 rounded-[2.5rem] bg-card border border-border hover:border-primary/50 transition-all duration-500 flex flex-col justify-between shadow-md hover:shadow-2xl hover:bg-card/90"
+                >
+                  {hasLink ? (
+                    <a href={item.externalLink} target="_blank" rel="noopener noreferrer" className="block h-full cursor-pointer">
+                      {cardContent}
+                    </a>
+                  ) : (
+                    <div className="h-full">
+                      {cardContent}
+                    </div>
+                  )}
+                  {/* Subtle decorative slide up accent */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-primary scale-x-0 group-hover:scale-x-50 transition-transform duration-500 rounded-full" />
+                </motion.div>
+              )
+            })}
+          </motion.div>
         </div>
       </section>
 

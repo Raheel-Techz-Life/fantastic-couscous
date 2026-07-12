@@ -56,7 +56,7 @@ export function HowItWorksClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tighter leading-[0.9] text-foreground"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-[1.05] text-foreground"
           >
             {howItWorks.title}
           </motion.h1>
@@ -101,7 +101,7 @@ export function HowItWorksClient() {
       </section>
 
       {/* ──── Journey Steps ──── */}
-      <section className="py-24 px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
+      <section className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
         <AnimatePresence mode="wait">
           {activeJourney === 'worker' ? (
             <motion.div 
@@ -115,7 +115,7 @@ export function HowItWorksClient() {
               {howItWorks.workerJourney.map((step, idx) => {
                 const Icon = icons[idx] || Star
                 return (
-                  <div key={idx} className="hiw-step-card group relative p-10 rounded-[2.5rem] bg-secondary/5 border border-border transition-all hover:border-primary hover:bg-secondary/10">
+                  <div key={idx} className="hiw-step-card group relative p-6 sm:p-8 md:p-10 rounded-[2.5rem] bg-secondary/5 border border-border transition-all hover:border-primary hover:bg-secondary/10">
                     <div className="absolute top-4 right-8 text-8xl font-black text-foreground/[0.03] pointer-events-none">{step.step}</div>
                     <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                       <Icon className="w-7 h-7" />
@@ -193,7 +193,7 @@ export function HowItWorksClient() {
       </section>
 
       {/* ──── Simulator ──── */}
-      <section className="py-32 bg-secondary/5 border-y border-border relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 bg-secondary/5 border-y border-border relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
@@ -221,7 +221,7 @@ export function HowItWorksClient() {
       </section>
 
       {/* ──── FAQ ──── */}
-      <section className="py-32 px-6 max-w-4xl mx-auto">
+      <section className="py-16 sm:py-20 md:py-24 px-6 max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black text-center mb-20">Technical Briefing (FAQ)</h2>
         <div className="space-y-4">
           {howItWorks.faqs.map((faq, idx) => (
@@ -232,13 +232,13 @@ export function HowItWorksClient() {
               transition={{ delay: idx * 0.05 }}
               className="group rounded-[2rem] bg-secondary/5 border border-border overflow-hidden transition-all hover:border-primary/50"
             >
-              <summary className="p-8 flex justify-between items-center cursor-pointer font-black text-xl list-none">
+              <summary className="p-5 sm:p-6 md:p-8 flex justify-between items-center cursor-pointer font-black text-xl list-none">
                 {faq.q}
-                <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center group-open:rotate-180 transition-transform">
+                <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center group-open:rotate-180 transition-transform shrink-0 ml-4">
                   <ChevronDown className="w-5 h-5" />
                 </div>
               </summary>
-              <div className="px-8 pb-8 text-muted-foreground text-lg leading-relaxed">
+              <div className="px-5 sm:px-6 md:px-8 pb-5 sm:pb-6 md:pb-8 text-muted-foreground text-base md:text-lg leading-relaxed">
                 {faq.a}
               </div>
             </motion.details>
@@ -247,7 +247,7 @@ export function HowItWorksClient() {
       </section>
 
       {/* ──── Final CTA ──── */}
-      <section className="py-32 px-6 text-center border-t border-border">
+      <section className="py-16 sm:py-20 md:py-24 px-6 text-center border-t border-border">
         <div className="max-w-3xl mx-auto">
           <div className="w-20 h-1.5 bg-primary/20 mx-auto mb-10 rounded-full" />
           <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tight">Ready to scale your talent pipeline?</h2>

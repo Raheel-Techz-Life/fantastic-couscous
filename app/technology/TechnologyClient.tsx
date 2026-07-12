@@ -38,7 +38,7 @@ export function TechnologyClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tighter leading-[0.9] text-foreground"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight leading-[1.05] text-foreground"
           >
             Our Technical <span className="text-primary italic">Stack</span>
           </motion.h1>
@@ -54,7 +54,7 @@ export function TechnologyClient() {
       </section>
 
       {/* ──── Tech Breakdown ──── */}
-      <section className="py-32 px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
+      <section className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-start">
           
           {/* Left: Architecture Flow */}
@@ -81,7 +81,7 @@ export function TechnologyClient() {
                   <div className="relative z-10 w-16 h-16 rounded-2xl bg-secondary border border-border flex items-center justify-center text-primary font-black text-xl shadow-xl">
                     {idx + 1}
                   </div>
-                  <div className="flex-1 p-8 rounded-3xl bg-secondary/5 border border-border group hover:border-primary transition-all">
+                  <div className="flex-1 p-5 sm:p-6 md:p-8 rounded-3xl bg-secondary/5 border border-border group hover:border-primary transition-all">
                     <h3 className="text-xl font-black mb-2">{item.item}</h3>
                     <div className="flex flex-wrap gap-3 items-center mt-3">
                       <span className="text-[10px] uppercase font-black tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">{item.tech}</span>
@@ -126,7 +126,7 @@ export function TechnologyClient() {
              <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="p-10 rounded-[3rem] bg-foreground text-background shadow-2xl relative overflow-hidden group"
+              className="p-6 sm:p-8 md:p-10 rounded-[3rem] bg-foreground text-background shadow-2xl relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 p-8 text-white/5 font-black text-8xl">DPDP</div>
               <div className="relative z-10">
@@ -159,7 +159,7 @@ export function TechnologyClient() {
       </section>
 
       {/* ──── Footer CTA ──── */}
-      <section className="py-32 px-6 text-center border-t border-border">
+      <section className="py-16 sm:py-20 md:py-24 px-6 text-center border-t border-border">
         <div className="max-w-3xl mx-auto">
           <div className="w-20 h-1.5 bg-primary/20 mx-auto mb-10 rounded-full" />
           <h2 className="text-5xl md:text-6xl font-black mb-8 tracking-tight">Ready to integrate?</h2>

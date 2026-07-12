@@ -72,13 +72,13 @@ export function Navigation() {
         </div>
 
         {/* Center: Desktop Links */}
-        <div className={`hidden xl:flex items-center gap-1 transition-all duration-700 ${isScrolled ? 'scale-95' : ''}`}>
-          <div className="flex items-center gap-1 px-1.5 py-1.5 rounded-full bg-secondary/20 border border-border/30 backdrop-blur-sm">
+        <div className={`hidden xl:flex items-center gap-0.5 transition-all duration-700 ${isScrolled ? 'scale-95' : ''}`}>
+          <div className="flex items-center gap-0.5 px-1 py-1 rounded-full bg-secondary/20 border border-border/30 backdrop-blur-sm">
             {navigation.links.map((link) => (
               <Link 
                 key={link.label} 
                 href={link.href} 
-                className={`text-[12px] font-bold px-5 py-2.5 rounded-full transition-all duration-500 relative group overflow-hidden ${
+                className={`text-[11px] font-bold px-3 py-2 rounded-full transition-all duration-500 relative group overflow-hidden ${
                   pathname === link.href 
                     ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
@@ -147,15 +147,15 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="absolute top-full left-4 right-4 mt-4 glass border border-white/20 p-8 flex flex-col gap-8 lg:hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] rounded-[2.5rem]"
+              className="absolute top-full left-4 right-4 mt-4 glass border border-white/20 p-6 flex flex-col gap-6 lg:hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] rounded-[2rem]"
             >
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <span className="text-[10px] font-black uppercase tracking-widest text-primary mb-2">Navigation</span>
                 {navigation.links.map((link) => (
                   <Link 
                     key={link.label} 
                     href={link.href} 
-                    className={`text-2xl font-black transition-all ${
+                    className={`text-xl font-bold transition-all ${
                       pathname === link.href ? 'text-primary scale-105' : 'text-foreground hover:text-primary hover:translate-x-2'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}

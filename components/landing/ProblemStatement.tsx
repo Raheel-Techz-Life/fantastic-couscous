@@ -107,18 +107,6 @@ export function ProblemStatement() {
           </div>
         </motion.div>
 
-        {/* Verdict Quote */}
-        <motion.div variants={item} className="problem-verdict">
-          <div className="problem-verdict-label">
-            {ps.verdict.label.split(' · ').map((chip, i) => (
-              <span key={i} className="problem-verdict-chip">{chip}</span>
-            ))}
-          </div>
-          <blockquote className="problem-verdict-quote">
-            {ps.verdict.quote}
-          </blockquote>
-          <p className="problem-verdict-attribution">— HAAZRI Field Research, Hubballi-Dharwad 2024-25</p>
-        </motion.div>
       </motion.div>
     </section>
   )

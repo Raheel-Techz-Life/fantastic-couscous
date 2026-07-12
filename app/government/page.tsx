@@ -23,33 +23,33 @@ export default function GovernmentPage() {
       <Navigation />
       
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 md:px-10 lg:px-20 bg-secondary/20 relative overflow-hidden">
+      <section className="pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24 px-6 md:px-10 lg:px-20 bg-secondary/20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest w-fit"
               >
                 For Government (B2G)
               </motion.div>
               <motion.h1 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-5xl md:text-7xl font-black tracking-tight leading-none"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none"
               >
                 Last-Mile Welfare & <span className="text-primary italic">Workforce Insights</span>
               </motion.h1>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-xl">
                 HAAZRI acts as the digital infrastructure for state welfare deployment, vocational skilling distribution, and compliant municipal hiring—without requiring internet or smartphones.
               </p>
-              <div className="flex gap-4">
-                <Button asChild className="h-14 px-8 rounded-2xl font-bold bg-primary text-white hover:bg-primary/95 shadow-xl shadow-primary/20">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Button asChild className="w-full sm:w-auto h-14 px-8 rounded-2xl font-bold bg-primary text-white hover:bg-primary/95 shadow-xl shadow-primary/20 justify-center">
                   <Link href="/login">Access B2G Portal</Link>
                 </Button>
-                <Button asChild variant="outline" className="h-14 px-8 rounded-2xl font-bold">
+                <Button asChild variant="outline" className="w-full sm:w-auto h-14 px-8 rounded-2xl font-bold justify-center">
                   <Link href="/about">Learn About Our Team</Link>
                 </Button>
               </div>
@@ -107,7 +107,7 @@ export default function GovernmentPage() {
       </section>
 
       {/* 4 Pillars Section */}
-      <section className="py-24 px-6 md:px-10 lg:px-20 bg-background">
+      <section className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 bg-background">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <h2 className="text-4xl font-black tracking-tight">The Four B2G Pillars</h2>
@@ -165,7 +165,7 @@ export default function GovernmentPage() {
       </section>
 
       {/* Skill India & Mobility Visualizers */}
-      <section className="py-24 px-6 md:px-10 lg:px-20 bg-secondary/15">
+      <section className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 bg-secondary/15">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">Active B2G Operations Dashboard</h2>

@@ -1,17 +1,13 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, Variants } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { useEffect, useState } from 'react'
 import { Phone, Mic, CheckCircle, ArrowRight, Volume2, Globe, Smartphone } from 'lucide-react'
 import Link from 'next/link'
-import { HeroScene } from './HeroScene'
 
 /* ─────────── Animated Counter ─────────── */
 function AnimatedCounter({ target }: { target: string }) {
-  // Split "24h" → prefix="", number=24, suffix="h"
-  // Split "₹0" → prefix="₹", number=0, suffix=""
-  // Split "100%" → prefix="", number=100, suffix="%"
   const match = target.match(/^([^0-9]*)(\d+)([^0-9]*)$/)
   const prefix = match ? match[1] : ''
   const targetNum = match ? parseInt(match[2]) : 0
@@ -40,22 +36,10 @@ function AnimatedCounter({ target }: { target: string }) {
   return <span>{prefix}{count}{suffix}</span>
 }
 
-/* ─────────── Floating Orbs Background ─────────── */
-function FloatingOrbs() {
-  return (
-    <div className="hero-orbs-container">
-      <div className="hero-orb hero-orb-1" />
-      <div className="hero-orb hero-orb-2" />
-      <div className="hero-orb hero-orb-3" />
-      <div className="hero-orb hero-orb-4" />
-    </div>
-  )
-}
-
 /* ─────────── Animated Voice Waveform ─────────── */
 function VoiceWaveform() {
   return (
-    <div className="hero-waveform">
+    <div className="hero-waveform my-4">
       {Array.from({ length: 32 }).map((_, i) => (
         <motion.div
           key={i}
@@ -119,46 +103,6 @@ function PipelineTicker() {
   )
 }
 
-/* ─────────── Floating Feature Cards ─────────── */
-function FloatingCards() {
-  const cards = [
-    { icon: Phone, label: 'Missed Call', detail: 'Zero-cost entry', delay: 0 },
-    { icon: Mic, label: 'Voice AI', detail: '22+ languages', delay: 0.15 },
-    { icon: Volume2, label: 'BHASHINI', detail: 'Real-time TTS', delay: 0.3 },
-    { icon: Globe, label: 'ONEST', detail: 'Open network', delay: 0.45 },
-  ]
-
-  return (
-    <div className="hero-floating-cards">
-      {cards.map((card, idx) => (
-        <motion.div
-          key={card.label}
-          className="hero-floating-card"
-          initial={{ opacity: 0, y: 40, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            delay: 1.2 + card.delay,
-            duration: 0.7,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          whileHover={{ scale: 1.05, y: -8, rotate: idx % 2 === 0 ? 2 : -2 }}
-          whileTap={{ scale: 0.95 }}
-          style={{ position: 'relative' }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-[1.25rem] pointer-events-none" />
-          <div className="hero-floating-card-icon" style={{ '--card-idx': idx } as React.CSSProperties}>
-            <card.icon size={18} />
-          </div>
-          <div className="hero-floating-card-text">
-            <span className="hero-floating-card-label">{card.label}</span>
-            <span className="hero-floating-card-detail">{card.detail}</span>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  )
-}
-
 /* ═══════════════════════════════════════════════
    ███ HERO SECTION ███
    ═══════════════════════════════════════════════ */
@@ -174,7 +118,7 @@ export function HeroSection() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 40, opacity: 0, filter: 'blur(12px)', scale: 0.95 },
     visible: {
       y: 0,
@@ -187,8 +131,7 @@ export function HeroSection() {
 
   return (
     <div className="hero-root">
-      {/* Background Effects */}
-      <HeroScene />
+      {/* Background Effects (Subtle & Non-distracting) */}
       <div className="hero-grid-pattern" />
       <div className="hero-radial-fade" />
 
@@ -196,7 +139,7 @@ export function HeroSection() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="hero-content"
+        className="hero-content z-10"
       >
         {/* Top: Live pipeline ticker */}
         <motion.div variants={itemVariants}>
@@ -205,50 +148,38 @@ export function HeroSection() {
 
         {/* Headline Block */}
         <motion.div variants={itemVariants} className="hero-headline-block relative">
-          {/* Animated Tech Rings */}
-          <motion.div 
-            animate={{ rotate: 360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[160%] max-w-[800px] border-[1px] border-primary/20 rounded-full border-dashed pointer-events-none mix-blend-screen opacity-50"
-          />
-          <motion.div 
-            animate={{ rotate: -360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[130%] max-w-[600px] border-[1px] border-primary/10 rounded-full border-dotted pointer-events-none mix-blend-screen opacity-40"
-          />
-          
           <h1 className="hero-headline relative z-10 drop-shadow-2xl flex flex-wrap justify-center gap-x-4 items-center">
-            The 
+            The{' '}
             <motion.span 
               variants={{
-                hidden: { y: -400, opacity: 0, scale: 2, filter: 'blur(20px)' },
+                hidden: { y: -50, opacity: 0, scale: 0.95, filter: 'blur(10px)' },
                 visible: { 
                   y: 0, 
                   opacity: 1, 
                   scale: 1, 
                   filter: 'blur(0px)', 
-                  transition: { type: 'spring', stiffness: 400, damping: 12, mass: 1.2, delay: 0.4 } 
+                  transition: { type: 'spring', stiffness: 300, damping: 15, delay: 0.3 } 
                 }
-              }}
+              } as Variants}
               className="hero-headline-accent inline-block hover:scale-105 transition-transform duration-300 relative z-20 origin-bottom"
             >
               48-Hour
-            </motion.span> 
+            </motion.span>{' '}
             Talent Pipeline
           </h1>
           <h1 className="hero-headline hero-headline-second relative z-10 drop-shadow-2xl mt-2 flex flex-wrap justify-center gap-x-4 items-center">
-            for India&apos;s Next 
+            for India&apos;s Next{' '}
             <motion.span 
               variants={{
-                hidden: { y: -400, opacity: 0, scale: 2, filter: 'blur(20px)' },
+                hidden: { y: -50, opacity: 0, scale: 0.95, filter: 'blur(10px)' },
                 visible: { 
                   y: 0, 
                   opacity: 1, 
                   scale: 1, 
                   filter: 'blur(0px)', 
-                  transition: { type: 'spring', stiffness: 400, damping: 12, mass: 1.2, delay: 0.6 } 
+                  transition: { type: 'spring', stiffness: 300, damping: 15, delay: 0.5 } 
                 }
-              }}
+              } as Variants}
               className="hero-headline-gradient inline-block hover:hue-rotate-15 transition-all duration-500 relative z-20 origin-bottom"
             >
               450M
@@ -261,7 +192,7 @@ export function HeroSection() {
           <p>{hero.description}</p>
         </motion.div>
 
-        {/* Voice Waveform Divider */}
+        {/* Voice Waveform (Primary Visual) */}
         <motion.div variants={itemVariants}>
           <VoiceWaveform />
         </motion.div>
@@ -308,9 +239,6 @@ export function HeroSection() {
             </div>
           ))}
         </motion.div>
-
-        {/* Floating Feature Cards */}
-        <FloatingCards />
 
         {/* Scroll Indicator */}
         <motion.div

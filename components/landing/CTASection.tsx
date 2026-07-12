@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Button } from '@/components/ui/button'
-import { Github, Mail, ArrowRight } from 'lucide-react'
+import { Mail, ArrowRight } from 'lucide-react'
 
 export function CTASection() {
   const { cta } = landingConfig
@@ -53,11 +53,14 @@ export function CTASection() {
             <Button 
               variant="outline" 
               size="lg" 
+              asChild
               className="rounded-full px-10 h-16 text-lg font-bold border-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white gap-2"
-              aria-label="View HAAZRI project on GitHub"
+              aria-label="Email HAAZRI team"
             >
-              <Github className="w-5 h-5" />
-              View on GitHub
+              <a href="mailto:contact@haazri.in">
+                <Mail className="w-5 h-5" />
+                contact@haazri.in
+              </a>
             </Button>
           </div>
         </motion.div>

@@ -50,18 +50,18 @@ export default function BlogPage() {
           <motion.h1 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-5xl md:text-7xl font-black mb-8 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-8 tracking-tight"
           >
             Insights & <span className="text-primary italic">Updates</span>
           </motion.h1>
-          <p className="text-muted-foreground text-xl max-w-2xl leading-relaxed">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
             Thought leadership on informal labour markets, voice-first AI, and India's open digital networks.
           </p>
         </div>
       </section>
 
       {/* Post Grid */}
-      <section className="py-24 px-6 md:px-10 lg:px-20">
+      <section className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, idx) => (
             <motion.div 

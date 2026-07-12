@@ -10,6 +10,17 @@ export interface TeamMember {
   socials: Array<{ name: string; url: string }>;
 }
 
+export interface Achievement {
+  title: string;
+  description: string;
+  date?: string;
+  organization?: string;
+  badge?: string;
+  iconName?: string;
+  image?: string;
+  externalLink?: string;
+}
+
 export interface LandingConfig {
   branding: {
     name: string;
@@ -69,7 +80,7 @@ export interface LandingConfig {
     description: string;
     members: TeamMember[];
   };
-  differentiators?: {
+  differentiators: {
     monotonicWage: {
       title: string;
       description: string;
@@ -93,6 +104,10 @@ export interface LandingConfig {
     description: string;
     buttons: Array<{ label: string; type: string }>;
   };
+  achievements?: Achievement[];
+  award: {
+    emoji: string;
+  };
 }
 
 // Editable configuration for HAAZRI (Zero-Barrier Jobs) platform
@@ -111,10 +126,13 @@ export const landingConfig: LandingConfig = {
   navigation: {
     links: [
       { label: 'Home', href: '/' },
-      { label: 'For Employers (B2B)', href: '/employers' },
-      { label: 'For Government (B2G)', href: '/government' },
-      { label: 'About Us / Team', href: '/about' },
-      { label: 'Login / Dashboards', href: '/login' },
+      { label: 'Solution', href: '/solution' },
+      { label: 'Technology', href: '/technology' },
+      { label: 'Validation Logic', href: '/validation-logic' },
+      { label: 'Simulator', href: '/dual-experience-simulator' },
+      { label: 'For Employers', href: '/employers' },
+      { label: 'For Government', href: '/government' },
+      { label: 'About Us', href: '/about' },
     ],
     cta: 'Get in touch',
   },
@@ -418,5 +436,38 @@ export const landingConfig: LandingConfig = {
       { label: 'Get in touch', type: 'white' },
       { label: 'View Portal', type: 'outline-white' },
     ],
+  },
+  achievements: [
+    {
+      title: "Achievement Title Placeholder 1",
+      description: "This is a placeholder description for the first achievement. It should outline the key milestones, recognitions, or accomplishment details.",
+      date: "October 2025",
+      organization: "Awarding Organization / Competition",
+      badge: "Winner",
+      iconName: "Trophy",
+      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=60",
+      externalLink: "https://example.com/achievement-1"
+    },
+    {
+      title: "Achievement Title Placeholder 2",
+      description: "This is a placeholder description for the second achievement, showing layout behavior when optional fields like images are omitted.",
+      date: "August 2025",
+      organization: "Deshpande Startups Acceleration",
+      badge: "Cohort",
+      iconName: "Award",
+      externalLink: "https://example.com/achievement-2"
+    },
+    {
+      title: "Achievement Title Placeholder 3",
+      description: "This is a placeholder description for the third achievement, showing layout behavior when optional fields like external links are omitted.",
+      date: "June 2025",
+      organization: "Mainstream Media Network",
+      badge: "Media",
+      iconName: "Tv",
+      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&auto=format&fit=crop&q=60"
+    }
+  ],
+  award: {
+    emoji: '🏆',
   },
 };

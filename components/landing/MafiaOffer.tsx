@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Check, ShieldCheck, Zap, TrendingUp } from 'lucide-react'
+import { Check, ShieldCheck, Zap, TrendingUp, Star, PhoneCall } from 'lucide-react'
 import { ShieldScene } from './ShieldScene'
+import Link from 'next/link'
 
 export function MafiaOffer() {
   const points = [
@@ -25,105 +26,146 @@ export function MafiaOffer() {
     }
   ]
 
+  const mockWorkers = [
+    { name: "Suresh B.", role: "Machinist / ITI", rating: "4.9", status: "Active Pitch", id: "HZ-9921", initial: "SB", color: "from-blue-500 to-indigo-600" },
+    { name: "Manjunath K.", role: "Forklift Operator", rating: "4.8", status: "Verified", id: "HZ-4831", initial: "MK", color: "from-emerald-500 to-teal-600" },
+    { name: "Somesh H.", role: "CNC Operator", rating: "4.7", status: "Matched", id: "HZ-3109", initial: "SH", color: "from-orange-500 to-red-600" },
+  ]
+
   return (
     <section className="py-24 px-6 md:px-10 lg:px-20 relative overflow-hidden bg-background">
       <ShieldScene />
-      <div className="max-w-7xl mx-auto">
-        <div className="rounded-[3rem] bg-foreground text-background p-12 md:p-20 relative overflow-hidden shadow-2xl">
-          {/* Decorative Mesh Background */}
-          <div className="absolute inset-0 opacity-10 bg-mesh pointer-events-none" />
+      
+      {/* Decorative ambient gradients */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="rounded-[3rem] bg-slate-950 text-white p-10 md:p-16 lg:p-20 relative overflow-hidden shadow-2xl border border-slate-800">
+          {/* Subtle grid in background of the card */}
+          <div className="absolute inset-0 opacity-[0.03] bg-mesh pointer-events-none" />
           
-          <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 space-y-8">
               <motion.div 
-                initial={{ opacity: 0, y: -200, scale: 1.5, filter: 'blur(20px)' }}
-                whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 400, damping: 12, mass: 1.2 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-black uppercase tracking-widest border border-primary/30"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-black uppercase tracking-widest border border-primary/20"
               >
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 The Mafia Offer
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 150 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 300, damping: 15, mass: 1, delay: 0.2 }}
                 className="space-y-4"
               >
-                <h2 className="text-4xl md:text-6xl font-black tracking-tight leading-none">
-                  Build your local <span className="text-primary italic inline-block hover:scale-105 hover:rotate-1 transition-transform">workforce dominance</span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]">
+                  Build your local <span className="text-primary italic inline-block hover:scale-105 transition-transform duration-300">workforce dominance</span>
                 </h2>
-                <p className="text-background/60 text-lg md:text-xl max-w-xl leading-relaxed">
+                <p className="text-slate-400 text-base md:text-lg max-w-xl leading-relaxed">
                   We don't sell features. We sell a 24-hour talent pipeline. If we don't deliver verified applicants in 1 day, your next 5 hires are on us.
                 </p>
               </motion.div>
 
-              <div className="space-y-6">
-                {points.map((point, idx) => (
-                  <div key={idx} className="flex gap-4 items-start">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0 mt-1">
-                      <Check className="w-4 h-4 stroke-[3px]" />
+              <div className="space-y-5">
+                {points.map((point, idx) => {
+                  const Icon = point.icon
+                  return (
+                    <div key={idx} className="flex gap-4 items-start group">
+                      <div className="w-8 h-8 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-base md:text-lg text-slate-100">{point.title}</h4>
+                        <p className="text-slate-400 text-sm max-w-lg leading-relaxed">{point.desc}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-lg">{point.title}</h4>
-                      <p className="text-background/40 text-sm">{point.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
-              <Button size="lg" className="h-16 px-10 rounded-full text-lg font-black bg-primary text-white hover:opacity-90 transition-all shadow-xl shadow-primary/20">
-                Claim Your Risk-Free Pilot
-              </Button>
+              <div className="pt-2">
+                <Button size="lg" asChild className="h-14 px-8 rounded-full text-base font-black bg-primary text-white hover:opacity-90 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20">
+                  <Link href="/login">
+                    Claim Your Risk-Free Pilot
+                  </Link>
+                </Button>
+              </div>
             </div>
 
-            <div className="relative">
-              <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-50" />
+            {/* Right Mockup Column */}
+            <div className="lg:col-span-5 relative">
+              <div className="absolute -inset-4 bg-primary/25 blur-3xl rounded-full opacity-40 pointer-events-none" />
+              
               <motion.div 
-                initial={{ rotate: 5, y: 20 }}
-                whileInView={{ rotate: 0, y: 0 }}
-                className="relative bg-background/5 backdrop-blur-xl border border-background/10 rounded-[2.5rem] p-8 shadow-2xl"
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-[2.5rem] p-6 md:p-8 shadow-2xl overflow-hidden"
               >
-                <div className="flex justify-between items-center mb-10">
+                {/* Simulated Glass Reflection */}
+                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-white/[0.03] to-transparent rotate-45 pointer-events-none" />
+                
+                <div className="flex justify-between items-center mb-8 relative z-10">
                   <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                    <div className="w-3 h-3 rounded-full bg-red-500/30" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/30" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/30" />
                   </div>
-                  <div className="text-[10px] uppercase font-bold tracking-widest text-background/30">Verified Dashboard</div>
+                  <span className="text-[10px] uppercase font-black tracking-widest text-slate-500">Verified Dashboard</span>
                 </div>
                 
-                <div className="space-y-6">
-                  <div className="p-6 rounded-2xl bg-background/5 border border-background/5 flex gap-4 items-center">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center" />
-                    <div className="flex-1 space-y-2">
-                      <div className="h-2 w-24 bg-background/20 rounded" />
-                      <div className="h-2 w-16 bg-background/10 rounded" />
-                    </div>
-                    <div className="px-3 py-1 rounded-full bg-primary text-white text-[8px] font-black uppercase">Verified</div>
-                  </div>
-                  <div className="p-6 rounded-2xl bg-background/5 border border-background/5 flex gap-4 items-center opacity-50">
-                    <div className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center" />
-                    <div className="flex-1 space-y-2">
-                      <div className="h-2 w-20 bg-background/20 rounded" />
-                      <div className="h-2 w-12 bg-background/10 rounded" />
-                    </div>
-                  </div>
-                  <div className="p-6 rounded-2xl bg-background/5 border border-background/5 flex gap-4 items-center opacity-30">
-                    <div className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center" />
-                    <div className="flex-1 space-y-2">
-                      <div className="h-2 w-28 bg-background/20 rounded" />
-                    </div>
-                  </div>
+                <div className="space-y-4 relative z-10">
+                  {mockWorkers.map((worker, idx) => (
+                    <motion.div 
+                      key={idx}
+                      className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80 flex gap-4 items-center hover:border-primary/40 transition-colors group"
+                      whileHover={{ x: 4 }}
+                    >
+                      {/* Avatar */}
+                      <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${worker.color} flex items-center justify-center text-white font-black text-sm shadow-inner`}>
+                        {worker.initial}
+                      </div>
+                      
+                      {/* Worker Details */}
+                      <div className="flex-1 space-y-0.5">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-sm text-slate-100 group-hover:text-primary transition-colors">{worker.name}</span>
+                          <span className="text-[9px] font-mono text-slate-500">{worker.id}</span>
+                        </div>
+                        <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
+                          <span>{worker.role}</span>
+                          <span className="w-1 h-1 rounded-full bg-slate-700" />
+                          <span className="flex items-center gap-0.5 text-amber-500 font-bold">
+                            <Star className="w-3 h-3 fill-amber-500 text-amber-500" /> {worker.rating}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Matching Status */}
+                      <span className="px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[9px] font-black uppercase tracking-wider">
+                        {worker.status}
+                      </span>
+                    </motion.div>
+                  ))}
                 </div>
 
-                <div className="mt-10 p-4 rounded-xl bg-primary/10 border border-primary/20 text-center">
-                  <p className="text-[10px] font-bold text-primary uppercase tracking-widest">Logic: Solution in Principle</p>
+                <div className="mt-8 p-4 rounded-2xl bg-primary/5 border border-primary/10 text-center relative z-10">
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <PhoneCall className="w-3.5 h-3.5 text-primary" />
+                    <p className="text-[10px] font-black text-primary uppercase tracking-widest">Active Callback Protocol</p>
+                  </div>
+                  <p className="text-[11px] text-slate-400">IVR Screening & Bhashini Translation Engines Active</p>
                 </div>
               </motion.div>
             </div>
+
           </div>
         </div>
       </div>
