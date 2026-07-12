@@ -69,6 +69,18 @@ export interface LandingConfig {
     description: string;
     members: TeamMember[];
   };
+  differentiators?: {
+    monotonicWage: {
+      title: string;
+      description: string;
+      badge: string;
+    };
+    nightBeforeAlerts: {
+      title: string;
+      description: string;
+      badge: string;
+    };
+  };
   forms: Record<string, { title: string; fields: string[] }>;
   footer: {
     tagline: string;
