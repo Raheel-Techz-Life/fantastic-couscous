@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+<<<<<<< HEAD
 import { Canvas, useFrame } from '@react-three/fiber'
 import { 
   Float, 
@@ -9,6 +10,12 @@ import {
   Box
 } from '@react-three/drei'
 import * as THREE from 'three'
+=======
+import { useFrame } from '@react-three/fiber'
+import { Box } from '@react-three/drei'
+import * as THREE from 'three'
+import { ThreeScene } from './ThreeScene'
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
 
 function GrowthBars() {
   const bars = useRef<THREE.Group>(null!)
@@ -45,6 +52,7 @@ function GrowthBars() {
 
 export function GrowthScene() {
   return (
+<<<<<<< HEAD
     <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
       <Canvas>
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={50} />
@@ -55,5 +63,10 @@ export function GrowthScene() {
         <Environment preset="city" />
       </Canvas>
     </div>
+=======
+    <ThreeScene className="absolute inset-0 z-0 pointer-events-none opacity-30" cameraPosition={[0, 0, 8]}>
+      <GrowthBars />
+    </ThreeScene>
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
   )
 }

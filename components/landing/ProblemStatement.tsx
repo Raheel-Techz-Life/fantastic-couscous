@@ -77,6 +77,52 @@ export function ProblemStatement() {
           })}
         </motion.div>
 
+<<<<<<< HEAD
+=======
+        {/* Detailed Struggles Side-by-Side Comparison */}
+        <motion.div variants={item} className="mt-16 w-full grid md:grid-cols-2 gap-8 text-left">
+          {/* Employer Column */}
+          <div className="p-8 rounded-[2rem] border border-border bg-card/60 backdrop-blur-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
+            <h3 className="text-xl md:text-2xl font-black mb-6 flex items-center gap-2 text-foreground">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+              The Employer&apos;s Struggle
+            </h3>
+            <div className="space-y-6">
+              {ps.twoSidedCrisis.employerStruggles.map((struggle, idx) => (
+                <div key={idx} className="flex gap-4 items-start border-b border-border/40 pb-4 last:border-0 last:pb-0">
+                  <span className="font-mono text-xs font-bold text-primary px-2.5 py-0.5 rounded bg-primary/10 shrink-0">0{idx + 1}</span>
+                  <div>
+                    <h4 className="font-bold text-sm text-foreground mb-1">{struggle.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{struggle.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Worker Column */}
+          <div className="p-8 rounded-[2rem] border border-border bg-card/60 backdrop-blur-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
+            <h3 className="text-xl md:text-2xl font-black mb-6 flex items-center gap-2 text-foreground">
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse" />
+              The Worker&apos;s Struggle
+            </h3>
+            <div className="space-y-6">
+              {ps.twoSidedCrisis.workerStruggles.map((struggle, idx) => (
+                <div key={idx} className="flex gap-4 items-start border-b border-border/40 pb-4 last:border-0 last:pb-0">
+                  <span className="font-mono text-xs font-bold text-blue-500 px-2.5 py-0.5 rounded bg-blue-500/10 shrink-0">0{idx + 1}</span>
+                  <div>
+                    <h4 className="font-bold text-sm text-foreground mb-1">{struggle.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{struggle.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
         {/* Friction Cost CTA block */}
         <motion.div variants={item} className="mt-16 sm:mt-20 w-full relative">
           {/* Background Glow */}

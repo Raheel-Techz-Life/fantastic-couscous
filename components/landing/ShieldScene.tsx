@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+<<<<<<< HEAD
 import { Canvas, useFrame } from '@react-three/fiber'
 import { 
   Float, 
@@ -9,6 +10,12 @@ import {
   TorusKnot
 } from '@react-three/drei'
 import * as THREE from 'three'
+=======
+import { useFrame } from '@react-three/fiber'
+import { Float, TorusKnot } from '@react-three/drei'
+import * as THREE from 'three'
+import { ThreeScene } from './ThreeScene'
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
 
 function ShieldObject() {
   const ref = useRef<THREE.Mesh>(null!)
@@ -36,6 +43,7 @@ function ShieldObject() {
 
 export function ShieldScene() {
   return (
+<<<<<<< HEAD
     <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
       <Canvas>
         <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
@@ -47,5 +55,14 @@ export function ShieldScene() {
         <Environment preset="city" />
       </Canvas>
     </div>
+=======
+    <ThreeScene 
+      className="absolute inset-0 z-0 pointer-events-none opacity-20" 
+      cameraPosition={[0, 0, 10]}
+      includeSpotLight={true}
+    >
+      <ShieldObject />
+    </ThreeScene>
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
   )
 }

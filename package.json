@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+<<<<<<< HEAD
     "lint": "next lint"
+=======
+    "lint": "eslint ."
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -39,7 +43,10 @@
     "@radix-ui/react-tooltip": "1.2.8",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.0",
+<<<<<<< HEAD
     "@types/three": "^0.184.0",
+=======
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
     "@vercel/analytics": "1.6.1",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
@@ -70,6 +77,10 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+<<<<<<< HEAD
+=======
+    "@types/three": "^0.184.0",
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
     "eslint": "^10.2.1",
     "eslint-config-next": "^16.2.4",
     "postcss": "^8.5",

@@ -1,18 +1,29 @@
 'use client'
 
 import { useRef } from 'react'
+<<<<<<< HEAD
 import { Canvas, useFrame } from '@react-three/fiber'
+=======
+import { useFrame } from '@react-three/fiber'
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
 import { 
   Float, 
   MeshDistortMaterial, 
   MeshWobbleMaterial, 
   Sphere, 
   Torus, 
+<<<<<<< HEAD
   PerspectiveCamera,
   Environment,
   ContactShadows
 } from '@react-three/drei'
 import * as THREE from 'three'
+=======
+  ContactShadows
+} from '@react-three/drei'
+import * as THREE from 'three'
+import { ThreeScene } from './ThreeScene'
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
 
 function BackgroundElements() {
   return (
@@ -80,6 +91,7 @@ function FloatingPhones() {
 
 export function HeroScene() {
   return (
+<<<<<<< HEAD
     <div className="absolute inset-0 z-0 pointer-events-none opacity-60">
       <Canvas>
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={50} />
@@ -100,5 +112,22 @@ export function HeroScene() {
         />
       </Canvas>
     </div>
+=======
+    <ThreeScene 
+      className="absolute inset-0 z-0 pointer-events-none opacity-60" 
+      cameraPosition={[0, 0, 8]}
+      includeSpotLight={true}
+    >
+      <BackgroundElements />
+      <FloatingPhones />
+      <ContactShadows 
+        position={[0, -4, 0]} 
+        opacity={0.4} 
+        scale={20} 
+        blur={2} 
+        far={4.5} 
+      />
+    </ThreeScene>
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
   )
 }

@@ -85,6 +85,7 @@ export default function GovernmentDashboard() {
     <main className="min-h-screen bg-background flex flex-col justify-between">
       <Navigation />
 
+<<<<<<< HEAD
       <section className="flex-1 max-w-7xl w-full mx-auto pt-32 pb-16 px-6 grid md:grid-cols-4 gap-8">
         {/* Sidebar Nav */}
         <div className="md:col-span-1 p-6 rounded-[2rem] border border-border bg-card shadow-xl flex flex-col justify-between h-[500px]">
@@ -95,6 +96,22 @@ export default function GovernmentDashboard() {
               </div>
               <div>
                 <h4 className="font-bold text-sm">Karnataka State</h4>
+=======
+      <section className="flex-1 max-w-7xl w-full mx-auto pt-32 pb-16 px-6 grid md:grid-cols-4 gap-8 relative z-10">
+        {/* Ambient Backglow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+
+        {/* Sidebar Nav */}
+        <div className="md:col-span-1 p-6 rounded-[2rem] border border-border bg-card/65 backdrop-blur-xl shadow-xl flex flex-col justify-between h-[500px] relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="space-y-6 relative z-10">
+            <div className="flex gap-3 items-center border-b border-border pb-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/10">
+                <Shield className="w-5 h-5" />
+              </div>
+              <div className="text-left">
+                <h4 className="font-bold text-sm text-foreground">Karnataka State</h4>
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
                 <p className="text-muted-foreground text-[10px] uppercase font-black tracking-wider">Planning & Welfare</p>
               </div>
             </div>
@@ -102,9 +119,15 @@ export default function GovernmentDashboard() {
             <nav className="flex flex-col gap-2">
               <button
                 onClick={() => setActiveTab('welfare')}
+<<<<<<< HEAD
                 className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all ${
                   activeTab === 'welfare'
                     ? 'bg-primary text-white'
+=======
+                className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
+                  activeTab === 'welfare'
+                    ? 'bg-primary text-white shadow-lg shadow-primary/20'
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -113,9 +136,15 @@ export default function GovernmentDashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('mobility')}
+<<<<<<< HEAD
                 className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all ${
                   activeTab === 'mobility'
                     ? 'bg-primary text-white'
+=======
+                className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
+                  activeTab === 'mobility'
+                    ? 'bg-primary text-white shadow-lg shadow-primary/20'
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -124,9 +153,15 @@ export default function GovernmentDashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('exports')}
+<<<<<<< HEAD
                 className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all ${
                   activeTab === 'exports'
                     ? 'bg-primary text-white'
+=======
+                className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
+                  activeTab === 'exports'
+                    ? 'bg-primary text-white shadow-lg shadow-primary/20'
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -136,10 +171,17 @@ export default function GovernmentDashboard() {
             </nav>
           </div>
 
+<<<<<<< HEAD
           <div className="border-t border-border pt-4">
             <button
               onClick={handleLogout}
               className="flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold text-red-500 hover:bg-red-500/10 transition-all"
+=======
+          <div className="border-t border-border pt-4 relative z-10">
+            <button
+              onClick={handleLogout}
+              className="flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold text-red-500 hover:bg-red-500/10 transition-all cursor-pointer"
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
             >
               <LogOut className="w-4 h-4" />
               Sign Out
@@ -148,7 +190,12 @@ export default function GovernmentDashboard() {
         </div>
 
         {/* Dashboard Content */}
+<<<<<<< HEAD
         <div className="md:col-span-3 p-8 rounded-[2.5rem] border border-border bg-card shadow-2xl min-h-[500px]">
+=======
+        <div className="md:col-span-3 p-8 rounded-[2.5rem] border border-border bg-card/65 backdrop-blur-xl shadow-2xl min-h-[500px] relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-44 h-44 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
           <AnimatePresence mode="wait">
             {/* Welfare Tab */}
             {activeTab === 'welfare' && (
@@ -157,6 +204,7 @@ export default function GovernmentDashboard() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
+<<<<<<< HEAD
                 className="space-y-8"
               >
                 <div className="border-b border-border pb-4 flex justify-between items-center">
@@ -165,12 +213,26 @@ export default function GovernmentDashboard() {
                     <p className="text-muted-foreground text-xs">Auditing e-Shram linkages, BOCW card verification, and PMKVY upskilling alerts.</p>
                   </div>
                   <span className="text-[10px] font-bold bg-green-500/10 text-green-600 px-3 py-1 rounded-full uppercase">
+=======
+                className="space-y-8 relative z-10"
+              >
+                <div className="border-b border-border pb-4 flex justify-between items-center text-left">
+                  <div>
+                    <h2 className="text-2xl font-black text-foreground">Welfare & Registration Integration</h2>
+                    <p className="text-muted-foreground text-xs">Auditing e-Shram linkages, BOCW card verification, and PMKVY upskilling alerts.</p>
+                  </div>
+                  <span className="text-[10px] font-bold bg-green-500/10 text-green-600 px-3 py-1 rounded-full uppercase border border-green-500/10">
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
                     Sync Status: OK
                   </span>
                 </div>
 
                 {/* Progress bars for Welfare enrollment */}
+<<<<<<< HEAD
                 <div className="grid md:grid-cols-3 gap-6">
+=======
+                <div className="grid md:grid-cols-3 gap-6 text-left">
+>>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
                   {/* BOCW Card */}
                   <div className="p-6 rounded-2xl bg-secondary/30 border border-border/60 space-y-4">
                     <div className="flex justify-between items-center">
