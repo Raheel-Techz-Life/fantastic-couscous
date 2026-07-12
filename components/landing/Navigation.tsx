@@ -65,12 +65,14 @@ export function Navigation() {
 
         {/* Actions */}
         <div className="hidden lg:flex items-center gap-3">
-          <Button variant="ghost" size="sm" className="rounded-full px-6 font-bold text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
-            Partner Login
+          <Button variant="ghost" size="sm" asChild className="rounded-full px-6 font-bold text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors">
+            <Link href="/login">Partner Login</Link>
           </Button>
-          <Button size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all border border-primary/50 relative overflow-hidden group">
-            <span className="relative z-10">{navigation.cta}</span>
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+          <Button size="sm" asChild className="rounded-full px-6 font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all border border-primary/50 relative overflow-hidden group">
+            <Link href="/login">
+              <span className="relative z-10">{navigation.cta}</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </Link>
           </Button>
         </div>
 
@@ -104,8 +106,8 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Button className="w-full rounded-full py-6 text-lg font-semibold">
-              {navigation.cta}
+            <Button asChild className="w-full rounded-full py-6 text-lg font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/login">{navigation.cta}</Link>
             </Button>
           </motion.div>
         )}

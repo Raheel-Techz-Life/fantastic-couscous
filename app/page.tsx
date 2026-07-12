@@ -17,6 +17,7 @@ import { CTASection } from '@/components/landing/CTASection'
 import { Footer } from '@/components/landing/Footer'
 import { IVRSimulator } from '@/components/landing/IVRSimulator'
 import { WhatsAppDashboard } from '@/components/landing/WhatsAppDashboard'
+import { DifferentiatorsSection } from '@/components/landing/DifferentiatorsSection'
 
 export default function Home() {
   const { branding } = landingConfig
@@ -77,6 +78,9 @@ export default function Home() {
 
       {/* 5. How It Works (The Narrative Flow) */}
       <HowItWorks />
+
+      {/* 5.5 Key Differentiators */}
+      <DifferentiatorsSection />
 
       {/* 6. Impact Numbers (Quantitative Thresholds) */}
       <ImpactSection />

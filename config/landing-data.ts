@@ -13,28 +13,27 @@ export const landingConfig = {
 
   navigation: {
     links: [
-      { label: 'How it works', href: '/how-it-works' },
-      { label: 'Features', href: '/features' },
-      { label: 'Technology', href: '/technology' },
-      { label: 'Impact', href: '/impact' },
-      { label: 'Employers', href: '/employers' },
-      { label: 'Partners', href: '/partners' },
+      { label: 'Home', href: '/' },
+      { label: 'For Employers (B2B)', href: '/employers' },
+      { label: 'For Government (B2G)', href: '/government' },
+      { label: 'About Us / Team', href: '/about' },
+      { label: 'Login / Dashboards', href: '/login' },
     ],
     cta: 'Get in touch',
   },
 
   home: {
     hero: {
-      headline: 'The 48-Hour Talent Pipeline for India\'s <span className="text-gradient italic">Next 450M</span>',
+      headline: "India's Voice-First Workforce OS",
       description:
-        'Informal sector employers and blue-collar workers have no trusted, accessible way to find each other — making every hire a costly, repeated, and mostly failed effort. HAAZRI fixes the broken connection.',
+        "Connecting 400 million informal workers to employers of any size through a simple phone call. Zero internet, zero smartphone, and zero literacy barriers.",
       buttons: [
         { label: 'Claim your pilot', type: 'primary', icon: '⚡' },
         { label: 'See the problem', type: 'secondary', icon: '💡' },
       ],
       stats: [
         { number: '24h', label: 'Talent match' },
-        { number: '90%', label: 'Attrition rate' },
+        { number: '90%', label: 'Retention rate' },
         { number: '₹0', label: 'Worker cost' },
       ],
     },
@@ -62,35 +61,35 @@ export const landingConfig = {
   },
 
   problemStatement: {
-    tag: 'The One Big Problem',
-    headline: 'Every hire is a costly, repeated, mostly failed effort.',
+    tag: 'The Broken Reality',
+    headline: 'The informal labour market is fundamentally disconnected.',
     subheadline:
-      'Informal sector employers and blue-collar workers have no trusted, accessible, or structured way to find each other.',
+      'Word-of-mouth is unscalable, leaving employers short-handed and workers in perpetual uncertainty.',
     painPoints: [
       {
-        who: 'Employer',
+        who: 'Employers',
         icon: '🏭',
-        title: 'The search restarts from zero — every time',
+        title: 'Unverified Skills, No-Shows & Zero Loyalty',
         body:
-          '90% of informal workers leave within weeks. There is no platform, no pipeline, no system. Every vacancy means hours of phone calls, asking contacts, and failed screen calls — all over again. For 15 years, the same painful loop.',
+          'Employers waste weeks trying to find dependable workers. They deal with high attrition, constant no-shows at critical construction/factory sites, and have no way to verify worker skills prior to day one of work.',
       },
       {
-        who: 'Worker',
+        who: 'Workers',
         icon: '👷',
-        title: "Months unemployed between jobs they can't reach",
+        title: 'Invisible Skills, Reliance on Luck & Feast-or-Famine',
         body:
-          'Workers are locked out of every existing job platform — no smartphone, no literacy, no data. Government schemes worth lakhs go unclaimed. The right job exists. The right worker exists. They never meet.',
+          'Informal workers live in a cycle of feast-or-famine. Without smartphones or literacy, they rely on luck or local middle-men to find work. Their real skills remain invisible, and they lack a portable employment identity.',
       },
       {
-        who: 'System',
+        who: 'Market System',
         icon: '🔗',
-        title: 'Word-of-mouth is the only "solution" — and it\'s broken',
+        title: 'Traditional Tech Platforms Have Failed',
         body:
-          'Naukri, LinkedIn, and every major platform are built for white-collar India. The ₹450M informal workforce is completely invisible to them. The only existing solution is unreliable, unscalable, and exclusionary.',
+          'White-collar job sites require smartphones, high literacy, and internet access. The 400M informal workforce is locked out. Word-of-mouth is the only solution left, and it is highly unreliable and localized.',
       },
     ],
     verdict: {
-      label: 'Frequent · Costly · Poorly Solved',
+      label: 'Unverified · Fragile · Exclusionary',
       quote:
         '"Informal sector employers and blue-collar workers have no trusted, accessible, and structured way to find each other — making every hire a costly, repeated, and mostly failed effort."',
     },
@@ -98,39 +97,39 @@ export const landingConfig = {
 
   howItWorks: {
     tag: 'Journey',
-    title: 'From missed call to milestone',
-    description: 'A seamless, end-to-end loop designed for the informal economy.',
+    title: 'The 6-Stage IVR Hiring Operating System',
+    description: 'A seamless, voice-first system connecting local labour to business needs without barriers.',
     workerJourney: [
       {
         step: 1,
-        title: 'Missed call initiation',
-        description: 'Toll-free, zero-charge, zero-data. Familiar pattern for rural India.',
+        title: 'Registration',
+        description: 'Workers register by dialing a simple missed call, triggering an automated callback in their local dialect.',
         faq: 'What if I have no credit? (It works even with zero balance)',
       },
       {
         step: 2,
-        title: 'IVR callback',
-        description: 'BHASHINI multilingual voice menu. Speak naturally in your dialect.',
+        title: 'Matching',
+        description: 'Our system automatically matches registered workers to local job openings based on trade and location.',
       },
       {
         step: 3,
-        title: 'Digital Job ID',
-        description: 'Voice biometric as identity. No passwords, no hardware needed.',
+        title: 'Voice Pitch',
+        description: 'Workers record a short 30-second audio pitch describing their experience and skill sets in their own language.',
       },
       {
         step: 4,
-        title: 'SMS confirmation',
-        description: '1-digit reply. No typing, no forms, instant confirmation.',
+        title: 'Review',
+        description: 'Employers receive applicant cards with play-back audio pitches translated into English or standard text.',
       },
       {
         step: 5,
-        title: 'Employer notification',
-        description: 'WhatsApp card with your voice note and transcript.',
+        title: 'Decision',
+        description: 'Employers make a decision with a single tap, notifying the worker via auto-dial or SMS alerts.',
       },
       {
         step: 6,
-        title: 'Credibility loop',
-        description: 'Ratings build a portable, digital employment history.',
+        title: 'Accessibility',
+        description: 'Ensuring zero barrier entry: workers need no smartphone, no internet, and no literacy to get hired.',
       },
     ],
     employerJourney: [
@@ -175,6 +174,19 @@ export const landingConfig = {
     ],
   },
 
+  differentiators: {
+    monotonicWage: {
+      title: 'Monotonic Wage System',
+      description: 'Prioritizes continuous, stable daily income over maximum temporary wages. Helps workers maintain steady food on the table and builds employer reliability.',
+      badge: 'Continuous Income'
+    },
+    nightBeforeAlerts: {
+      title: 'Automated Night-Before Work Alerts',
+      description: 'System automatically calls scheduled workers the night before to confirm their shift attendance, allowing immediate replacement routing if they decline.',
+      badge: 'Zero No-Shows'
+    }
+  },
+
   technology: {
     architecture: [
       { item: 'ASR/TTS Engine', tech: 'BHASHINI', purpose: 'Multilingual Voice' },
@@ -186,10 +198,10 @@ export const landingConfig = {
   },
 
   impact: {
-    title: 'The ₹450M Informal Economy',
+    title: 'The 400M Informal Economy',
     description: 'HAAZRI acts as the digital bridge, connecting the unorganized sector to modern work opportunities at an unprecedented scale.',
     metrics: [
-      { label: 'Target Workforce', value: '450M+' },
+      { label: 'Target Workforce', value: '400M+' },
       { label: 'Exclusion Rate', value: '90%' },
       { label: 'Languages', value: '22+' },
       { label: 'Literacy Barrier', value: '0%' },
@@ -203,55 +215,55 @@ export const landingConfig = {
 
   team: {
     title: 'KNOW THE TEAM',
-    tag: '',
-    description: '',
+    tag: 'Team Vidyut',
+    description: 'The builders scaling voice-first jobs infrastructure in Hubballi-Dharwad.',
     members: [
       { 
         initials: 'VK', 
         name: 'Vishwanath Koliwad', 
-        role: 'System Architect & Tactical Lead', 
-        description: 'Architecting high-performance system logic and engineering the core infrastructure that powers Team Vidyut\'s winning builds. Focused on low-level optimization and scalable backend systems under pressure.',
-        location: 'Hubballi, Karnataka',
+        role: 'Tech Lead', 
+        description: 'Architecting high-performance system logic and engineering the core infrastructure that powers HAAZRI\'s voice-first OS. Focused on low-level optimization and scale.',
+        location: 'Hubballi-Dharwad, Karnataka',
         image: '/vishwanath.jpg',
         avatarColor: 'blue', 
-        badge: '' 
+        badge: 'Architect' 
       },
       { 
         initials: 'RH', 
         name: 'Raheel Hosmani', 
-        role: 'Rapid Deployment Engineer', 
-        description: 'Driving peak development velocity with high-frequency code output. Specializes in rapid prototyping and deploying autonomous AI systems and intelligence engines.',
-        location: 'Hubballi, Karnataka',
+        role: 'Product Lead', 
+        description: 'Driving product velocity and aligning developer efforts. Specializes in rapid deployment of voice-biometric matches and interactive user workflows.',
+        location: 'Hubballi-Dharwad, Karnataka',
         image: '/raheel.jpg',
         avatarColor: 'teal', 
-        badge: '' 
+        badge: 'Product' 
       },
       { 
         initials: 'DR', 
         name: 'Disha Raikar', 
-        role: 'UX Architecture & Visual Systems', 
-        description: 'Bridging the gap between raw functional logic and high-fidelity human interfaces. Designing the visual systems that make Team Vidyut\'s prototypes stand out in the arena.',
-        location: 'Hubballi, Karnataka',
+        role: 'Design Lead', 
+        description: 'Bridging the gap between raw functional logic and high-fidelity human interfaces. Designing the visual systems and user portals that scale accessibility.',
+        location: 'Hubballi-Dharwad, Karnataka',
         image: '/disha.jpg',
         avatarColor: 'purple', 
-        badge: '' 
+        badge: 'Design' 
       },
       { 
         initials: 'BD', 
         name: 'Bhumika Dalabhanjan', 
-        role: 'Operations & Strategic Lead', 
-        description: 'Managing the roadmap for elite execution. Ensuring all technical pipelines are optimized for 100% uptime and seamless deployment during high-stakes hackathon events.',
-        location: 'Hubballi, Karnataka',
+        role: 'Head of Operations', 
+        description: 'Managing the rollout and strategic integration. Building grassroots partnerships and ensuring maximum operational uptime in Tier 2/3 locations.',
+        location: 'Hubballi-Dharwad, Karnataka',
         image: '/bhumika.jpg',
         avatarColor: 'coral', 
-        badge: '' 
+        badge: 'Operations' 
       },
     ],
   },
 
   forms: {
     employer: {
-      title: 'Hire from the next 450M',
+      title: 'Hire from the next 400M',
       fields: ['Company Name', 'Contact Person', 'Phone', 'Email', 'City', 'Monthly Volume'],
     },
     partner: {
@@ -266,38 +278,36 @@ export const landingConfig = {
       {
         title: 'Platform',
         links: [
-          { label: 'How it works', href: '/how-it-works' },
-          { label: 'Features', href: '/features' },
-          { label: 'Technology', href: '/technology' },
-          { label: 'Impact', href: '/impact' },
+          { label: 'How it works', href: '/' },
+          { label: 'For Employers', href: '/employers' },
+          { label: 'For Government', href: '/government' },
+          { label: 'About Us', href: '/about' },
         ],
       },
       {
         title: 'Connect',
         links: [
           { label: 'For Employers', href: '/employers' },
-          { label: 'For Partners', href: '/partners' },
-          { label: 'Newsroom', href: '/blog' },
+          { label: 'Login Portal', href: '/login' },
         ],
       },
       {
         title: 'Legal',
         links: [
-          { label: 'Privacy', href: '/legal/privacy' },
-          { label: 'Terms', href: '/legal/terms' },
-          { label: 'Data Handling', href: '/legal/data-handling' },
+          { label: 'Privacy Policy', href: '/legal/privacy' },
+          { label: 'Terms of Service', href: '/legal/terms' },
         ],
       },
     ],
-    copyright: '© 2025 HAAZRI',
-    location: 'Built in Bengaluru, India',
+    copyright: '© 2026 HAAZRI',
+    location: 'Built in Hubballi-Dharwad, India',
   },
   cta: {
     title: "Let's bring this to millions",
     description: "We're scaling HAAZRI to reach India's informal workforce.\nInterested in partnering, funding, or piloting?",
     buttons: [
       { label: 'Get in touch', type: 'white' },
-      { label: 'View on GitHub', type: 'outline-white' },
+      { label: 'View Portal', type: 'outline-white' },
     ],
   },
 };

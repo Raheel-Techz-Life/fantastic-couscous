@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { useEffect, useState } from 'react'
 import { Phone, Mic, CheckCircle, ArrowRight, Volume2, Globe, Smartphone } from 'lucide-react'
+import Link from 'next/link'
 
 /* ─────────── Animated Counter ─────────── */
 function AnimatedCounter({ target }: { target: string }) {
@@ -200,10 +201,10 @@ export function HeroSection() {
         {/* Headline Block */}
         <motion.div variants={itemVariants} className="hero-headline-block">
           <h1 className="hero-headline">
-            The <span className="hero-headline-accent">48-Hour</span> Talent Pipeline
+            India&apos;s <span className="hero-headline-accent">Voice-First</span>
           </h1>
           <h1 className="hero-headline hero-headline-second">
-            for India&apos;s Next <span className="hero-headline-gradient">450M</span>
+            Workforce <span className="hero-headline-gradient">OS</span>
           </h1>
         </motion.div>
 
@@ -219,16 +220,20 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="hero-cta-group">
-          <button className="hero-cta-primary">
-            <span className="hero-cta-primary-glow" />
-            <span className="hero-cta-primary-content">
-              ⚡ Claim your pilot
-              <ArrowRight size={18} className="hero-cta-arrow" />
-            </span>
-          </button>
-          <button className="hero-cta-secondary">
-            💡 The Logic
-          </button>
+          <Link href="/login" passHref legacyBehavior>
+            <button className="hero-cta-primary cursor-pointer">
+              <span className="hero-cta-primary-glow" />
+              <span className="hero-cta-primary-content">
+                ⚡ Claim your pilot
+                <ArrowRight size={18} className="hero-cta-arrow" />
+              </span>
+            </button>
+          </Link>
+          <Link href="/employers" passHref legacyBehavior>
+            <button className="hero-cta-secondary cursor-pointer">
+              💡 B2B Solutions
+            </button>
+          </Link>
         </motion.div>
 
         {/* Stats Row */}
