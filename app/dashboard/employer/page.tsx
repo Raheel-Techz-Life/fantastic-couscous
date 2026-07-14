@@ -182,18 +182,6 @@ export default function EmployerDashboard() {
     <main className="min-h-screen bg-background flex flex-col justify-between">
       <Navigation />
 
-<<<<<<< HEAD
-      <section className="flex-1 max-w-7xl w-full mx-auto pt-32 pb-16 px-6 grid md:grid-cols-4 gap-8">
-        {/* Sidebar Nav */}
-        <div className="md:col-span-1 p-6 rounded-[2rem] border border-border bg-card shadow-xl flex flex-col justify-between h-[500px]">
-          <div className="space-y-6">
-            <div className="flex gap-3 items-center border-b border-border pb-4">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                B2B
-              </div>
-              <div>
-                <h4 className="font-bold text-sm">Vidyut Infra Corp</h4>
-=======
       <section className="flex-1 max-w-7xl w-full mx-auto pt-32 pb-16 px-6 grid md:grid-cols-4 gap-8 relative z-10">
         {/* Ambient Backglow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
@@ -208,7 +196,7 @@ export default function EmployerDashboard() {
               </div>
               <div className="text-left">
                 <h4 className="font-bold text-sm text-foreground">Vidyut Infra Corp</h4>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                 <p className="text-muted-foreground text-[10px] uppercase font-black tracking-wider">SMB Contractor</p>
               </div>
             </div>
@@ -216,15 +204,10 @@ export default function EmployerDashboard() {
             <nav className="flex flex-col gap-2">
               <button
                 onClick={() => setActiveTab('candidates')}
-<<<<<<< HEAD
-                className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all ${
-                  activeTab === 'candidates'
-                    ? 'bg-primary text-white'
-=======
                 className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
                   activeTab === 'candidates'
                     ? 'bg-primary text-white shadow-lg shadow-primary/20'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -233,15 +216,10 @@ export default function EmployerDashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('post-job')}
-<<<<<<< HEAD
-                className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all ${
-                  activeTab === 'post-job'
-                    ? 'bg-primary text-white'
-=======
                 className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
                   activeTab === 'post-job'
                     ? 'bg-primary text-white shadow-lg shadow-primary/20'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -250,15 +228,10 @@ export default function EmployerDashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('muster')}
-<<<<<<< HEAD
-                className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all ${
-                  activeTab === 'muster'
-                    ? 'bg-primary text-white'
-=======
                 className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
                   activeTab === 'muster'
                     ? 'bg-primary text-white shadow-lg shadow-primary/20'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -267,15 +240,10 @@ export default function EmployerDashboard() {
               </button>
               <button
                 onClick={() => setActiveTab('analytics')}
-<<<<<<< HEAD
-                className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all ${
-                  activeTab === 'analytics'
-                    ? 'bg-primary text-white'
-=======
                 className={`flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
                   activeTab === 'analytics'
                     ? 'bg-primary text-white shadow-lg shadow-primary/20'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -285,17 +253,11 @@ export default function EmployerDashboard() {
             </nav>
           </div>
 
-<<<<<<< HEAD
-          <div className="border-t border-border pt-4">
-            <button
-              onClick={handleLogout}
-              className="flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold text-red-500 hover:bg-red-500/10 transition-all"
-=======
           <div className="border-t border-border pt-4 relative z-10">
             <button
               onClick={handleLogout}
               className="flex gap-3 items-center w-full px-4 py-3 rounded-xl text-left text-xs font-bold text-red-500 hover:bg-red-500/10 transition-all cursor-pointer"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
             >
               <LogOut className="w-4 h-4" />
               Sign Out
@@ -304,12 +266,9 @@ export default function EmployerDashboard() {
         </div>
 
         {/* Dashboard Content */}
-<<<<<<< HEAD
-        <div className="md:col-span-3 p-8 rounded-[2.5rem] border border-border bg-card shadow-2xl min-h-[500px]">
-=======
         <div className="md:col-span-3 p-8 rounded-[2.5rem] border border-border bg-card/65 backdrop-blur-xl shadow-2xl min-h-[500px] relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-44 h-44 bg-primary/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
           <AnimatePresence mode="wait">
             {/* Candidates Pitch Panel */}
             {activeTab === 'candidates' && (
@@ -318,16 +277,6 @@ export default function EmployerDashboard() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-<<<<<<< HEAD
-                className="space-y-6"
-              >
-                <div className="border-b border-border pb-4 flex justify-between items-center">
-                  <div>
-                    <h2 className="text-2xl font-black">Candidate Voice Pitches</h2>
-                    <p className="text-muted-foreground text-xs">Review 30-second candidate audio introductions and translated transcripts.</p>
-                  </div>
-                  <span className="text-[10px] font-black bg-primary/10 text-primary px-3 py-1 rounded-full uppercase tracking-wider">
-=======
                 className="space-y-6 relative z-10"
               >
                 <div className="border-b border-border pb-4 flex justify-between items-center text-left">
@@ -336,59 +285,39 @@ export default function EmployerDashboard() {
                     <p className="text-muted-foreground text-xs">Review 30-second candidate audio introductions and translated transcripts.</p>
                   </div>
                   <span className="text-[10px] font-black bg-primary/10 text-primary px-3 py-1 rounded-full uppercase tracking-wider border border-primary/10">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     {candidates.filter(c => c.status === 'pending').length} New Pitches
                   </span>
                 </div>
 
-<<<<<<< HEAD
-                <div className="space-y-6">
-                  {candidates.map((cand) => (
-                    <div
-                      key={cand.id}
-                      className={`p-6 rounded-[2rem] border transition-all ${
-=======
                 <div className="space-y-6 text-left">
                   {candidates.map((cand) => (
                     <div
                       key={cand.id}
                       className={`p-6 rounded-[2rem] border transition-all duration-500 ${
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                         cand.status === 'hired'
                           ? 'border-green-500 bg-green-500/5'
                           : cand.status === 'rejected'
                           ? 'border-border opacity-60'
-<<<<<<< HEAD
-                          : 'border-border bg-secondary/20 hover:border-primary/40'
-=======
                           : 'border-border bg-secondary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(255,84,0,0.03)]'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                       }`}
                     >
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                         <div className="flex gap-3 items-center">
-<<<<<<< HEAD
-                          <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center font-bold text-primary">
-                            {cand.name.split(' ').map(n => n[0]).join('')}
-                          </div>
-                          <div>
-                            <h4 className="font-bold">{cand.name}</h4>
-=======
                           <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center font-bold text-primary border border-primary/10">
                             {cand.name.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
                             <h4 className="font-bold text-foreground">{cand.name}</h4>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                             <p className="text-muted-foreground text-xs">{cand.trade} • Exp: {cand.experience}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
-<<<<<<< HEAD
-                          <span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground bg-secondary/80 px-2 py-1 rounded-md">
-=======
                           <span className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground bg-secondary/80 px-2.5 py-1 rounded-md border border-border">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                             {cand.dialect}
                           </span>
                           <span className="text-xs font-bold text-primary">★ {cand.rating}</span>
@@ -399,15 +328,10 @@ export default function EmployerDashboard() {
                       <div className="p-4 rounded-2xl bg-background/50 border border-border flex items-center gap-4 mb-4">
                         <button
                           onClick={() => togglePlay(cand.id)}
-<<<<<<< HEAD
-                          className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:scale-105 transition-transform"
-                        >
-                          {cand.isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-white ml-0.5" />}
-=======
                           className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-transform cursor-pointer shadow-md shadow-primary/10"
                         >
                           {cand.isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white ml-0.5" />}
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                         </button>
                         
                         {/* CSS Audio Waveform Animation */}
@@ -443,20 +367,14 @@ export default function EmployerDashboard() {
                             onClick={() =>
                               setIsEnglishText((prev) => ({ ...prev, [cand.id]: !prev[cand.id] }))
                             }
-<<<<<<< HEAD
-                            className="text-[10px] font-bold text-primary uppercase hover:underline"
-=======
                             className="text-[10px] font-bold text-primary uppercase hover:underline cursor-pointer"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                           >
                             {isEnglishText[cand.id] ? 'Show Original Dialect' : 'Translate to English'}
                           </button>
                         </div>
-<<<<<<< HEAD
-                        <p className="text-xs italic bg-background/40 p-4 rounded-xl border border-border/60 text-foreground/90">
-=======
                         <p className="text-xs italic bg-background/40 p-4 rounded-xl border border-border/65 text-foreground/90 leading-relaxed">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                           {isEnglishText[cand.id] ? cand.translation : cand.transcript}
                         </p>
                       </div>
@@ -468,21 +386,15 @@ export default function EmployerDashboard() {
                             <Button
                               variant="outline"
                               onClick={() => handleHire(cand.id, 'rejected')}
-<<<<<<< HEAD
-                              className="h-10 px-4 rounded-xl text-xs font-bold text-red-500 border-red-500/20 hover:bg-red-500/10"
-=======
                               className="h-10 px-4 rounded-xl text-xs font-bold text-red-500 border border-red-500/20 hover:bg-red-500/10 cursor-pointer"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                             >
                               <X className="w-3.5 h-3.5 mr-1" /> Decline
                             </Button>
                             <Button
                               onClick={() => handleHire(cand.id, 'hired')}
-<<<<<<< HEAD
-                              className="h-10 px-4 rounded-xl text-xs font-bold bg-green-600 hover:bg-green-550 text-white"
-=======
                               className="h-10 px-4 rounded-xl text-xs font-bold bg-green-600 hover:bg-green-700 text-white cursor-pointer"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                             >
                               <Check className="w-3.5 h-3.5 mr-1" /> Approve & Hire
                             </Button>

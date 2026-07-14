@@ -27,17 +27,6 @@ export function Navigation() {
 
   return (
     <nav 
-<<<<<<< HEAD
-      className={`fixed left-0 right-0 z-[100] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-        isScrolled ? 'top-6 px-4' : 'top-0 px-6 sm:px-10 py-4'
-      }`}
-    >
-      <div 
-        className={`mx-auto flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-          isScrolled 
-            ? 'max-w-5xl bg-background/70 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-full px-8 py-3' 
-            : 'max-w-7xl py-4 bg-transparent'
-=======
       className={`fixed left-0 right-0 top-0 z-[100] px-6 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform ${
         isScrolled ? 'translate-y-6' : 'translate-y-0 py-4'
       }`}
@@ -47,7 +36,7 @@ export function Navigation() {
           isScrolled 
             ? 'bg-background/70 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-full px-8 py-3' 
             : 'py-4 bg-transparent px-4'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
         }`}
       >
         {/* Left: Logo & Live Status */}
@@ -84,38 +73,20 @@ export function Navigation() {
         </div>
 
         {/* Center: Desktop Links */}
-<<<<<<< HEAD
-        <div className={`hidden xl:flex items-center gap-0.5 transition-all duration-700 ${isScrolled ? 'scale-95' : ''}`}>
-          <div className="flex items-center gap-0.5 px-1 py-1 rounded-full bg-secondary/20 border border-border/30 backdrop-blur-sm">
-=======
         <div className="hidden xl:flex items-center gap-0.5 transition-all duration-700">
           <div className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-secondary/35 border border-border/40 backdrop-blur-md shadow-inner whitespace-nowrap">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
             {navigation.links.map((link) => (
               <Link 
                 key={link.label} 
                 href={link.href} 
-<<<<<<< HEAD
-                className={`text-[11px] font-bold px-3 py-2 rounded-full transition-all duration-500 relative group overflow-hidden ${
-=======
                 className={`text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 relative group overflow-hidden whitespace-nowrap ${
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                   pathname === link.href 
                     ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
-<<<<<<< HEAD
-                <span className="relative z-10">{link.label}</span>
-                {pathname === link.href && (
-                  <motion.div 
-                    layoutId="nav-pill"
-                    className="absolute inset-0 bg-background shadow-[0_2px_10px_rgba(0,0,0,0.05)] rounded-full -z-0"
-                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                  />
-                )}
-                <div className="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-=======
                 <span className="relative z-10 whitespace-nowrap">{link.label}</span>
                 {pathname === link.href && (
                   <motion.div 
@@ -125,7 +96,7 @@ export function Navigation() {
                   />
                 )}
                 <div className="absolute inset-x-0 bottom-0 h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-20" />
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
               </Link>
             ))}
           </div>
@@ -133,18 +104,6 @@ export function Navigation() {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-4">
-<<<<<<< HEAD
-          <div className="hidden lg:flex items-center gap-2">
-            <Link 
-              href="/login" 
-              className="text-[11px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors px-4"
-            >
-              Partner Login
-            </Link>
-            <Button size="sm" asChild className="rounded-full px-6 h-10 font-black shadow-xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all bg-primary text-white border-none group overflow-hidden relative">
-              <Link href="/login">
-                <span className="relative z-10 flex items-center gap-2">
-=======
           <div className="hidden xl:flex items-center gap-4 whitespace-nowrap">
             <Link 
               href="/login" 
@@ -155,7 +114,7 @@ export function Navigation() {
             <Button size="sm" asChild className="rounded-full px-6 h-10 font-black text-[10px] uppercase tracking-widest shadow-xl shadow-primary/15 hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 transition-all bg-primary text-white border-none group overflow-hidden relative whitespace-nowrap">
               <Link href="/contact">
                 <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                   {navigation.cta}
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -185,11 +144,8 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-<<<<<<< HEAD
-              className="fixed inset-0 bg-background/60 backdrop-blur-md z-[-1] lg:hidden"
-=======
               className="fixed inset-0 bg-background/60 backdrop-blur-md z-[-1] xl:hidden"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
             />
             
             <motion.div
@@ -197,11 +153,8 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-<<<<<<< HEAD
-              className="absolute top-full left-4 right-4 mt-4 glass border border-white/20 p-6 flex flex-col gap-6 lg:hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] rounded-[2rem]"
-=======
               className="absolute top-full left-4 right-4 mt-4 glass border border-white/20 p-6 flex flex-col gap-6 xl:hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] rounded-[2rem]"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
             >
               <div className="flex flex-col gap-1.5">
                 <span className="text-[10px] font-black uppercase tracking-widest text-primary mb-2">Navigation</span>
@@ -221,11 +174,8 @@ export function Navigation() {
 
               <div className="pt-6 border-t border-border/50 flex flex-col gap-4">
                 <Button asChild className="w-full rounded-full py-7 text-lg font-black shadow-2xl shadow-primary/30">
-<<<<<<< HEAD
-                  <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-=======
                   <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     {navigation.cta}
                   </Link>
                 </Button>

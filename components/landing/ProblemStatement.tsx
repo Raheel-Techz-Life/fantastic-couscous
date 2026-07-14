@@ -77,8 +77,6 @@ export function ProblemStatement() {
           })}
         </motion.div>
 
-<<<<<<< HEAD
-=======
         {/* Detailed Struggles Side-by-Side Comparison */}
         <motion.div variants={item} className="mt-16 w-full grid md:grid-cols-2 gap-8 text-left">
           {/* Employer Column */}
@@ -122,7 +120,7 @@ export function ProblemStatement() {
           </div>
         </motion.div>
 
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
         {/* Friction Cost CTA block */}
         <motion.div variants={item} className="mt-16 sm:mt-20 w-full relative">
           {/* Background Glow */}

@@ -6,12 +6,9 @@ import { useEffect, useState } from 'react'
 import { Phone, Mic, CheckCircle, ArrowRight, Volume2, Globe, Smartphone } from 'lucide-react'
 import Link from 'next/link'
 
-<<<<<<< HEAD
-=======
-import { VoiceMesh } from './VoiceMesh'
 import { IVRSimulator } from './IVRSimulator'
 
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
 /* ─────────── Animated Counter ─────────── */
 function AnimatedCounter({ target }: { target: string }) {
   const match = target.match(/^([^0-9]*)(\d+)([^0-9]*)$/)
@@ -45,21 +42,6 @@ function AnimatedCounter({ target }: { target: string }) {
 /* ─────────── Animated Voice Waveform ─────────── */
 function VoiceWaveform() {
   return (
-<<<<<<< HEAD
-    <div className="hero-waveform my-4">
-      {Array.from({ length: 32 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="hero-waveform-bar"
-          animate={{
-            scaleY: [0.3, Math.random() * 0.7 + 0.3, 0.3],
-          }}
-          transition={{
-            duration: 0.6 + Math.random() * 0.8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: i * 0.05,
-=======
     <div className="flex items-center gap-1.5 h-12 px-6 rounded-2xl bg-secondary/30 border border-border/40 backdrop-blur-md shadow-inner my-4 max-w-sm select-none">
       <Volume2 className="w-4 h-4 text-primary shrink-0 mr-2 animate-bounce" />
       {Array.from({ length: 24 }).map((_, i) => (
@@ -74,7 +56,7 @@ function VoiceWaveform() {
             repeat: Infinity,
             ease: 'easeInOut',
             delay: i * 0.04,
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
           }}
         />
       ))}
@@ -102,15 +84,10 @@ function PipelineTicker() {
   }, [events.length])
 
   return (
-<<<<<<< HEAD
-    <div className="hero-ticker">
-      <div className="hero-ticker-dot" />
-      <span className="hero-ticker-label">LIVE</span>
-=======
     <div className="hero-ticker border border-primary/20 bg-primary/5 shadow-[0_0_15px_rgba(255,84,0,0.05)]">
       <div className="hero-ticker-dot bg-primary shadow-[0_0_8px_#ff5400] animate-pulse" />
       <span className="hero-ticker-label text-primary">LIVE</span>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIdx}
@@ -160,133 +137,25 @@ export function HeroSection() {
 
   return (
     <div className="hero-root">
-<<<<<<< HEAD
-=======
-      <VoiceMesh />
+      {/* Premium animated orbs */}
+      <div className="hero-orbs-container">
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
+        <div className="hero-orb hero-orb-4" />
+      </div>
       
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
-      {/* Background Effects (Subtle & Non-distracting) */}
-      <div className="hero-grid-pattern" />
-      <div className="hero-radial-fade" />
+      {/* The 'check box' grid pattern requested by the user */}
+      <div className="hero-grid-pattern opacity-100" />
+      <div className="hero-radial-fade opacity-70" />
+      
+      {/* Subtle glassmorphic overlay */}
+      <div className="absolute inset-0 bg-background/20 backdrop-blur-[30px] z-0" />
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-<<<<<<< HEAD
-        className="hero-content z-10"
-      >
-        {/* Top: Live pipeline ticker */}
-        <motion.div variants={itemVariants}>
-          <PipelineTicker />
-        </motion.div>
-
-        {/* Headline Block */}
-        <motion.div variants={itemVariants} className="hero-headline-block relative">
-          <h1 className="hero-headline relative z-10 drop-shadow-2xl flex flex-wrap justify-center gap-x-4 items-center">
-            The{' '}
-            <motion.span 
-              variants={{
-                hidden: { y: -50, opacity: 0, scale: 0.95, filter: 'blur(10px)' },
-                visible: { 
-                  y: 0, 
-                  opacity: 1, 
-                  scale: 1, 
-                  filter: 'blur(0px)', 
-                  transition: { type: 'spring', stiffness: 300, damping: 15, delay: 0.3 } 
-                }
-              } as Variants}
-              className="hero-headline-accent inline-block hover:scale-105 transition-transform duration-300 relative z-20 origin-bottom"
-            >
-              48-Hour
-            </motion.span>{' '}
-            Talent Pipeline
-          </h1>
-          <h1 className="hero-headline hero-headline-second relative z-10 drop-shadow-2xl mt-2 flex flex-wrap justify-center gap-x-4 items-center">
-            for India&apos;s Next{' '}
-            <motion.span 
-              variants={{
-                hidden: { y: -50, opacity: 0, scale: 0.95, filter: 'blur(10px)' },
-                visible: { 
-                  y: 0, 
-                  opacity: 1, 
-                  scale: 1, 
-                  filter: 'blur(0px)', 
-                  transition: { type: 'spring', stiffness: 300, damping: 15, delay: 0.5 } 
-                }
-              } as Variants}
-              className="hero-headline-gradient inline-block hover:hue-rotate-15 transition-all duration-500 relative z-20 origin-bottom"
-            >
-              450M
-            </motion.span>
-          </h1>
-        </motion.div>
-
-        {/* Subheadline */}
-        <motion.div variants={itemVariants} className="hero-subheadline">
-          <p>{hero.description}</p>
-        </motion.div>
-
-        {/* Voice Waveform (Primary Visual) */}
-        <motion.div variants={itemVariants}>
-          <VoiceWaveform />
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div variants={itemVariants} className="hero-cta-group relative z-20">
-          <Link href="/login" passHref legacyBehavior>
-            <motion.button 
-              whileHover={{ scale: 1.05 }} 
-              whileTap={{ scale: 0.95 }}
-              className="hero-cta-primary group overflow-hidden cursor-pointer"
-            >
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
-                animate={{ x: ['-150%', '200%'] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              />
-              <span className="hero-cta-primary-content relative z-10">
-                ⚡ Claim your pilot
-                <ArrowRight size={18} className="hero-cta-arrow group-hover:translate-x-1 transition-transform" />
-              </span>
-            </motion.button>
-          </Link>
-          <Link href="/employers" passHref legacyBehavior>
-            <motion.button 
-              whileHover={{ scale: 1.05, backgroundColor: 'var(--primary)', color: 'white', borderColor: 'var(--primary)' }} 
-              whileTap={{ scale: 0.95 }}
-              className="hero-cta-secondary transition-all cursor-pointer"
-            >
-              💡 B2B Solutions
-            </motion.button>
-          </Link>
-        </motion.div>
-
-        {/* Stats Row */}
-        <motion.div variants={itemVariants} className="hero-stats-row">
-          {hero.stats.map((stat, idx) => (
-            <div key={stat.label} className="hero-stat">
-              <span className="hero-stat-number">
-                <AnimatedCounter target={stat.number} />
-              </span>
-              <span className="hero-stat-label">{stat.label}</span>
-              {idx < hero.stats.length - 1 && <div className="hero-stat-divider" />}
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="hero-scroll-indicator"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div className="hero-scroll-mouse">
-            <div className="hero-scroll-wheel" />
-          </div>
-          <span className="hero-scroll-text">Scroll to explore</span>
-        </motion.div>
-=======
         className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center px-6 md:px-10 z-10 relative"
       >
         {/* Left Column: Branding, Headline, CTAs, Stats */}
@@ -388,7 +257,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
       </motion.div>
     </div>
   )

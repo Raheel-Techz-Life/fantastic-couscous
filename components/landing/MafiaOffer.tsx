@@ -27,15 +27,10 @@ export function MafiaOffer() {
   ]
 
   const mockWorkers = [
-<<<<<<< HEAD
-    { name: "Suresh B.", role: "Machinist / ITI", rating: "4.9", status: "Active Pitch", id: "HZ-9921", initial: "SB", color: "from-blue-500 to-indigo-600" },
-    { name: "Manjunath K.", role: "Forklift Operator", rating: "4.8", status: "Verified", id: "HZ-4831", initial: "MK", color: "from-emerald-500 to-teal-600" },
-    { name: "Somesh H.", role: "CNC Operator", rating: "4.7", status: "Matched", id: "HZ-3109", initial: "SH", color: "from-orange-500 to-red-600" },
-=======
     { name: "Suresh B.", role: "Mason / ITI", rating: "4.9", status: "Active Pitch", id: "HZ-9921", initial: "SB", color: "from-blue-500 to-indigo-600" },
     { name: "Manjunath K.", role: "Mixer Operator", rating: "4.8", status: "Verified", id: "HZ-4831", initial: "MK", color: "from-emerald-500 to-teal-600" },
     { name: "Somesh H.", role: "Loader / Helper", rating: "4.7", status: "Matched", id: "HZ-3109", initial: "SH", color: "from-orange-500 to-red-600" },
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
   ]
 
   return (

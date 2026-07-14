@@ -1,23 +1,11 @@
 'use client'
 
 import { useRef, useMemo } from 'react'
-<<<<<<< HEAD
-import { Canvas, useFrame } from '@react-three/fiber'
-import { 
-  Float, 
-  PerspectiveCamera,
-  Environment,
-  Points,
-  PointMaterial,
-  Line
-} from '@react-three/drei'
-import * as THREE from 'three'
-=======
 import { useFrame } from '@react-three/fiber'
 import { Points, PointMaterial, Line } from '@react-three/drei'
 import * as THREE from 'three'
 import { ThreeScene } from './ThreeScene'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
 
 function ConnectionNodes() {
   const count = 40
@@ -72,21 +60,9 @@ function ConnectionNodes() {
 
 export function NetworkScene() {
   return (
-<<<<<<< HEAD
-    <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#FF5400" />
-        
-        <ConnectionNodes />
-        <Environment preset="city" />
-      </Canvas>
-    </div>
-=======
     <ThreeScene className="absolute inset-0 z-0 pointer-events-none opacity-40" cameraPosition={[0, 0, 10]}>
       <ConnectionNodes />
     </ThreeScene>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
   )
 }

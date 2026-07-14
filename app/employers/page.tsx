@@ -39,11 +39,8 @@ export default function EmployersPage() {
       <Navigation />
       
       {/* Hero */}
-<<<<<<< HEAD
-      <section className="pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24 px-6 md:px-10 lg:px-20 bg-secondary/20 relative overflow-hidden">
-=======
       <section className="pt-32 sm:pt-36 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24 px-6 md:px-10 lg:px-20 bg-secondary/15 relative overflow-hidden border-b border-border/40">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
         {/* Decorative modern mesh/grid details */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/4 left-10 w-[300px] h-[300px] bg-primary/3 rounded-full blur-3xl pointer-events-none" />
@@ -51,19 +48,12 @@ export default function EmployersPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Content */}
-<<<<<<< HEAD
-            <div className="lg:col-span-5 space-y-6 md:space-y-8">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest w-fit"
-=======
             <div className="lg:col-span-5 space-y-6 md:space-y-8 text-left">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest w-fit border border-primary/10"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
               >
                 <Building className="w-3.5 h-3.5" />
                 Enterprise Solutions (B2B)
@@ -86,44 +76,32 @@ export default function EmployersPage() {
                 <div className="flex gap-2.5 items-start">
                   <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                   <div>
-<<<<<<< HEAD
-                    <h4 className="text-xs font-black uppercase tracking-wider">Zero-Barrier IVR</h4>
-=======
                     <h4 className="text-xs font-black uppercase tracking-wider text-foreground">Zero-Barrier IVR</h4>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     <p className="text-muted-foreground text-xs mt-0.5">Workers register using speech in their native dialect.</p>
                   </div>
                 </div>
                 <div className="flex gap-2.5 items-start">
                   <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                   <div>
-<<<<<<< HEAD
-                    <h4 className="text-xs font-black uppercase tracking-wider">e-Shram Auditing</h4>
-=======
                     <h4 className="text-xs font-black uppercase tracking-wider text-foreground">e-Shram Auditing</h4>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     <p className="text-muted-foreground text-xs mt-0.5">Full compliance reporting and digital muster rolls.</p>
                   </div>
                 </div>
                 <div className="flex gap-2.5 items-start">
                   <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                   <div>
-<<<<<<< HEAD
-                    <h4 className="text-xs font-black uppercase tracking-wider">24h Replacement SLA</h4>
-=======
                     <h4 className="text-xs font-black uppercase tracking-wider text-foreground">24h Replacement SLA</h4>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     <p className="text-muted-foreground text-xs mt-0.5">Instant matching within 5-10km via backup worker pools.</p>
                   </div>
                 </div>
                 <div className="flex gap-2.5 items-start">
                   <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                   <div>
-<<<<<<< HEAD
-                    <h4 className="text-xs font-black uppercase tracking-wider">Voice Screened</h4>
-=======
                     <h4 className="text-xs font-black uppercase tracking-wider text-foreground">Voice Screened</h4>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                     <p className="text-muted-foreground text-xs mt-0.5">Hear 30-second audio pitches before you call or dispatch.</p>
                   </div>
                 </div>
@@ -150,11 +128,8 @@ export default function EmployersPage() {
                     <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Pilot request submitted successfully! Our team will contact you within 24 hours.'); }}>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {forms.employer.fields.map((field) => (
-<<<<<<< HEAD
-                          <div key={field} className="space-y-1.5">
-=======
                           <div key={field} className="space-y-1.5 text-left">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                             <Label htmlFor={field} className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground ml-1">{field}</Label>
                             <Input id={field} placeholder={field} className="rounded-xl h-12 bg-secondary/40 border border-border/80 focus-visible:ring-primary text-sm" required />
                           </div>
@@ -178,24 +153,17 @@ export default function EmployersPage() {
               </div>
             </div>
 
-<<<<<<< HEAD
-            {/* Right Column: Dashboard Preview */}
-            <div className="lg:col-span-7 w-full flex justify-center">
-=======
             {/* Right Column: Dashboard Preview with Glow Backing */}
             <div className="lg:col-span-7 w-full flex justify-center relative group">
               <div className="absolute -inset-4 bg-primary/10 rounded-full blur-3xl opacity-60 z-0 animate-pulse pointer-events-none group-hover:opacity-85 transition-opacity duration-500" />
               
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, type: 'spring', damping: 20 }}
-<<<<<<< HEAD
-                className="w-full"
-=======
                 className="w-full relative z-10"
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
               >
                 <B2BDashboardPreview />
               </motion.div>
@@ -205,19 +173,12 @@ export default function EmployersPage() {
       </section>
 
       {/* Tiered Features & Offerings */}
-<<<<<<< HEAD
-      <section id="b2b-offerings" className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl font-black tracking-tight">Structured B2B Offerings</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-=======
       <section id="b2b-offerings" className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 bg-background border-b border-border/40">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground">Structured B2B Offerings</h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-base">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
               Custom structures designed to serve local SMB contractors as well as national enterprise firms.
             </p>
           </div>
@@ -226,16 +187,6 @@ export default function EmployersPage() {
             {/* SMB Tier Card */}
             <motion.div 
               whileHover={{ y: -6 }}
-<<<<<<< HEAD
-              className="p-8 md:p-12 rounded-[2.5rem] border border-border bg-card flex flex-col justify-between shadow-xl relative"
-            >
-              <div className="space-y-6">
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    Small Contractors & Local Businesses
-                  </span>
-                  <h3 className="text-3xl font-black mt-4 mb-2">SMB Tier</h3>
-=======
               className="p-8 md:p-12 rounded-[2.5rem] border border-border bg-card flex flex-col justify-between shadow-xl relative hover:border-primary/45 transition-all duration-500 overflow-hidden group text-left"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -245,7 +196,7 @@ export default function EmployersPage() {
                     Small Contractors & Local Businesses
                   </span>
                   <h3 className="text-3xl font-black mt-4 mb-2 text-foreground">SMB Tier</h3>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                   <p className="text-primary font-bold text-lg">Pay-Per-Hire or Low Monthly Subscription</p>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -274,13 +225,9 @@ export default function EmployersPage() {
                 </ul>
               </div>
 
-<<<<<<< HEAD
-              <div className="mt-12">
-                <Button asChild className="w-full h-14 rounded-2xl font-bold bg-primary hover:bg-primary/95 text-white">
-=======
               <div className="mt-12 relative z-10">
                 <Button asChild className="w-full h-14 rounded-2xl font-bold bg-primary hover:bg-primary/95 text-white cursor-pointer shadow-lg shadow-primary/10">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                   <Link href="/login">Access SMB Portal</Link>
                 </Button>
               </div>
@@ -289,19 +236,6 @@ export default function EmployersPage() {
             {/* Enterprise Tier Card */}
             <motion.div 
               whileHover={{ y: -6 }}
-<<<<<<< HEAD
-              className="p-8 md:p-12 rounded-[2.5rem] border-2 border-primary bg-card flex flex-col justify-between shadow-2xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-10 -translate-y-1/2 bg-primary text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-full">
-                RECOMMENDED FOR SCALE
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    Large Employers & Infrastructure Firms
-                  </span>
-                  <h3 className="text-3xl font-black mt-4 mb-2">Enterprise Tier</h3>
-=======
               className="p-8 md:p-12 rounded-[2.5rem] border-2 border-primary bg-card flex flex-col justify-between shadow-2xl relative overflow-hidden group text-left"
             >
               <div className="absolute top-0 right-10 -translate-y-1/2 bg-primary text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-full z-20">
@@ -314,7 +248,7 @@ export default function EmployersPage() {
                     Large Employers & Infrastructure Firms
                   </span>
                   <h3 className="text-3xl font-black mt-4 mb-2 text-foreground">Enterprise Tier</h3>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                   <p className="text-primary font-bold text-lg">Annual SaaS License + API Usage Fee</p>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -347,13 +281,9 @@ export default function EmployersPage() {
                 </ul>
               </div>
 
-<<<<<<< HEAD
-              <div className="mt-12">
-                <Button asChild className="w-full h-14 rounded-2xl font-bold bg-primary hover:bg-primary/95 text-white">
-=======
               <div className="mt-12 relative z-10">
                 <Button asChild className="w-full h-14 rounded-2xl font-bold bg-primary hover:bg-primary/95 text-white cursor-pointer shadow-lg shadow-primary/20">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                   <Link href="/login">Access Enterprise Dashboard</Link>
                 </Button>
               </div>
@@ -363,15 +293,6 @@ export default function EmployersPage() {
       </section>
 
       {/* Compliance & Analytics Showcase */}
-<<<<<<< HEAD
-      <section className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 bg-secondary/15">
-        <div className="max-w-7xl mx-auto space-y-16">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
-              Interactive Preview
-            </span>
-            <h2 className="text-4xl font-black tracking-tight">Compliance & Analytics Infrastructure</h2>
-=======
       <section className="py-16 sm:py-20 md:py-24 px-6 md:px-10 lg:px-20 bg-secondary/10">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center max-w-2xl mx-auto space-y-4">
@@ -379,7 +300,7 @@ export default function EmployersPage() {
               Interactive Preview
             </span>
             <h2 className="text-4xl font-black tracking-tight text-foreground">Compliance & Analytics Infrastructure</h2>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
             <p className="text-muted-foreground">
               Take control of your workforce operations. View real-time digital muster rolls and compliance reports.
             </p>
@@ -387,17 +308,6 @@ export default function EmployersPage() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Muster Roll Mockup */}
-<<<<<<< HEAD
-            <div className="p-8 rounded-[2.5rem] bg-card border border-border shadow-xl space-y-6">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <FileSpreadsheet className="w-5 h-5 text-primary" />
-                  <span className="text-xs font-bold uppercase tracking-widest">BOCW Digital Muster Roll</span>
-                </div>
-                <span className="text-[9px] font-bold bg-green-500/10 text-green-600 px-2 py-1 rounded-full uppercase">Compliant</span>
-              </div>
-              <div className="overflow-x-auto">
-=======
             <div className="p-8 rounded-[2.5rem] bg-card border border-border shadow-xl space-y-6 hover:border-primary/45 transition-all duration-500 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="flex justify-between items-center relative z-10">
@@ -408,7 +318,7 @@ export default function EmployersPage() {
                 <span className="text-[9px] font-bold bg-green-500/10 text-green-600 px-2 py-1 rounded-full uppercase">Compliant</span>
               </div>
               <div className="overflow-x-auto relative z-10">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
                     <tr className="border-b border-border text-muted-foreground font-bold">
@@ -421,35 +331,6 @@ export default function EmployersPage() {
                   </thead>
                   <tbody>
                     <tr className="border-b border-border/50">
-<<<<<<< HEAD
-                      <td className="py-4 pr-2 font-bold flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">MR</div>
-                        Manoj Rawat
-                      </td>
-                      <td className="py-4 px-2">Mason</td>
-                      <td className="py-4 px-2 text-green-600 font-medium">✓ Linked</td>
-                      <td className="py-4 px-2">08:00 AM - 05:00 PM</td>
-                      <td className="py-4 pl-2 text-right"><span className="px-2 py-0.5 rounded bg-green-500/15 text-green-600 text-[10px] font-bold">Present</span></td>
-                    </tr>
-                    <tr className="border-b border-border/50">
-                      <td className="py-4 pr-2 font-bold flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">SK</div>
-                        Sunita Kurmi
-                      </td>
-                      <td className="py-4 px-2">Helper</td>
-                      <td className="py-4 px-2 text-green-600 font-medium">✓ Linked</td>
-                      <td className="py-4 px-2">08:00 AM - 05:00 PM</td>
-                      <td className="py-4 pl-2 text-right"><span className="px-2 py-0.5 rounded bg-green-500/15 text-green-600 text-[10px] font-bold">Present</span></td>
-                    </tr>
-                    <tr>
-                      <td className="py-4 pr-2 font-bold flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">KS</div>
-                        Kartik Singh
-                      </td>
-                      <td className="py-4 px-2">Electrician</td>
-                      <td className="py-4 px-2 text-yellow-600 font-medium">⚠ Pending Verification</td>
-                      <td className="py-4 px-2">—</td>
-=======
                       <td className="py-4 pr-2 font-bold flex items-center gap-2 text-foreground">
                         <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">MR</div>
                         Manoj Rawat
@@ -477,45 +358,32 @@ export default function EmployersPage() {
                       <td className="py-4 px-2 text-muted-foreground">Electrician</td>
                       <td className="py-4 px-2 text-yellow-600 font-medium">⚠ Pending Verification</td>
                       <td className="py-4 px-2 text-muted-foreground">—</td>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                       <td className="py-4 pl-2 text-right"><span className="px-2 py-0.5 rounded bg-red-500/15 text-red-600 text-[10px] font-bold">No-Show</span></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-<<<<<<< HEAD
-              <div className="text-[10px] text-muted-foreground italic bg-secondary/50 p-3 rounded-xl border border-border/60">
-=======
               <div className="text-[10px] text-muted-foreground italic bg-secondary/50 p-3 rounded-xl border border-border/60 relative z-10">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                 * Generates automatically from Voice IVR night-before confirmations and digital site check-ins.
               </div>
             </div>
 
             {/* Analytics Mockup */}
-<<<<<<< HEAD
-            <div className="p-8 rounded-[2.5rem] bg-card border border-border shadow-xl space-y-6">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-primary" />
-                  <span className="text-xs font-bold uppercase tracking-widest">Workforce Analytics Panel</span>
-=======
             <div className="p-8 rounded-[2.5rem] bg-card border border-border shadow-xl space-y-6 hover:border-primary/45 transition-all duration-500 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="flex justify-between items-center relative z-10">
                 <div className="flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-primary" />
                   <span className="text-xs font-bold uppercase tracking-widest text-foreground">Workforce Analytics Panel</span>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                 </div>
                 <span className="text-[9px] font-bold bg-primary/10 text-primary px-2 py-1 rounded-full">Live Stats</span>
               </div>
               
-<<<<<<< HEAD
-              <div className="grid grid-cols-2 gap-4">
-=======
               <div className="grid grid-cols-2 gap-4 relative z-10">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                 <div className="p-4 rounded-2xl bg-secondary/50 border border-border/60">
                   <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider block mb-1">Fill Rate</span>
                   <span className="text-2xl font-black text-foreground">94.8%</span>
@@ -538,11 +406,8 @@ export default function EmployersPage() {
                 </div>
               </div>
               
-<<<<<<< HEAD
-              <div className="flex gap-4 items-center justify-between text-xs bg-primary/5 p-4 rounded-2xl border border-primary/20">
-=======
               <div className="flex gap-4 items-center justify-between text-xs bg-primary/5 p-4 rounded-2xl border border-primary/20 relative z-10">
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
                 <div className="flex gap-2 items-center">
                   <UserCheck className="w-4 h-4 text-primary" />
                   <span className="font-bold text-foreground">SLA-Backed No-Show Guarantee Active</span>

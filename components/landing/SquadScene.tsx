@@ -1,23 +1,11 @@
 'use client'
 
 import { useRef, useMemo } from 'react'
-<<<<<<< HEAD
-import { Canvas, useFrame } from '@react-three/fiber'
-import { 
-  Float, 
-  PerspectiveCamera,
-  Environment,
-  Dodecahedron,
-  Octahedron,
-  Icosahedron
-} from '@react-three/drei'
-import * as THREE from 'three'
-=======
 import { useFrame } from '@react-three/fiber'
 import { Float, Dodecahedron, Octahedron, Icosahedron } from '@react-three/drei'
 import * as THREE from 'three'
 import { ThreeScene } from './ThreeScene'
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
 
 function Shrapnel({ count = 20 }) {
   const meshRef = useRef<THREE.Group>(null!)
@@ -79,19 +67,6 @@ function Shrapnel({ count = 20 }) {
 
 export function SquadScene() {
   return (
-<<<<<<< HEAD
-    <div className="absolute inset-0 z-0 pointer-events-none">
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 15]} fov={50} />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#FF5400" />
-        <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-        
-        <Shrapnel count={30} />
-        <Environment preset="city" />
-      </Canvas>
-    </div>
-=======
     <ThreeScene 
       className="absolute inset-0 z-0 pointer-events-none" 
       cameraPosition={[0, 0, 15]}
@@ -99,6 +74,6 @@ export function SquadScene() {
     >
       <Shrapnel count={30} />
     </ThreeScene>
->>>>>>> f43f30f (feat: premium visual polish, dashboards, and contact pilot line updates)
+
   )
 }
