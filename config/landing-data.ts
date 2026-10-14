@@ -384,29 +384,29 @@ export const landingConfig: LandingConfig = {
     description: 'Three builders pushing cutting-edge voice tech for India\'s informal labor market. Shipping fast, breaking barriers, and replacing fragmented hiring with next-gen workforce infrastructure.',
     members: [
       {
-        initials: 'VK',
-        name: 'Vishwanath Koliwad',
-        role: 'Founder & CEO',
-        description: 'Leading company vision, core system architecture, and strategic expansion. Unlocking dignified income and digital identity for 400M informal workers across India.',
-        location: 'Hubballi, Karnataka',
-        image: '/vishwanath.jpg',
-        avatarColor: 'blue',
-        badge: 'Founder & CEO',
-        socials: [
-          { name: 'PORTFOLIO', url: 'https://vk.vishwadev.tech/' }
-        ]
-      },
-      {
         initials: 'BD',
         name: 'Bhumika Dalabhanjan',
-        role: 'Chief Technology Officer (CTO)',
-        description: 'Architecting core platform reliability, microservices, and operational deployment. Keeping the stack locked in and scaling mission-critical systems.',
+        role: 'Chief Executive Officer (CEO)',
+        description: 'Leading company vision, stakeholder governance, and operational execution. Driving HAAZRI\'s mission to bridge the digital divide for India\'s informal workforce.',
         location: 'Hubballi, Karnataka',
         image: '/bhumika.jpg',
         avatarColor: 'coral',
-        badge: 'CTO',
+        badge: 'CEO',
         socials: [
           { name: 'PORTFOLIO', url: 'https://brd.vishwadev.tech/' }
+        ]
+      },
+      {
+        initials: 'VK',
+        name: 'Vishwanath Koliwad',
+        role: 'Founder & Chief Product Officer (CPO)',
+        description: 'Architecting the core platform infrastructure, low-level voice protocols, and product innovation that keeps HAAZRI scalable and resilient.',
+        location: 'Hubballi, Karnataka',
+        image: '/vishwanath.jpg',
+        avatarColor: 'blue',
+        badge: 'Founder & CPO',
+        socials: [
+          { name: 'PORTFOLIO', url: 'https://vk.vishwadev.tech/' }
         ]
       },
       {
