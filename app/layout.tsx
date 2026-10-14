@@ -25,18 +25,19 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://haazri.co.in'),
   title: {
     default: 'HAAZRI | India\'s Voice-First Workforce Operating System',
     template: '%s | HAAZRI',
   },
   description: 'HAAZRI is the voice-first workforce operating system serving as the trust layer connecting 400 million informal workers to employers of any size through a simple phone call.',
-  keywords: ['Workforce OS', 'India', 'Voice AI', 'Bhashini', 'ONEST', 'Informal Labor', 'Accessibility', 'Digital Inclusion', 'Construction Hiring', 'Labour Codes Compliance'],
+  keywords: ['Workforce OS', 'India', 'Voice AI', 'Bhashini', 'ONEST', 'Informal Labor', 'Accessibility', 'Digital Inclusion', 'Construction Hiring', 'Labour Codes Compliance', 'CogniStruct', 'Hubballi-Dharwad'],
 
-  authors: [{ name: 'HAAZRI Team' }],
+  authors: [{ name: 'HAAZRI Team (CogniStruct Pvt. Ltd.)', url: 'https://cognistruct.in' }],
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://haazri.vishwadev.tech',
+    url: 'https://haazri.co.in',
     title: 'HAAZRI | India\'s Voice-First Workforce OS',
     description: 'Serving as the trust layer connecting 400 million informal workers to employers of any size through a simple phone call.',
 

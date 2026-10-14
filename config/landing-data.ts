@@ -470,9 +470,10 @@ export const landingConfig: LandingConfig = {
         title: 'Connect',
         links: [
           { label: 'Contact Us', href: '/contact' },
-
           { label: 'For Employers', href: '/employers' },
           { label: 'Login Portal', href: '/login' },
+          { label: 'haazri.co.in', href: 'http://haazri.co.in/' },
+          { label: 'CogniStruct', href: 'https://cognistruct.in/' },
         ],
       },
       {
@@ -483,8 +484,8 @@ export const landingConfig: LandingConfig = {
         ],
       },
     ],
-    copyright: '© 2026 HAAZRI',
-    location: 'Built in Hubballi-Dharwad, India',
+    copyright: '© 2026 HAAZRI by CogniStruct',
+    location: 'Hubballi-Dharwad, Karnataka, India',
   },
   cta: {
     title: "Join the Infrastructure of the Future",

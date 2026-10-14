@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { landingConfig } from '@/config/landing-data'
 import { Navigation } from '@/components/landing/Navigation'
@@ -18,7 +19,8 @@ import {
   Layers,
   PhoneCall,
   ShieldAlert,
-  Sparkles
+  Sparkles,
+  Loader2
 } from 'lucide-react'
 import Link from 'next/link'
 import { B2BDashboardPreview } from '@/components/landing/B2BDashboardPreview'
@@ -33,6 +35,47 @@ import {
 
 export default function EmployersPage() {
   const { forms } = landingConfig
+  const [formData, setFormData] = useState<Record<string, string>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handleSubmitPilot = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError(null)
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'waitlist',
+          fullName: formData['Contact Person'] || formData['Company Name'] || 'Employer Partner',
+          organization: formData['Company Name'] || '',
+          email: formData['Email'] || '',
+          phone: formData['Phone'] || '',
+          category: 'Employer B2B Pilot',
+          projectScale: formData['Monthly Volume'] || '10-50 workers',
+          notes: `City: ${formData['City'] || 'N/A'}. Submitted via Employers Page B2B Pilot modal.`,
+        }),
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to submit pilot request. Please try again.')
+      }
+
+      setSubmitted(true)
+    } catch (err: any) {
+      setSubmitError(err?.message || 'Something went wrong. Please check your connection or contact contact@haazri.co.in')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <main className="min-h-screen bg-background">
@@ -125,23 +168,64 @@ export default function EmployersPage() {
                         Configure your local pilot requirements. Our team will contact you within a 24-hour window to review site specifications.
                       </DialogDescription>
                     </DialogHeader>
-                    <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Pilot request submitted successfully! Our team will contact you within 24 hours.'); }}>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {forms.employer.fields.map((field) => (
-                          <div key={field} className="space-y-1.5 text-left">
-
-                            <Label htmlFor={field} className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground ml-1">{field}</Label>
-                            <Input id={field} placeholder={field} className="rounded-xl h-12 bg-secondary/40 border border-border/80 focus-visible:ring-primary text-sm" required />
-                          </div>
-                        ))}
+                    {submitted ? (
+                      <div className="py-8 text-center space-y-4">
+                        <div className="w-16 h-16 rounded-full bg-primary/10 text-primary mx-auto flex items-center justify-center">
+                          <CheckCircle2 className="w-8 h-8 text-green-500" />
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground">Pilot Request Received!</h3>
+                        <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                          Thank you for partnering with HAAZRI. Our pilot coordinator in Hubballi-Dharwad will review your workforce parameters and contact you within 24 hours.
+                        </p>
+                        <Button 
+                          onClick={() => { setSubmitted(false); setFormData({}); }}
+                          variant="outline" 
+                          className="rounded-full mt-4 text-xs font-bold uppercase tracking-wider"
+                        >
+                          Submit Another Request
+                        </Button>
                       </div>
-                      <Button type="submit" className="w-full h-14 rounded-full text-xs font-black uppercase tracking-widest shadow-xl shadow-primary/15 bg-primary hover:bg-primary/95 text-white cursor-pointer mt-4">
-                        Submit Expression of Interest
-                      </Button>
-                      <p className="text-[10px] text-center text-muted-foreground italic">
-                        * By clicking submit, you agree to our B2B privacy terms and consent to digital attendance roll audits.
-                      </p>
-                    </form>
+                    ) : (
+                      <form className="space-y-6" onSubmit={handleSubmitPilot}>
+                        {submitError && (
+                          <div className="p-3 rounded-xl bg-destructive/10 text-destructive text-xs border border-destructive/20">
+                            {submitError}
+                          </div>
+                        )}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {forms.employer.fields.map((field) => (
+                            <div key={field} className="space-y-1.5 text-left">
+                              <Label htmlFor={field} className="text-[10px] uppercase font-bold tracking-widest text-muted-foreground ml-1">{field}</Label>
+                              <Input 
+                                id={field} 
+                                placeholder={field} 
+                                value={formData[field] || ''}
+                                onChange={(e) => handleInputChange(field, e.target.value)}
+                                className="rounded-xl h-12 bg-secondary/40 border border-border/80 focus-visible:ring-primary text-sm" 
+                                required 
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        <Button 
+                          type="submit" 
+                          disabled={isSubmitting}
+                          className="w-full h-14 rounded-full text-xs font-black uppercase tracking-widest shadow-xl shadow-primary/15 bg-primary hover:bg-primary/95 text-white cursor-pointer mt-4 flex items-center justify-center gap-2"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                              Submitting Expression of Interest...
+                            </>
+                          ) : (
+                            'Submit Expression of Interest'
+                          )}
+                        </Button>
+                        <p className="text-[10px] text-center text-muted-foreground italic">
+                          * By clicking submit, you agree to our B2B privacy terms and consent to digital attendance roll audits.
+                        </p>
+                      </form>
+                    )}
                   </DialogContent>
                 </Dialog>
 

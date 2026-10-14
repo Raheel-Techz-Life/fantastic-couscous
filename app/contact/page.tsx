@@ -48,12 +48,23 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate API request
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    
-    setIsSubmitting(false)
-    setSubmitted(true)
-    toast.success("Request sent successfully! Our team will reach out within 24 hours.")
+    const payload = activeTab === 'employer' ? employerForm : partnerForm
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error('Failed to submit')
+      setSubmitted(true)
+      toast.success("Request registered! Our Hubballi-Dharwad pilot team will reach out via WhatsApp.")
+    } catch {
+      toast.error("Network issue. Please email us at vidyut@vishwadev.tech")
+      setSubmitted(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { landingConfig } from '@/config/landing-data'
 import { Button } from '@/components/ui/button'
 import { Mail, ArrowRight } from 'lucide-react'
@@ -43,23 +44,26 @@ export function CTASection() {
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
             <Button 
               size="lg" 
-              className="rounded-full px-10 h-16 text-lg font-bold bg-white text-slate-900 hover:bg-white/90 shadow-2xl shadow-black/20 gap-2 group"
-              aria-label="Contact HAAZRI team via email"
+              asChild
+              className="rounded-full px-10 h-16 text-lg font-bold bg-white text-slate-900 hover:bg-white/90 shadow-2xl shadow-black/20 gap-2 group cursor-pointer"
+              aria-label="Contact HAAZRI team"
             >
-              <Mail className="w-5 h-5" />
-              Get in touch
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Link href="/contact">
+                <Mail className="w-5 h-5" />
+                Get in touch
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               asChild
-              className="rounded-full px-10 h-16 text-lg font-bold border-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white gap-2"
+              className="rounded-full px-10 h-16 text-lg font-bold border-2 border-white/30 text-white bg-transparent hover:bg-white/10 hover:text-white gap-2 cursor-pointer"
               aria-label="Email HAAZRI team"
             >
-              <a href="mailto:contact@haazri.in">
+              <a href="mailto:contact@haazri.co.in">
                 <Mail className="w-5 h-5" />
-                contact@haazri.in
+                contact@haazri.co.in
               </a>
             </Button>
           </div>

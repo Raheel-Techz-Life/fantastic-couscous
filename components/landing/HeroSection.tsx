@@ -202,7 +202,7 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="hero-cta-group relative z-20">
-            <Link href="/login" passHref legacyBehavior>
+            <Link href="/employers" passHref legacyBehavior>
               <motion.button 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
@@ -219,13 +219,13 @@ export function HeroSection() {
                 </span>
               </motion.button>
             </Link>
-            <Link href="/employers" passHref legacyBehavior>
+            <Link href="/solution" passHref legacyBehavior>
               <motion.button 
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}
                 className="hero-cta-secondary transition-all cursor-pointer border border-border/80 text-foreground hover:border-primary/50 hover:bg-primary/5"
               >
-                💡 B2B Solutions
+                💡 Explore Solution
               </motion.button>
             </Link>
           </motion.div>
