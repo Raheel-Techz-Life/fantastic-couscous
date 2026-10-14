@@ -15,6 +15,7 @@ export function Navigation() {
   const { branding, navigation } = landingConfig
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [showBanner, setShowBanner] = useState(true)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -26,11 +27,44 @@ export function Navigation() {
   }, [])
 
   return (
-    <nav 
-      className={`fixed left-0 right-0 top-0 z-[100] px-6 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform ${
-        isScrolled ? 'translate-y-6' : 'translate-y-0 py-4'
-      }`}
-    >
+    <div className="fixed left-0 right-0 top-0 z-[100] flex flex-col pointer-events-none">
+      {/* Website Under Development Banner */}
+      <AnimatePresence>
+        {showBanner && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-full bg-gradient-to-r from-amber-600 via-primary to-orange-600 text-white pointer-events-auto border-b border-white/20 shadow-md"
+          >
+            <div className="max-w-7xl mx-auto py-1.5 px-4 sm:px-6 flex items-center justify-between gap-3 text-[11px] sm:text-xs font-semibold tracking-wide">
+              <div className="flex items-center gap-2 mx-auto text-center truncate">
+                <span className="relative flex h-2 w-2 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                </span>
+                <span className="truncate">
+                  🚧 <strong>Under Development</strong> — HAAZRI is currently undergoing active pilot trials in Hubballi-Dharwad, Karnataka.
+                </span>
+              </div>
+              <button 
+                onClick={() => setShowBanner(false)}
+                className="text-white/80 hover:text-white p-0.5 rounded-full hover:bg-white/20 transition-colors shrink-0 cursor-pointer"
+                aria-label="Dismiss development banner"
+              >
+                <X size={14} />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <nav 
+        className={`w-full px-6 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform pointer-events-auto ${
+          isScrolled ? 'translate-y-2' : 'translate-y-0 py-3'
+        }`}
+      >
       <div 
         className={`mx-auto max-w-7xl flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
           isScrolled 
@@ -191,7 +225,8 @@ export function Navigation() {
           </>
         )}
       </AnimatePresence>
-    </nav>
+      </nav>
+    </div>
   )
 }
 
