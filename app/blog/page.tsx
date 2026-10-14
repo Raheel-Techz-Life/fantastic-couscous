@@ -26,7 +26,7 @@ const posts = [
     title: 'How BHASHINI is powering voice-first inclusion in India',
     category: 'Technology',
     date: 'April 05, 2026',
-    author: 'Disha Raikar',
+    author: 'Bhumika Dalabhanjan',
     excerpt: 'Linguistic barriers are the final frontier of digital inclusion. We dive deep into our integration with Digital India\'s AI stack.'
   },
   {

@@ -381,18 +381,17 @@ export const landingConfig: LandingConfig = {
   team: {
     title: 'THE SQUAD',
     tag: 'The Builders',
-    description: 'Just 4 young builders pushing unapologetically cool tech for the unorganized labor sector. Shipping fast, breaking barriers, and replacing ancient hiring loops with slick, modern infrastructure.',
+    description: 'Three builders pushing cutting-edge voice tech for India\'s informal labor market. Shipping fast, breaking barriers, and replacing fragmented hiring with next-gen workforce infrastructure.',
     members: [
       {
         initials: 'VK',
         name: 'Vishwanath Koliwad',
-        role: 'Head of Product & Innovation',
-
-        description: 'Cooking the core infrastructure that keeps HAAZRI breathing. Low-level optimization and high-performance server logic so things stay strictly no-cap when it actually matters.',
+        role: 'Founder & CEO',
+        description: 'Leading company vision, core system architecture, and strategic expansion. Unlocking dignified income and digital identity for 400M informal workers across India.',
         location: 'Hubballi, Karnataka',
         image: '/vishwanath.jpg',
         avatarColor: 'blue',
-        badge: 'Lead Builder',
+        badge: 'Founder & CEO',
         socials: [
           { name: 'PORTFOLIO', url: 'https://vk.vishwadev.tech/' }
         ]
@@ -400,41 +399,25 @@ export const landingConfig: LandingConfig = {
       {
         initials: 'BD',
         name: 'Bhumika Dalabhanjan',
-        role: 'Executive Director',
-
-        description: 'Keeping the squad locked in and orchestrating the timeline. Making sure we don’t just write code, but actually deploy it seamlessly when the stakes are high.',
+        role: 'Chief Technology Officer (CTO)',
+        description: 'Architecting core platform reliability, microservices, and operational deployment. Keeping the stack locked in and scaling mission-critical systems.',
         location: 'Hubballi, Karnataka',
         image: '/bhumika.jpg',
         avatarColor: 'coral',
-        badge: 'Strategist',
+        badge: 'CTO',
         socials: [
           { name: 'PORTFOLIO', url: 'https://brd.vishwadev.tech/' }
         ]
       },
       {
-        initials: 'DR',
-        name: 'Disha Raikar',
-        role: 'Experience Curator',
-
-        description: 'Bridging the gap between raw functionality and insanely slick interfaces. Bringing clean, next-gen visual systems to a sector that desperately needs a UI glow-up.',
-        location: 'Hubballi, Karnataka',
-        image: '/disha.jpg',
-        avatarColor: 'purple',
-        badge: 'Visionary',
-        socials: [
-          { name: 'PORTFOLIO', url: 'https://dr.vishwadev.tech/' }
-        ]
-      },
-      {
         initials: 'RH',
         name: 'Raheel Hosmani',
-        role: 'Technology Alchemist',
-
-        description: 'High-frequency code shipper. Hooking up the autonomous AI systems and making sure our intelligence engines run blazing fast. If it ain’t quick, he don’t want it.',
+        role: 'Chief Technology Officer (CTO)',
+        description: 'Engineering real-time voice AI engines, low-latency BHASHINI neural pipelines, and high-speed matching algorithms for the informal workforce.',
         location: 'Hubballi, Karnataka',
         image: '/raheel.jpg',
         avatarColor: 'teal',
-        badge: 'Shipper',
+        badge: 'CTO',
         socials: [
           { name: 'PORTFOLIO', url: 'https://rhlz.vishwadev.tech/' }
         ]
@@ -498,30 +481,28 @@ export const landingConfig: LandingConfig = {
   },
   achievements: [
     {
-      title: "Achievement Title Placeholder 1",
-      description: "This is a placeholder description for the first achievement. It should outline the key milestones, recognitions, or accomplishment details.",
+      title: "Deshpande Startups Incubation",
+      description: "Selected into the premier incubation cohort at Deshpande Startups, driving field access to regional SMB employer clusters and pilot sites across North Karnataka.",
       date: "October 2025",
-      organization: "Awarding Organization / Competition",
-      badge: "Winner",
+      organization: "Deshpande Startups",
+      badge: "Incubated",
       iconName: "Trophy",
-      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=60",
-      externalLink: "https://example.com/achievement-1"
+      image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&auto=format&fit=crop&q=60"
     },
     {
-      title: "Achievement Title Placeholder 2",
-      description: "This is a placeholder description for the second achievement, showing layout behavior when optional fields like images are omitted.",
+      title: "BHASHINI Multilingual Stack Deployment",
+      description: "Architected voice-first translation pipelines and acoustic models for Kannada, Hindi, and regional dialects on top of the Digital India AI stack.",
       date: "August 2025",
-      organization: "Deshpande Startups Acceleration",
-      badge: "Cohort",
-      iconName: "Award",
-      externalLink: "https://example.com/achievement-2"
+      organization: "Digital India AI Initiative",
+      badge: "AI Stack",
+      iconName: "Award"
     },
     {
-      title: "Achievement Title Placeholder 3",
-      description: "This is a placeholder description for the third achievement, showing layout behavior when optional fields like external links are omitted.",
+      title: "Hubballi Smart City Pilot Demonstration",
+      description: "Deployed regional field trials connecting over 500 informal workers to local construction and logistics contractors via automated voice callback IVR.",
       date: "June 2025",
-      organization: "Mainstream Media Network",
-      badge: "Media",
+      organization: "Smart City Infrastructure",
+      badge: "Pilot Validated",
       iconName: "Tv",
       image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&auto=format&fit=crop&q=60"
     }

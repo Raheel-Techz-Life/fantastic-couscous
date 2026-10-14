@@ -46,7 +46,7 @@ export function TeamSection() {
             transition={{ type: 'spring', stiffness: 350, damping: 20, delay: 0.1 }}
             className="text-xl md:text-3xl text-muted-foreground font-medium max-w-3xl mx-auto leading-relaxed"
           >
-            Just four rogue builders ignoring the rules and rewiring the informal economy from the ground up.
+            Three builders rewiring India's informal economy from the ground up with voice-first infrastructure.
           </motion.p>
         </div>
 
