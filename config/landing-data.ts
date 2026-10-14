@@ -399,12 +399,12 @@ export const landingConfig: LandingConfig = {
       {
         initials: 'VK',
         name: 'Vishwanath Koliwad',
-        role: 'Founder & Chief Product Officer (CPO)',
-        description: 'Architecting the core platform infrastructure, low-level voice protocols, and product innovation that keeps HAAZRI scalable and resilient.',
+        role: 'Founder & Managing Director (MD)',
+        description: 'Architecting the core platform foundation and driving strategic institutional expansion. Spearheading large-scale employer integrations and government welfare bridges across India.',
         location: 'Hubballi, Karnataka',
         image: '/vishwanath.jpg',
         avatarColor: 'blue',
-        badge: 'Founder & CPO',
+        badge: 'Founder & MD',
         socials: [
           { name: 'PORTFOLIO', url: 'https://vk.vishwadev.tech/' }
         ]
