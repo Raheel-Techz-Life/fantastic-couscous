@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { VernacularPreloader } from '@/components/ui/vernacular-preloader'
 import { Navigation } from '@/components/landing/Navigation'
 import { HeroSection } from '@/components/landing/HeroSection'
@@ -13,45 +13,61 @@ import { RoadmapSection } from '@/components/landing/RoadmapSection'
 import { CTASection } from '@/components/landing/CTASection'
 import { Footer } from '@/components/landing/Footer'
 
+const PRELOADER_SESSION_KEY = 'haazri-preloader-shown'
+
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true)
+
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem(PRELOADER_SESSION_KEY)) {
+        // Already greeted this session — skip straight to the real page.
+        setShowPreloader(false)
+      } else {
+        sessionStorage.setItem(PRELOADER_SESSION_KEY, '1')
+      }
+    } catch {
+      // sessionStorage unavailable (privacy mode, etc.) — just let it play once
+    }
+  }, [])
 
   return (
     <>
       <VernacularPreloader show={showPreloader} onComplete={() => setShowPreloader(false)} />
-      
-      {!showPreloader && (
-        <main className="min-h-screen bg-background animate-in fade-in duration-1000">
-          <Navigation />
-          
-          {/* 1. Hero Section */}
-          <HeroSection />
 
-          {/* 2. Broken Reality (Pain Statement) */}
-          <ProblemStatement />
+      {/* Content mounts immediately and renders underneath the preloader
+          overlay (z-[100000], opaque background) instead of waiting for it,
+          so the page is ready the instant the greeting animation finishes. */}
+      <main className="min-h-screen bg-background animate-in fade-in duration-1000">
+        <Navigation />
 
-          {/* 3. Informal Labor (Quote + Badges) */}
-          <InformalLabor />
+        {/* 1. Hero Section */}
+        <HeroSection />
 
-          {/* 4. Build Your Local Workforce (Mafia Offer) */}
-          <MafiaOffer />
+        {/* 2. Broken Reality (Pain Statement) */}
+        <ProblemStatement />
 
-          {/* 5. Ecosystem Architecture (B2C, B2B, B2G Tiers) */}
-          <EcosystemSection />
+        {/* 3. Informal Labor (Quote + Badges) */}
+        <InformalLabor />
 
-          {/* 6. Market Dynamics & Policy Tailwinds */}
-          <MarketDynamicsSection />
+        {/* 4. Build Your Local Workforce (Mafia Offer) */}
+        <MafiaOffer />
 
-          {/* 7. Strategic Roadmap */}
-          <RoadmapSection />
+        {/* 5. Ecosystem Architecture (B2C, B2B, B2G Tiers) */}
+        <EcosystemSection />
 
-          {/* 8. Call To Action */}
-          <CTASection />
+        {/* 6. Market Dynamics & Policy Tailwinds */}
+        <MarketDynamicsSection />
 
-          {/* 9. Footer */}
-          <Footer />
-        </main>
-      )}
+        {/* 7. Strategic Roadmap */}
+        <RoadmapSection />
+
+        {/* 8. Call To Action */}
+        <CTASection />
+
+        {/* 9. Footer */}
+        <Footer />
+      </main>
     </>
   )
 }

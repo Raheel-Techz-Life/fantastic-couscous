@@ -33,9 +33,10 @@ export function ThreeScene({
     <div className={className}>
       <Canvas
         dpr={[1, 1.5]} // Restrict DPR on high-res displays to prevent GPU lag
-        gl={{ 
-          antialias: true, 
-          alpha: true, 
+        gl={{
+          // Decorative, low-opacity background — antialiasing cost isn't visible, so skip it
+          antialias: false,
+          alpha: true,
           powerPreference: "high-performance"
         }}
       >

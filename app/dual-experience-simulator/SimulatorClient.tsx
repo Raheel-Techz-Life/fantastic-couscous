@@ -4,7 +4,9 @@ import { motion } from 'framer-motion'
 import { PremiumCard } from '@/components/ui/premium-card'
 import { IVRSimulator } from '@/components/landing/IVRSimulator'
 import { WhatsAppDashboard } from '@/components/landing/WhatsAppDashboard'
-import { VoiceMesh } from '@/components/landing/VoiceMesh'
+import dynamic from 'next/dynamic'
+
+const VoiceMesh = dynamic(() => import('@/components/landing/VoiceMesh').then(m => m.VoiceMesh), { ssr: false })
 import { Terminal, Smartphone, Sparkles } from 'lucide-react'
 
 export function SimulatorClient() {

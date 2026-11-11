@@ -33,7 +33,7 @@ export function VernacularPreloader({ show, onComplete }: { show: boolean, onCom
     if (!show) return;
     // If we haven't reached the final word
     if (index < greetings.length - 1) {
-      const waitTime = index === 0 ? 800 : 250; // hold the first one a tiny bit longer, then rapid
+      const waitTime = index === 0 ? 450 : 110; // hold the first one a tiny bit longer, then rapid
       const timeout = setTimeout(() => {
         setIndex((prev) => prev + 1);
       }, waitTime);
@@ -42,7 +42,7 @@ export function VernacularPreloader({ show, onComplete }: { show: boolean, onCom
       // Hold the final word before signaling completion
       const timeout = setTimeout(() => {
         onComplete();
-      }, 1200);
+      }, 650);
       return () => clearTimeout(timeout);
     }
   }, [index, onComplete, show]);

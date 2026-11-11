@@ -17,7 +17,9 @@ import {
   LayoutGrid,
   Bot
 } from 'lucide-react'
-import { VoiceMesh } from '@/components/landing/VoiceMesh'
+import dynamic from 'next/dynamic'
+
+const VoiceMesh = dynamic(() => import('@/components/landing/VoiceMesh').then(m => m.VoiceMesh), { ssr: false })
 
 const icons = [PhoneCall, Mic, Fingerprint, MessageSquare, Smartphone, Star]
 

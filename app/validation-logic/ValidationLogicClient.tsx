@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { VideoCarousel } from '@/components/landing/VideoCarousel'
-import { VoiceMesh } from '@/components/landing/VoiceMesh'
+import dynamic from 'next/dynamic'
+
+const VoiceMesh = dynamic(() => import('@/components/landing/VoiceMesh').then(m => m.VoiceMesh), { ssr: false })
 import { ShieldAlert, CheckCircle2, Play } from 'lucide-react'
 
 export function ValidationLogicClient() {

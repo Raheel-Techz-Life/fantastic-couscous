@@ -82,13 +82,14 @@ export function Navigation() {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full group-hover:bg-primary/40 transition-all duration-500" />
-              <MotionImage 
+              <MotionImage
                 whileHover={{ rotate: -10, scale: 1.15 }}
-                src={branding.logo} 
-                alt={branding.name} 
+                src={branding.logo}
+                alt={branding.name}
                 width={40}
                 height={40}
-                className="h-10 w-auto object-contain transition-transform relative z-10 rounded-xl shadow-sm" 
+                priority
+                className="h-10 w-auto object-contain transition-transform relative z-10 rounded-xl shadow-sm"
               />
             </div>
             <span className="text-foreground hidden md:block font-black tracking-tight group-hover:text-primary transition-colors">{branding.name}</span>

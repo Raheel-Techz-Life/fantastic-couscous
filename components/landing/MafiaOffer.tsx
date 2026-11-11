@@ -4,10 +4,16 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Check, ShieldCheck, Zap, TrendingUp, Star, PhoneCall } from 'lucide-react'
-import { ShieldScene } from './ShieldScene'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useInViewOnce } from '@/hooks/use-in-view-once'
+
+// Code-split the WebGL scene out of the main bundle, and only mount it
+// once this section scrolls near the viewport — it's purely decorative.
+const ShieldScene = dynamic(() => import('./ShieldScene').then(m => m.ShieldScene), { ssr: false })
 
 export function MafiaOffer() {
+  const { ref: sceneRef, inView: sceneInView } = useInViewOnce<HTMLElement>('400px')
   const points = [
     {
       icon: Zap,
@@ -34,9 +40,9 @@ export function MafiaOffer() {
   ]
 
   return (
-    <section className="py-24 px-6 md:px-10 lg:px-20 relative overflow-hidden bg-background">
-      <ShieldScene />
-      
+    <section ref={sceneRef} className="py-24 px-6 md:px-10 lg:px-20 relative overflow-hidden bg-background">
+      {sceneInView && <ShieldScene />}
+
       {/* Decorative ambient gradients */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
