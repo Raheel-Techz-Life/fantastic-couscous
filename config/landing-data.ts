@@ -28,7 +28,7 @@ export interface LandingConfig {
     colors: Record<string, string>;
   };
   navigation: {
-    links: Array<{ label: string; href: string }>;
+    links: Array<{ label: string; href: string; external?: boolean }>;
     cta: string;
   };
   home: {
@@ -157,6 +157,7 @@ export const landingConfig: LandingConfig = {
       { label: 'For Government', href: '/government' },
       { label: 'About Us', href: '/about' },
       { label: 'Contact', href: '/contact' },
+      { label: 'IVR Demo', href: 'https://ivr.haazri.co.in', external: true },
 
     ],
     cta: 'Get in touch',

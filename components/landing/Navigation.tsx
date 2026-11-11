@@ -111,29 +111,42 @@ export function Navigation() {
         <div className="hidden xl:flex items-center gap-0.5 transition-all duration-700">
           <div className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-secondary/35 border border-border/40 backdrop-blur-md shadow-inner whitespace-nowrap">
 
-            {navigation.links.map((link) => (
-              <Link 
-                key={link.label} 
-                href={link.href} 
-                className={`text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 relative group overflow-hidden whitespace-nowrap ${
+            {navigation.links.map((link) => {
+              const linkClassName = `text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 relative group overflow-hidden whitespace-nowrap ${
+                pathname === link.href
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`
+              const linkContent = (
+                <>
+                  <span className="relative z-10 whitespace-nowrap">{link.label}</span>
+                  {pathname === link.href && (
+                    <motion.div
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-background border border-border/40 shadow-[0_2px_10px_rgba(255,84,0,0.05)] rounded-full -z-0"
+                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                  <div className="absolute inset-x-0 bottom-0 h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-20" />
+                </>
+              )
 
-                  pathname === link.href 
-                    ? 'text-primary' 
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <span className="relative z-10 whitespace-nowrap">{link.label}</span>
-                {pathname === link.href && (
-                  <motion.div 
-                    layoutId="nav-pill"
-                    className="absolute inset-0 bg-background border border-border/40 shadow-[0_2px_10px_rgba(255,84,0,0.05)] rounded-full -z-0"
-                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                  />
-                )}
-                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-20" />
-
-              </Link>
-            ))}
+              return link.external ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClassName}
+                >
+                  {linkContent}
+                </a>
+              ) : (
+                <Link key={link.label} href={link.href} className={linkClassName}>
+                  {linkContent}
+                </Link>
+              )
+            })}
           </div>
         </div>
 
@@ -193,18 +206,33 @@ export function Navigation() {
             >
               <div className="flex flex-col gap-1.5">
                 <span className="text-[10px] font-black uppercase tracking-widest text-primary mb-2">Navigation</span>
-                {navigation.links.map((link) => (
-                  <Link 
-                    key={link.label} 
-                    href={link.href} 
-                    className={`text-xl font-bold transition-all ${
-                      pathname === link.href ? 'text-primary scale-105' : 'text-foreground hover:text-primary hover:translate-x-2'
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {navigation.links.map((link) => {
+                  const mobileLinkClassName = `text-xl font-bold transition-all ${
+                    pathname === link.href ? 'text-primary scale-105' : 'text-foreground hover:text-primary hover:translate-x-2'
+                  }`
+
+                  return link.external ? (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={mobileLinkClassName}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className={mobileLinkClassName}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                })}
               </div>
 
               <div className="pt-6 border-t border-border/50 flex flex-col gap-4">

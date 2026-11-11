@@ -84,7 +84,7 @@ export function TeamSection() {
                     <div className="absolute inset-0 bg-primary/20 -rotate-3 group-hover:-rotate-6 transition-transform duration-500 rounded-[3rem] backdrop-blur-xl" />
                     
                     <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-[3rem] border-[6px] border-background relative z-20 shadow-2xl group-hover:scale-105 transition-transform duration-500 object-cover bg-background">
-                      {member.image && <AvatarImage src={member.image} alt={member.name} className="object-cover hover:scale-110 transition-transform duration-700" />}
+                      {member.image && <AvatarImage src={member.image} alt={member.name} loading="eager" className="object-cover hover:scale-110 transition-transform duration-700" />}
                       <AvatarFallback className={`text-6xl md:text-8xl font-black ${colorClass}`}>{member.initials}</AvatarFallback>
                     </Avatar>
 

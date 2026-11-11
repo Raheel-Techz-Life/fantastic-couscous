@@ -104,7 +104,7 @@ export default function AboutPage() {
                   <div className="relative mb-6">
                     <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-0 group-hover:scale-150 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
                     <Avatar className={`w-32 h-32 text-2xl font-bold ${colorClass} relative z-10 border-4 border-background transition-transform duration-500 group-hover:scale-110`}>
-                      {member.image && <AvatarImage src={member.image} alt={member.name} className="object-cover" />}
+                      {member.image && <AvatarImage src={member.image} alt={member.name} loading="eager" className="object-cover" />}
                       <AvatarFallback>{member.initials}</AvatarFallback>
                     </Avatar>
                   </div>
