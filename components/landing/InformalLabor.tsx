@@ -12,8 +12,8 @@ export function InformalLabor() {
   } as const
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 300, damping: 20 } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 20 } },
   } as const
 
   return (
