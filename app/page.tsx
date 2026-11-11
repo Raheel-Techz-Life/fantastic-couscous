@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { VernacularPreloader } from '@/components/ui/vernacular-preloader'
 import { Navigation } from '@/components/landing/Navigation'
 import { HeroSection } from '@/components/landing/HeroSection'
@@ -13,23 +13,8 @@ import { RoadmapSection } from '@/components/landing/RoadmapSection'
 import { CTASection } from '@/components/landing/CTASection'
 import { Footer } from '@/components/landing/Footer'
 
-const PRELOADER_SESSION_KEY = 'haazri-preloader-shown'
-
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true)
-
-  useEffect(() => {
-    try {
-      if (sessionStorage.getItem(PRELOADER_SESSION_KEY)) {
-        // Already greeted this session — skip straight to the real page.
-        setShowPreloader(false)
-      } else {
-        sessionStorage.setItem(PRELOADER_SESSION_KEY, '1')
-      }
-    } catch {
-      // sessionStorage unavailable (privacy mode, etc.) — just let it play once
-    }
-  }, [])
 
   return (
     <>

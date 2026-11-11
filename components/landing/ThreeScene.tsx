@@ -15,6 +15,9 @@ interface ThreeSceneProps {
   includeSpotLight?: boolean
   spotLightPosition?: [number, number, number]
   preset?: "aperture" | "canon" | "dawn" | "forest" | "futurism" | "groove" | "indoor" | "industrial" | "sunset" | "warehouse" | "city"
+  // The HDR environment map is a real network fetch + GPU decode, only
+  // worth paying for on scenes that are clearly visible. Off by default.
+  useEnvironment?: boolean
 }
 
 export function ThreeScene({
@@ -23,11 +26,12 @@ export function ThreeScene({
   cameraPosition = [0, 0, 8],
   fov = 50,
   pointLightColor = "#FF5400",
-  pointLightIntensity = 1,
-  ambientLightIntensity = 0.5,
+  pointLightIntensity = 1.4,
+  ambientLightIntensity = 0.65,
   includeSpotLight = false,
   spotLightPosition = [-10, 10, 10],
-  preset = "city"
+  preset = "city",
+  useEnvironment = false
 }: ThreeSceneProps) {
   return (
     <div className={className}>
@@ -48,8 +52,8 @@ export function ThreeScene({
         )}
         
         {children}
-        
-        <Environment preset={preset} />
+
+        {useEnvironment && <Environment preset={preset} />}
       </Canvas>
     </div>
   )
