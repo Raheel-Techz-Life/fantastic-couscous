@@ -29,6 +29,10 @@
   filter: blur(80px);
   opacity: 0.4;
   animation: heroOrbFloat 20s ease-in-out infinite;
+  /* Promote to its own compositor layer so the browser caches the blurred
+     bitmap once and just transforms/scales it each frame, instead of
+     re-rasterizing an 80px blur on every tick of the animation. */
+  will-change: transform;
 }
 
 .hero-orb-1 {

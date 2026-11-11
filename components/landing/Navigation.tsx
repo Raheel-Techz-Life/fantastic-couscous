@@ -22,7 +22,10 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
-    window.addEventListener('scroll', handleScroll)
+    // Passive: don't make the browser wait on this handler before it can
+    // start compositing the scroll — a non-passive listener here measurably
+    // stutters scrolling since it runs on every single scroll event.
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -67,8 +70,8 @@ export function Navigation() {
       >
       <div 
         className={`mx-auto max-w-7xl flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-          isScrolled 
-            ? 'bg-background/70 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-full px-8 py-3' 
+          isScrolled
+            ? 'bg-background/70 backdrop-blur-lg border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-full px-8 py-3'
             : 'py-4 bg-transparent px-4'
 
         }`}

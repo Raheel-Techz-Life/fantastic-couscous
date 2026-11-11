@@ -148,8 +148,10 @@ export function HeroSection() {
       <div className="hero-grid-pattern opacity-100" />
       <div className="hero-radial-fade opacity-70" />
       
-      {/* Subtle glassmorphic overlay */}
-      <div className="absolute inset-0 bg-background/20 backdrop-blur-[30px] z-0" />
+      {/* Subtle glassmorphic overlay — a light blur here is enough since it
+          sits on top of the already-blurred orbs below; a heavy radius was
+          forcing a second, redundant full-screen blur pass every frame. */}
+      <div className="absolute inset-0 bg-background/20 backdrop-blur-sm z-0" />
 
       <motion.div
         variants={containerVariants}
