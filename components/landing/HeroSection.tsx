@@ -125,11 +125,14 @@ export function HeroSection() {
   }
 
   const itemVariants: Variants = {
-    hidden: { y: 40, opacity: 0, scale: 0.95 },
+    // Lighter blur radius than the original (12px -> 6px): still reads as
+    // "coming into focus" but is far cheaper to re-rasterize each frame.
+    hidden: { y: 40, opacity: 0, scale: 0.95, filter: 'blur(6px)' },
     visible: {
       y: 0,
       opacity: 1,
       scale: 1,
+      filter: 'blur(0px)',
       transition: { type: 'spring', damping: 20, stiffness: 80, mass: 1 },
     },
   }
@@ -172,11 +175,12 @@ export function HeroSection() {
               India&apos;s Voice-First{' '}
               <motion.span 
                 variants={{
-                  hidden: { y: -50, opacity: 0, scale: 0.95 },
+                  hidden: { y: -50, opacity: 0, scale: 0.95, filter: 'blur(6px)' },
                   visible: {
                     y: 0,
                     opacity: 1,
                     scale: 1,
+                    filter: 'blur(0px)',
                     transition: { type: 'spring', stiffness: 300, damping: 15, delay: 0.3 }
                   }
                 } as Variants}

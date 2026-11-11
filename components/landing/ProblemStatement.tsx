@@ -17,8 +17,10 @@ export function ProblemStatement() {
     visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   } as const
   const item = {
-    hidden: { opacity: 0, y: -150, scale: 1.2 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 400, damping: 15, mass: 1.2 } },
+    // Lighter blur radius than the original (15px -> 7px) — keeps the
+    // focus-pull effect while being much cheaper to animate.
+    hidden: { opacity: 0, y: -150, scale: 1.2, filter: 'blur(7px)' },
+    visible: { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', transition: { type: 'spring', stiffness: 400, damping: 15, mass: 1.2 } },
   } as const
 
   return (

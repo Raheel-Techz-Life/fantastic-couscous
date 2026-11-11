@@ -27,8 +27,11 @@ export function CTASection() {
 
       <div className="max-w-4xl mx-auto relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, scale: 1.3, y: -150 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          // Lighter blur radius than the original (25px -> 8px) — this only
+          // fires once (viewport: { once: true }), but 25px was still an
+          // expensive single repaint; 8px keeps the same visual beat.
+          initial={{ opacity: 0, scale: 1.3, y: -150, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true }}
           transition={{ type: 'spring', stiffness: 450, damping: 18, mass: 1.5 }}
           className="space-y-8"
